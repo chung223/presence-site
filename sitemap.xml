@@ -4,11 +4,97 @@
     <loc>https://chung223.github.io/presence-site/</loc>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://chung223.github.io/presence-site/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://chung223.github.io/presence-site/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://chung223.github.io/presence-site/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://chung223.github.io/presence-site/ko/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://chung223.github.io/presence-site/zh-Hans/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://chung223.github.io/presence-site/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://chung223.github.io/presence-site/fr/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://chung223.github.io/presence-site/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://chung223.github.io/presence-site/"/>
   </url>
   <url>
     <loc>https://chung223.github.io/presence-site/en/</loc>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://chung223.github.io/presence-site/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://chung223.github.io/presence-site/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://chung223.github.io/presence-site/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://chung223.github.io/presence-site/ko/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://chung223.github.io/presence-site/zh-Hans/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://chung223.github.io/presence-site/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://chung223.github.io/presence-site/fr/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://chung223.github.io/presence-site/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://chung223.github.io/presence-site/"/>
+  </url>
+  <url>
+    <loc>https://chung223.github.io/presence-site/ja/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://chung223.github.io/presence-site/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://chung223.github.io/presence-site/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://chung223.github.io/presence-site/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://chung223.github.io/presence-site/ko/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://chung223.github.io/presence-site/zh-Hans/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://chung223.github.io/presence-site/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://chung223.github.io/presence-site/fr/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://chung223.github.io/presence-site/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://chung223.github.io/presence-site/"/>
+  </url>
+  <url>
+    <loc>https://chung223.github.io/presence-site/ko/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://chung223.github.io/presence-site/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://chung223.github.io/presence-site/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://chung223.github.io/presence-site/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://chung223.github.io/presence-site/ko/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://chung223.github.io/presence-site/zh-Hans/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://chung223.github.io/presence-site/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://chung223.github.io/presence-site/fr/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://chung223.github.io/presence-site/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://chung223.github.io/presence-site/"/>
+  </url>
+  <url>
+    <loc>https://chung223.github.io/presence-site/zh-Hans/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://chung223.github.io/presence-site/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://chung223.github.io/presence-site/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://chung223.github.io/presence-site/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://chung223.github.io/presence-site/ko/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://chung223.github.io/presence-site/zh-Hans/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://chung223.github.io/presence-site/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://chung223.github.io/presence-site/fr/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://chung223.github.io/presence-site/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://chung223.github.io/presence-site/"/>
+  </url>
+  <url>
+    <loc>https://chung223.github.io/presence-site/de/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://chung223.github.io/presence-site/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://chung223.github.io/presence-site/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://chung223.github.io/presence-site/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://chung223.github.io/presence-site/ko/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://chung223.github.io/presence-site/zh-Hans/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://chung223.github.io/presence-site/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://chung223.github.io/presence-site/fr/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://chung223.github.io/presence-site/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://chung223.github.io/presence-site/"/>
+  </url>
+  <url>
+    <loc>https://chung223.github.io/presence-site/fr/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://chung223.github.io/presence-site/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://chung223.github.io/presence-site/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://chung223.github.io/presence-site/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://chung223.github.io/presence-site/ko/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://chung223.github.io/presence-site/zh-Hans/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://chung223.github.io/presence-site/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://chung223.github.io/presence-site/fr/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://chung223.github.io/presence-site/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://chung223.github.io/presence-site/"/>
+  </url>
+  <url>
+    <loc>https://chung223.github.io/presence-site/es/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://chung223.github.io/presence-site/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://chung223.github.io/presence-site/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://chung223.github.io/presence-site/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://chung223.github.io/presence-site/ko/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://chung223.github.io/presence-site/zh-Hans/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://chung223.github.io/presence-site/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://chung223.github.io/presence-site/fr/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://chung223.github.io/presence-site/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://chung223.github.io/presence-site/"/>
   </url>
   <url><loc>https://chung223.github.io/presence-site/privacy/</loc></url>
 </urlset>

@@ -11,7 +11,7 @@
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+KR:wght@400;700&family=Noto+Sans+SC:wght@400;700&display=swap">
 <link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
@@ -19,13 +19,16 @@
   <div class="wrap">
     <a class="brand" href="../"><img src="../assets/icon-512.png" alt="" width="30" height="30">Presence</a>
     <nav aria-label="主要">
-      <a class="lang" href="#english" lang="en">English</a>
+      <a class="lang" href="#english" lang="en">Languages</a>
       <a class="get" href="../#download">下載</a>
     </nav>
   </div>
 </header>
 
-<main class="wrap doc-page">
+<main class="wrap doc-page" id="top">
+  <nav class="doc-langs" aria-label="語言 Languages">
+    <a href="#top" lang="zh-Hant">繁體中文</a><a href="#english" lang="en">English</a><a href="#ja" lang="ja">日本語</a><a href="#ko" lang="ko">한국어</a><a href="#zh-hans" lang="zh-Hans">简体中文</a><a href="#de" lang="de">Deutsch</a><a href="#fr" lang="fr">Français</a><a href="#es" lang="es">Español</a>
+  </nav>
   <h1>隱私權政策</h1>
   <p class="updated">適用於 Presence（Mac）與 Presence Remote（iPhone、Apple Watch）。最後更新：2026 年 10 月 15 日。</p>
 
@@ -62,6 +65,127 @@
     </ul>
     <p>Questions? Open an issue on <a href="https://github.com/chung223/Presence/issues">GitHub</a>.</p>
   </section>
+
+  <hr>
+
+  <section id="ja" lang="ja">
+    <h1>プライバシーポリシー</h1>
+    <p class="updated">Presence（Mac）とPresence Remote（iPhone、Apple Watch）に適用されます。最終更新日：2026年10月15日。</p>
+    <p><strong>データは一切収集しません。</strong>PresenceとPresence Remoteには、アカウントもサーバーも、分析や広告のツールもありません。インターネットに何かを送信することもありません。</p>
+    <ul>
+      <li><strong>Bluetooth</strong>：MacのPresenceは、Bluetoothの信号強度を使って、あなたのiPhoneやApple Watchが近くにあるかどうかを判断します。Presence Remoteは、ペアリングしたMacにBluetoothで直接接続し、ロック、一時停止、再開、プレゼンリモコンなどのコマンドを送り、Macの状態を受け取ります。この通信はあなたのデバイスのあいだだけで行われ、すべてのコマンドはペアリング時に作成された鍵で暗号化・認証されます。</li>
+      <li><strong>カメラ</strong>：Presence Remoteがカメラを使うのは、ペアリング時にMacに表示されるQRコードを読み取るときだけです。写真を撮ったり、画像を保存・送信したりすることはありません。</li>
+      <li><strong>ペアリングの鍵とログインパスワード</strong>：ペアリングの鍵は、各デバイスのキーチェーンに保存されます。Macでロック解除の方法を「パスワードを入力」にした場合、ログインパスワードはそのMacのキーチェーンにだけ保存され、ロックを解除するときにだけ読み出されます。ログに書き込まれることはなく、そのMacの外に出ることもありません。</li>
+      <li><strong>イベント履歴と在席時間</strong>：あなたのMacにだけ保存されます。App内でいつでも消去できます。</li>
+      <li><strong>侵入者撮影</strong>（デフォルトはオフ）：オンにすると、デバイスが近くにないときに誰かが手動でMacのロックを解除した場合、PresenceがMacのカメラで写真を1枚撮り、そのMacに保存して、30日後に削除します。</li>
+      <li><strong>通知</strong>：Macのロックやロック解除の通知と、発表の残り5分・終了時のお知らせは、iPhone上で作成されます。プッシュサーバーは経由しません。</li>
+      <li><strong>Presence Proの購入</strong>：支払いはAppleのApp Storeが処理します。私たちがあなたの支払い情報やApple Accountを目にすることはありません。Appはあなたのデバイス上でApp Storeに購入状況を確認し、Presence Proを持っているかどうかをApple Watchに伝えます。</li>
+      <li><strong>自動アップデート</strong>：Mac版はGitHubからアップデート情報を読み込みます。これは通常のWebリクエストで、個人データは含まれません。</li>
+      <li><strong>このWebサイト</strong>：分析やトラッキングのツールは使っていません。フォントはGoogle Fontsから読み込まれるため、Googleには通常のWebリクエストが届きます。</li>
+    </ul>
+    <p>ご質問は<a href="https://github.com/chung223/Presence/issues">GitHub</a>でIssueを作成してください。</p>
+  </section>
+
+  <hr>
+
+  <section id="ko" lang="ko">
+    <h1>개인정보 처리방침</h1>
+    <p class="updated">Presence(Mac)와 Presence Remote(iPhone 및 Apple Watch)에 적용됩니다. 최종 업데이트: 2026년 10월 15일.</p>
+    <p><strong>저희는 어떤 데이터도 수집하지 않습니다.</strong> Presence와 Presence Remote에는 계정, 서버, 분석 도구나 광고 도구가 없으며, 인터넷으로 아무것도 보내지 않습니다.</p>
+    <ul>
+      <li><strong>Bluetooth</strong>: Mac의 Presence는 Bluetooth 신호 세기로 iPhone이나 Apple Watch가 근처에 있는지 판단합니다. Presence Remote는 Bluetooth로 페어링된 Mac에 직접 연결해 잠금, 일시 정지, 재개, 프레젠테이션 리모컨 등의 명령을 보내고 Mac의 상태를 받습니다. 이 통신은 사용자의 기기 사이에서만 이루어지며, 모든 명령은 페어링할 때 만들어진 키로 암호화되고 인증됩니다.</li>
+      <li><strong>카메라</strong>: Presence Remote는 페어링할 때 Mac에 표시된 QR 코드를 스캔하는 데에만 카메라를 사용합니다. 사진을 찍거나, 이미지를 저장하거나 전송하지 않습니다.</li>
+      <li><strong>페어링 키와 로그인 암호</strong>: 페어링 키는 각 기기의 키체인에 저장됩니다. Mac에서 ‘로그인 암호 입력’ 잠금 해제 방식을 켜면 로그인 암호는 해당 Mac의 키체인에만 저장되고, 잠금을 해제하는 순간에만 읽히며, 어떤 로그에도 기록되지 않고, 해당 Mac 밖으로 나가지 않습니다.</li>
+      <li><strong>이벤트 기록과 착석 시간</strong>: Mac에만 저장됩니다. 앱에서 언제든지 지울 수 있습니다.</li>
+      <li><strong>증거 사진</strong>(기본적으로 꺼짐): 이 기능을 켠 상태에서 기기가 근처에 없을 때 누군가 Mac의 잠금을 수동으로 해제하면, Presence가 Mac의 카메라로 사진을 찍어 해당 Mac에 저장하고 30일 후 삭제합니다.</li>
+      <li><strong>알림</strong>: Mac이 잠기거나 잠금 해제될 때의 알림, 발표 시간이 5분 남았을 때와 끝났을 때의 알림은 푸시 서버를 거치지 않고 iPhone에서 로컬로 만들어집니다.</li>
+      <li><strong>Presence Pro 구입</strong>: 결제는 Apple의 App Store가 처리합니다. 저희는 사용자의 결제 정보나 Apple 계정을 볼 수 없습니다. 앱은 사용자의 기기에서 App Store에 구입 여부를 확인하고, Presence Pro가 있는지를 Apple Watch에 알려 줍니다.</li>
+      <li><strong>자동 업데이트</strong>: Mac 앱은 GitHub에서 업데이트 목록을 읽으며, 이때 개인 데이터가 포함되지 않은 일반적인 웹 요청만 보냅니다.</li>
+      <li><strong>이 웹사이트</strong>: 분석 도구나 추적 도구가 없습니다. 글꼴은 Google Fonts에서 불러오며, Google은 일반적인 웹 요청을 받습니다.</li>
+    </ul>
+    <p>문의 사항이 있으면 <a href="https://github.com/chung223/Presence/issues">GitHub</a>에 이슈를 남겨 주세요.</p>
+  </section>
+
+  <hr>
+
+  <section id="zh-hans" lang="zh-Hans">
+    <h1>隐私政策</h1>
+    <p class="updated">适用于 Presence（Mac）和 Presence Remote（iPhone、Apple Watch）。最后更新：2026 年 10 月 15 日。</p>
+    <p><strong>我们不收集任何数据。</strong>Presence 和 Presence Remote 没有账户、没有服务器、没有分析或广告工具，也不会把任何数据发送到互联网上。</p>
+    <ul>
+      <li><strong>蓝牙</strong>：Mac 上的 Presence 通过蓝牙信号强度判断你的 iPhone 或 Apple Watch 是否在附近。Presence Remote 通过蓝牙直接连接你配对的 Mac，发送锁定、暂停、恢复、演示遥控等指令，并接收 Mac 的状态。这些通信只在你的设备之间进行，每条指令都用配对时生成的密钥加密和验证。</li>
+      <li><strong>相机</strong>：Presence Remote 只在配对时用相机扫描 Mac 上的二维码，不会拍摄、保存或发送任何图像。</li>
+      <li><strong>配对密钥与登录密码</strong>：配对密钥保存在各台设备的钥匙串中。如果你在 Mac 上启用“输入密码”解锁方式，登录密码只保存在那台 Mac 的钥匙串里，只在解锁的那一刻读取，不会写入任何日志，也不会离开那台 Mac。</li>
+      <li><strong>事件记录与在座时间</strong>：只保存在你的 Mac 上，可以随时在 App 中清除。</li>
+      <li><strong>拍照取证</strong>（默认关闭）：如果你打开这项功能，设备不在附近时有人手动解锁 Mac，Presence 会用 Mac 的相机拍一张照片，保存在那台 Mac 上，30 天后自动删除。</li>
+      <li><strong>通知</strong>：Mac 被锁定或解锁的通知，以及演讲剩 5 分钟和时间到的提醒，都由你的 iPhone 在本地生成，不经过推送服务器。</li>
+      <li><strong>购买 Presence Pro</strong>：付款由 Apple 的 App Store 处理，我们看不到你的付款信息或 Apple 账户。App 只在你的设备上向 App Store 查询购买状态，并把“是否已购买 Presence Pro”同步给你的 Apple Watch。</li>
+      <li><strong>自动更新</strong>：Mac 版会从 GitHub 读取更新列表，只发出普通的网络请求，不附带任何个人信息。</li>
+      <li><strong>本网站</strong>：没有分析或跟踪工具。字体从 Google Fonts 加载，Google 会收到普通的网络请求。</li>
+    </ul>
+    <p>如有问题，请在 <a href="https://github.com/chung223/Presence/issues">GitHub</a> 上提出。</p>
+  </section>
+
+  <hr>
+
+  <section id="de" lang="de">
+    <h1>Datenschutzerklärung</h1>
+    <p class="updated">Für Presence (Mac) und Presence Remote (iPhone und Apple Watch). Zuletzt aktualisiert am 15. Oktober 2026.</p>
+    <p><strong>Wir erheben keine Daten.</strong> Presence und Presence Remote haben keine Accounts, keine Server, keine Analyse- oder Werbetools und senden nichts über das Internet.</p>
+    <ul>
+      <li><strong>Bluetooth</strong>: Presence auf dem Mac erkennt an der Bluetooth-Signalstärke, ob dein iPhone oder deine Apple Watch in der Nähe ist. Presence Remote verbindet sich per Bluetooth direkt mit deinem gekoppelten Mac, um Befehle wie Sperren, Pausieren, Fortsetzen und die Präsentationssteuerung zu senden und den Status des Mac zu empfangen. Diese Kommunikation findet nur zwischen deinen Geräten statt, und jeder Befehl wird mit dem beim Koppeln erzeugten Schlüssel verschlüsselt und authentifiziert.</li>
+      <li><strong>Kamera</strong>: Presence Remote nutzt die Kamera nur, um beim Koppeln den QR-Code auf deinem Mac zu scannen. Die App nimmt keine Bilder auf, speichert keine und sendet keine.</li>
+      <li><strong>Kopplungsschlüssel und Anmeldepasswort</strong>: Die Kopplungsschlüssel werden im Schlüsselbund des jeweiligen Geräts gespeichert. Wenn du auf dem Mac die Entsperrmethode „Anmeldepasswort eingeben“ aktivierst, wird dein Anmeldepasswort nur im Schlüsselbund dieses Mac gespeichert, nur im Moment des Entsperrens gelesen und nie in ein Protokoll geschrieben. Es verlässt diesen Mac nie.</li>
+      <li><strong>Ereignisverlauf und Zeit am Platz</strong>: Werden nur auf deinem Mac gespeichert. Du kannst sie jederzeit in der App löschen.</li>
+      <li><strong>Beweisfoto</strong> (standardmäßig aus): Wenn du es aktivierst und jemand deinen Mac manuell entsperrt, während deine Geräte nicht in der Nähe sind, nimmt Presence mit der Kamera des Mac ein Foto auf, speichert es auf diesem Mac und löscht es nach 30 Tagen.</li>
+      <li><strong>Mitteilungen</strong>: Mitteilungen darüber, dass dein Mac gesperrt oder entsperrt wurde, sowie Erinnerungen, wenn dein Vortrag nur noch 5 Minuten dauert oder vorbei ist, werden lokal auf deinem iPhone erzeugt, nicht über einen Push-Server.</li>
+      <li><strong>Käufe von Presence Pro</strong>: Zahlungen werden über den App Store von Apple abgewickelt. Wir sehen weder deine Zahlungsdaten noch deinen Apple Account. Die App prüft deinen Kauf auf deinem Gerät beim App Store und teilt deiner Apple Watch mit, ob du Presence Pro hast.</li>
+      <li><strong>Automatische Updates</strong>: Die Mac-App liest ihren Update-Feed von GitHub – mit einer gewöhnlichen Webanfrage, die keine personenbezogenen Daten enthält.</li>
+      <li><strong>Diese Website</strong>: Keine Analyse- oder Tracking-Tools. Schriften werden von Google Fonts geladen; Google erhält dabei eine gewöhnliche Webanfrage.</li>
+    </ul>
+    <p>Fragen? Eröffne ein Issue auf <a href="https://github.com/chung223/Presence/issues">GitHub</a>.</p>
+  </section>
+
+  <hr>
+
+  <section id="fr" lang="fr">
+    <h1>Politique de confidentialité</h1>
+    <p class="updated">Pour Presence (Mac) et Presence Remote (iPhone et Apple Watch). Dernière mise à jour : 15 octobre 2026.</p>
+    <p><strong>Nous ne collectons aucune donnée.</strong> Presence et Presence Remote n’ont ni compte, ni serveur, ni outil d’analyse ou de publicité, et n’envoient rien sur Internet.</p>
+    <ul>
+      <li><strong>Bluetooth</strong> : Presence sur votre Mac utilise l’intensité du signal Bluetooth pour savoir si votre iPhone ou votre Apple Watch est à proximité. Presence Remote se connecte directement en Bluetooth au Mac jumelé pour lui envoyer des commandes (verrouiller, suspendre, reprendre, télécommande de présentation…) et recevoir son état. Ces échanges ont lieu uniquement entre vos appareils, et chaque commande est chiffrée et authentifiée avec la clé créée lors du jumelage.</li>
+      <li><strong>Appareil photo</strong> : Presence Remote n’utilise l’appareil photo que pour scanner le code QR affiché sur votre Mac lors du jumelage. L’app ne prend, ne stocke et n’envoie aucune image.</li>
+      <li><strong>Clés de jumelage et mot de passe de session</strong> : les clés de jumelage sont stockées dans le trousseau de chaque appareil. Si vous activez la méthode de déverrouillage « Saisir le mot de passe de session » sur votre Mac, votre mot de passe de session est stocké uniquement dans le trousseau de ce Mac. Il n’est lu qu’au moment du déverrouillage, n’est jamais écrit dans un journal et ne quitte jamais ce Mac.</li>
+      <li><strong>Historique des événements et temps au bureau</strong> : stockés uniquement sur votre Mac. Vous pouvez les effacer dans l’app à tout moment.</li>
+      <li><strong>Photo d’intrusion</strong> (désactivée par défaut) : si vous l’activez et que quelqu’un déverrouille votre Mac manuellement en l’absence de vos appareils, Presence prend une photo avec la caméra du Mac, la stocke sur ce Mac et la supprime au bout de 30 jours.</li>
+      <li><strong>Notifications</strong> : les notifications de verrouillage ou de déverrouillage de votre Mac, ainsi que les rappels quand il reste 5 minutes à votre présentation ou qu’elle est terminée, sont créées localement sur votre iPhone, sans passer par un serveur de notifications push.</li>
+      <li><strong>Achats Presence Pro</strong> : les paiements sont gérés par l’App Store d’Apple. Nous ne voyons jamais vos informations de paiement ni votre compte Apple. L’app vérifie votre achat auprès de l’App Store, sur votre appareil, et indique à votre Apple Watch si vous disposez de Presence Pro.</li>
+      <li><strong>Mises à jour automatiques</strong> : l’app Mac lit son flux de mises à jour sur GitHub au moyen d’une requête web ordinaire, qui ne contient aucune donnée personnelle.</li>
+      <li><strong>Ce site web</strong> : aucun outil d’analyse ni de suivi. Les polices sont chargées depuis Google Fonts, qui reçoit une requête web ordinaire.</li>
+    </ul>
+    <p>Des questions ? Ouvrez un ticket sur <a href="https://github.com/chung223/Presence/issues">GitHub</a>.</p>
+  </section>
+
+  <hr>
+
+  <section id="es" lang="es">
+    <h1>Política de privacidad</h1>
+    <p class="updated">Para Presence (Mac) y Presence Remote (iPhone y Apple Watch). Última actualización: 15 de octubre de 2026.</p>
+    <p><strong>No recopilamos ningún dato.</strong> Presence y Presence Remote no tienen cuentas, servidores ni herramientas de análisis o publicidad, y no envían nada por internet.</p>
+    <ul>
+      <li><strong>Bluetooth</strong>: Presence en el Mac usa la intensidad de la señal Bluetooth para saber si tu iPhone o tu Apple Watch están cerca. Presence Remote se conecta directamente por Bluetooth al Mac enlazado para enviarle comandos (como bloquear, pausar, reanudar y los del mando de presentaciones) y recibir su estado. Esta comunicación se produce solo entre tus dispositivos, y cada comando se cifra y se autentica con la clave que se creó al enlazarlos.</li>
+      <li><strong>Cámara</strong>: Presence Remote solo usa la cámara para escanear el código QR del Mac durante el enlace. No toma, guarda ni envía ninguna imagen.</li>
+      <li><strong>Claves de enlace y contraseña de inicio de sesión</strong>: las claves de enlace se guardan en el llavero de cada dispositivo. Si activas en el Mac el método de desbloqueo “escribir la contraseña”, tu contraseña de inicio de sesión se guarda solo en el llavero de ese Mac, se lee únicamente en el momento de desbloquear, nunca se escribe en ningún registro y nunca sale de ese Mac.</li>
+      <li><strong>Historial de eventos y tiempo en tu puesto</strong>: se guardan solo en el Mac. Puedes borrarlos en la app cuando quieras.</li>
+      <li><strong>Foto de intrusión</strong> (desactivada por omisión): si la activas y alguien desbloquea el Mac manualmente mientras tus dispositivos están lejos, Presence toma una foto con la cámara del Mac, la guarda en ese Mac y la elimina a los 30 días.</li>
+      <li><strong>Notificaciones</strong>: los avisos de que el Mac se ha bloqueado o desbloqueado, y los recordatorios de que a tu charla le quedan 5 minutos o de que se ha acabado el tiempo, se generan localmente en el iPhone, sin pasar por ningún servidor de notificaciones push.</li>
+      <li><strong>Compras de Presence Pro</strong>: los pagos los gestiona el App Store de Apple. Nunca vemos tus datos de pago ni tu Cuenta de Apple. La app comprueba tu compra con el App Store desde tu dispositivo y le indica a tu Apple Watch si tienes Presence Pro.</li>
+      <li><strong>Actualizaciones automáticas</strong>: la app para Mac consulta su lista de actualizaciones en GitHub con una petición web normal que no incluye ningún dato personal.</li>
+      <li><strong>Este sitio web</strong>: no usa herramientas de análisis ni de seguimiento. Las fuentes se cargan desde Google Fonts, que recibe una petición web normal.</li>
+    </ul>
+    <p>¿Tienes alguna pregunta? Abre una incidencia en <a href="https://github.com/chung223/Presence/issues">GitHub</a>.</p>
+  </section>
+
 </main>
 
 <footer>

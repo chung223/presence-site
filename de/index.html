@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Presence｜Du gehst, dein Mac wird gesperrt</title>
+<meta name="description" content="Presence achtet auf das Bluetooth-Signal des iPhone oder der Apple Watch, die du ohnehin dabeihast. Gehst du weg, wird dein Mac gesperrt; kommst du zurück, wird er entsperrt. iPhone und Apple Watch dienen außerdem als Presenter mit Laserpointer, Spotlight und Marker.">
+<link rel="canonical" href="https://chung223.github.io/presence-site/de/">
+<link rel="alternate" hreflang="zh-Hant" href="https://chung223.github.io/presence-site/">
+<link rel="alternate" hreflang="en" href="https://chung223.github.io/presence-site/en/">
+<link rel="alternate" hreflang="ja" href="https://chung223.github.io/presence-site/ja/">
+<link rel="alternate" hreflang="ko" href="https://chung223.github.io/presence-site/ko/">
+<link rel="alternate" hreflang="zh-Hans" href="https://chung223.github.io/presence-site/zh-Hans/">
+<link rel="alternate" hreflang="de" href="https://chung223.github.io/presence-site/de/">
+<link rel="alternate" hreflang="fr" href="https://chung223.github.io/presence-site/fr/">
+<link rel="alternate" hreflang="es" href="https://chung223.github.io/presence-site/es/">
+<link rel="alternate" hreflang="x-default" href="https://chung223.github.io/presence-site/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Presence｜Du gehst, dein Mac wird gesperrt">
+<meta property="og:description" content="Gehst du weg, wird dein Mac gesperrt. Kommst du zurück, wird er entsperrt. Und iPhone und Apple Watch werden zum Presenter.">
+<meta property="og:url" content="https://chung223.github.io/presence-site/de/">
+<meta property="og:image" content="https://chung223.github.io/presence-site/assets/og-de.png">
+<meta property="og:locale" content="de_DE">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#eef3f6">
+<link rel="icon" href="../assets/favicon-64.png" type="image/png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Zum Inhalt springen</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="../assets/icon-512.png" alt="" width="30" height="30">Presence</a>
+    <nav aria-label="Hauptnavigation">
+      <a href="#how">Funktionsweise</a>
+      <a href="#presenter">Präsentationssteuerung</a>
+      <a href="#plans">Preise</a>
+      <a href="#faq">FAQ</a>
+      <a class="lang" href="#languages">Sprache</a>
+      <a class="get" href="#download">Download</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero">
+  <div class="wrap">
+    <h1><span class="line">Du gehst&nbsp;– gesperrt.</span><span class="line">Du kommst&nbsp;– entsperrt.</span></h1>
+    <p class="lede">Presence sitzt in der Menüleiste deines Mac und achtet auf das Bluetooth-Signal, das dein iPhone oder deine Apple Watch ohnehin aussendet. Wird das Signal schwächer, sperrt sich der Bildschirm. Kommst du zurück an deinen Platz, wird er für dich entsperrt. Auf iPhone und Apple Watch musst du dafür nichts installieren.</p>
+    <div class="cta" id="download">
+      <a class="btn primary" href="https://github.com/chung223/Presence/releases/latest">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M1 20h22"/></svg>
+        Für Mac herunterladen
+      </a>
+      <a class="btn" href="https://apps.apple.com/de/app/id6822611221">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>
+        App für iPhone und Apple Watch
+      </a>
+    </div>
+    <p class="fine">Die Mac-App ist kostenlos und Open Source. Erfordert macOS 26 oder neuer.</p>
+
+    <figure class="room" id="room" aria-label="Demo: Ziehe „Du“ und sieh, wann der Mac gesperrt und entsperrt wird">
+      <div class="mac">
+        <div class="screen" data-state="near" id="screen">
+          <div class="desktop">
+            <div class="window" aria-hidden="true"><div class="bar"><i></i><i></i><i></i></div><div class="doc"><span></span><span></span><span></span><span></span><span></span></div></div>
+          </div>
+          <div class="lockscreen" aria-hidden="true">
+            <div class="time" data-clock>14:05</div>
+            <div class="who">Du</div>
+            <div class="pw"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="menubar" aria-hidden="true">
+            <b>Finder</b><span>Ablage</span><span>Bearbeiten</span>
+            <span class="status">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><path d="M17 6c1.2 1.4 1.2 3.6 0 5M20 4c2.4 2.7 2.4 6.3 0 9"/></svg>
+              <span data-menubar>Apple Watch in der Nähe</span>
+            </span>
+            <span data-clock>14:05</span>
+          </div>
+          <div class="countdown" aria-hidden="true" data-countdown>Sperre in 4 s</div>
+        </div>
+        <div class="base"></div>
+      </div>
+
+      <div class="floor">
+        <div class="track" id="track">
+          <span class="zone unlock">Komm so nah,<br>und er entsperrt</span>
+          <span class="zone lock">Geh so weit,<br>und er sperrt</span>
+          <button class="you" id="you" type="button" role="slider" aria-label="Dein Abstand zum Mac" aria-valuemin="0" aria-valuemax="10" aria-valuenow="1" aria-valuetext="1 m">
+            Du
+            <svg viewBox="0 0 26 26" aria-hidden="true"><rect x="7" y="3" width="12" height="20" rx="3" fill="#13233a" stroke="#fff" stroke-width="1.5"/><rect x="9" y="7" width="8" height="12" rx="2" fill="#1fae96"/></svg>
+          </button>
+        </div>
+        <div class="ticks" aria-hidden="true"><span>0 m</span><span>2</span><span>4</span><span>6</span><span>8</span><span>10 m</span></div>
+      </div>
+
+      <div class="readout">
+        <p class="state" data-state="near" aria-live="polite"><span class="dot"></span><span data-status>Apple Watch in der Nähe</span><span class="db" data-db>−52 dBm</span></p>
+        <canvas class="chart" id="chart" aria-hidden="true"></canvas>
+        <ul class="legend" aria-hidden="true">
+          <li class="raw"><i></i>Einzelne Messwerte</li>
+          <li class="filtered"><i></i>Median der letzten 4 Sekunden</li>
+          <li class="unlock"><i></i>Entsperren ab −62</li>
+          <li class="lock"><i></i>Sperren ab −76</li>
+        </ul>
+        <p class="hint">Ziehe <b>Du</b> nach rechts und sieh zu, wann der Mac sperrt. Dann geh wieder zurück.</p>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<section class="block" id="how">
+  <div class="wrap rules">
+    <div>
+      <h2>Lieber spät entsperrt als falsch gesperrt.</h2>
+      <p class="intro">Bluetooth-Signale schwanken stark – schon wenn du dich umdrehst, ändert sich viel. Presence hält sich an ein paar vorsichtige Regeln: Dein Mac sperrt nicht, während du davorsitzt, und niemand sonst kommt an ihn heran.</p>
+    </div>
+    <ul>
+      <li><h3>Ein paar Sekunden Verlauf, kein Einzelwert</h3><p>Presence nimmt den Median der letzten 4 Sekunden, mit mindestens 3 Messwerten. Ein einzelner Ausreißer nach oben oder unten zählt nicht.</p></li>
+      <li><h3>Zwei Schwellen: eine zum Sperren, eine zum Entsperren</h3><p>Die Sperrschwelle liegt unter der Entsperrschwelle. Stehst du dazwischen, springt also nichts ständig hin und her. Du kannst jedes Gerät einzeln kalibrieren: Stell dich jeweils 8 Sekunden dorthin, wo entsperrt und wo gesperrt werden soll.</p></li>
+      <li><h3>Du tippst noch? Dann wartet es</h3><p>Wird das Signal schwächer, während noch jemand Tastatur oder Maus benutzt, wartet Presence mit dem Sperren.</p></li>
+      <li><h3>Vor dem Entsperren fragt es dein iPhone</h3><p>Mit Presence Remote bittet dein Mac das iPhone, mit dem beim Koppeln ausgetauschten Schlüssel zu antworten, bevor er dein Passwort eingibt. Ein gefälschtes Bluetooth-Signal kann deinen Mac nicht entsperren.</p></li>
+      <li><h3>Die Apple Watch hat Vortritt</h3><p>Vor dem Entsperren wartet Presence ein paar Sekunden, damit macOS mit deiner Apple Watch entsperren kann. Erst wenn der Mac dann noch gesperrt ist, gibt Presence dein Passwort ein – und prüft alle paar Zeichen, ob noch der Anmeldebildschirm zu sehen ist.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="block tight">
+  <div class="wrap">
+    <h2>Sperrt, wenn es soll. Hält sich raus, wenn nicht.</h2>
+    <p class="intro">All das steckt in der Mac-App – kostenlos.</p>
+    <div class="grid">
+      <div>
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M10 10V8.5a2 2 0 0 1 4 0V10"/><rect x="9" y="10" width="6" height="4" rx="1"/></svg>
+        <h3>Keine Sperre mitten im Vortrag</h3>
+        <p>Während Keynote oder PowerPoint eine Präsentation abspielt, pausiert das automatische Sperren. Gehst du nach vorne, zeigt der Beamer nicht plötzlich den Anmeldebildschirm.</p>
+      </div>
+      <div>
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7v9H3z"/><path d="M8 15c2.5-2 5.5-2 8 0M10 18c1.2-.9 2.8-.9 4 0"/></svg>
+        <h3>Entspannt zu Hause</h3>
+        <p>Kein automatisches Sperren in vertrauenswürdigen Netzwerken, am Netzteil oder außerhalb der Zeiten, die du festlegst. Netzwerke werden am Router erkannt, deshalb braucht Presence keinen Zugriff auf deinen Standort.</p>
+      </div>
+      <div>
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 9v6M14 9v6"/></svg>
+        <h3>Eine Weile pausieren</h3>
+        <p>Du leihst deinen Mac aus oder gehst in ein Meeting? Pausiere für 15 Minuten bis 4 Stunden. Bist du am Ende der Pause nicht in der Nähe, wird sofort gesperrt.</p>
+      </div>
+      <div>
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 8 3 8H3s3-1 3-8"/><path d="M10 20a2 2 0 0 0 4 0"/></svg>
+        <h3>Du erfährst, wenn jemand in deiner Abwesenheit entsperrt</h3>
+        <p>Entsperrt jemand deinen Mac manuell, während du nicht in der Nähe bist, steht das im Verlauf. Presence kann außerdem ein Foto aufnehmen und dir eine Mitteilung aufs iPhone schicken.</p>
+      </div>
+      <div>
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 21V11a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v10"/><path d="M4 21h16M12 3v3"/></svg>
+        <h3>Wie lange du heute gesessen hast</h3>
+        <p>„Zeit am Platz“ zeigt dir heute und die letzten 7 Tage und erinnert dich ans Aufstehen, wenn du zu lange sitzt.</p>
+      </div>
+      <div>
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h10M4 17h7"/><path d="M17 15l2 2 3-4"/></svg>
+        <h3>Umstieg von BLEUnlock</h3>
+        <p>Presence basiert auf der Idee von BLEUnlock und wurde für aktuelle macOS-Versionen neu geschrieben. Deine Geräte und Schwellenwerte übernimmst du mit einem Klick.</p>
+      </div>
+    </div>
+
+    <div class="shots">
+      <figure class="mac-shot"><img src="../assets/shots/mac-overview-en.webp" alt="Presence auf dem Mac: wer in der Nähe ist, das Signal der letzten 3 Minuten und die letzten Ereignisse" width="1400" height="1022" loading="lazy"><figcaption>Übersicht: wer in der Nähe ist, das Signal der letzten 3 Minuten und die letzten Ereignisse.</figcaption></figure>
+      <figure class="phone-shot"><img src="../assets/shots/iphone-01-near-de-DE.webp" alt="Presence Remote auf dem iPhone: Apple Watch in der Nähe" width="660" height="1434" loading="lazy"><figcaption>Sieh jederzeit den Status deines Mac und sperre ihn mit einem Tippen.</figcaption></figure>
+      <figure class="phone-shot"><img src="../assets/shots/iphone-02-presenter-de-DE.webp" alt="Präsentationssteuerung auf dem iPhone" width="660" height="1434" loading="lazy"><figcaption>Präsentationssteuerung: Folien, Laser, Spotlight, Marker, Lautstärke.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="block stage" id="presenter" data-night>
+  <div class="wrap">
+    <span class="badge">Presence Pro</span>
+    <h2>Dein iPhone ist dein Presenter.</h2>
+    <p class="intro">Keine Fernbedienung kaufen, keinen Empfänger einstecken. Bewege den Finger auf dem iPhone, und an derselben Stelle auf der Leinwand erscheint ein roter Punkt, ein Spotlight oder eine Markierung. Probier es unten am iPhone aus.</p>
+
+    <div class="theater" id="theater">
+      <div class="projection-wrap">
+        <div class="projection" id="projection" aria-label="Leinwand">
+          <div class="slide on" data-slide="0">
+            <h3>Q3-Ergebnisse</h3>
+            <div class="cols">
+              <ul><li>38&nbsp;% mehr Neukunden</li><li>Kündigungsrate auf 2,1&nbsp;% gesunken</li><li>Support antwortet in 6 Minuten</li></ul>
+              <div class="bars"><i data-q="Q4"></i><i data-q="Q1"></i><i data-q="Q2"></i><i data-q="Q3"></i></div>
+            </div>
+          </div>
+          <div class="slide" data-slide="1">
+            <h3>Drei Ziele fürs nächste Quartal</h3>
+            <div class="cols">
+              <ul><li>Onboarding auf einer Seite</li><li>Monatsbericht per E-Mail</li><li>Neues Design für Mobilgeräte</li></ul>
+              <div><div class="big-number">3×</div><p class="note">Ziel: Öffnungsrate der Berichte</p></div>
+            </div>
+          </div>
+          <div class="slide" data-slide="2">
+            <h3>Was Kunden sagen</h3>
+            <div class="video"><span class="play"></span><span class="vol"><span>Lautstärke</span><span class="meter"><b data-video-vol></b></span></span></div>
+          </div>
+          <canvas class="ink" id="ink"></canvas>
+          <div class="blackout"></div>
+          <span class="slide-no" data-slide-no>1 / 3</span>
+        </div>
+      </div>
+
+      <div class="phone" aria-label="Presence Remote auf dem iPhone">
+        <div class="ui">
+          <header><div class="clock" data-talk-clock>0:00</div><div class="ctl">Steuert „Keynote“</div></header>
+          <div class="tools" role="group" aria-label="Werkzeuge">
+            <button type="button" data-tool="slides" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>Folien</button>
+            <button type="button" data-tool="laser" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5" fill="currentColor"/><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/></svg>Laser</button>
+            <button type="button" data-tool="spotlight" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2h6l-1 6h-4z"/><path d="M10 8h4v13h-4z"/></svg>Spotlight</button>
+            <button type="button" data-tool="highlighter" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4l6 6-9 9H5v-6z"/><path d="M4 22h16"/></svg>Marker</button>
+          </div>
+          <div class="pad" id="pad" data-tool="slides" role="application" aria-label="Touchfeld">
+            <div class="next-big" data-pad-next><span><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>Nächste Folie</div>
+            <div class="hint-text" data-pad-hint hidden></div>
+            <canvas data-pad-ink></canvas>
+            <span class="finger" data-finger></span>
+          </div>
+          <div class="turns"><button type="button" data-turn="-1">Zurück</button><button type="button" data-turn="1">Weiter</button></div>
+          <label class="volume">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg>
+            <input type="range" min="0" max="100" value="50" data-volume aria-label="Mac-Lautstärke">
+            <output data-volume-out>50%</output>
+          </label>
+          <div class="extras"><button type="button" data-blank aria-pressed="false">Bild schwarz</button><button type="button" data-goto>Gehe zu Folie 1</button></div>
+        </div>
+      </div>
+      <p class="theater-hint">Wähle Laser, Spotlight oder Marker, lege dann den Finger auf das Touchfeld des iPhone und bewege ihn. Markierungen verblassen nach ein paar Sekunden und verschwinden, sobald du die Folie wechselst.</p>
+    </div>
+
+    <div class="pro-list">
+      <div><h3>Zum Blättern tippen oder wischen</h3><p>Zu einer Folie springen, Bild schwarz schalten, Diashow starten und beenden.</p></div>
+      <div><h3>Auch auf dem Sperrbildschirm</h3><p>Folientasten auf dem Sperrbildschirm und in der Dynamic Island – ganz ohne Entsperren.</p></div>
+      <div><h3>Auch die Apple Watch ist ein Presenter</h3><p>Tippe, drehe die Digital Crown oder nutze Doppeltippen. Wische nach links für die Lautstärke deines Mac.</p></div>
+      <div><h3>Vortragstimer</h3><p>Leg fest, wie lange du sprichst. 5 Minuten vor Schluss und bei Zeitablauf spürst du ein Tippen am Handgelenk.</p></div>
+      <div><h3>Mac-Lautstärke</h3><p>Video in der Präsentation zu laut oder zu leise? Regle es, ohne zurückzulaufen. Auf der Leinwand erscheint dabei keine Lautstärkeanzeige.</p></div>
+      <div><h3>Jede Präsentations-App</h3><p>Keynote, PowerPoint, Google Präsentationen, PDFs. Punkt und Spotlight werden darübergelegt und klicken nie etwas an.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="plans">
+  <div class="wrap">
+    <h2>Sperren ist gratis. Der Presenter ist Pro.</h2>
+    <p class="intro">Die Mac-App und Presence Remote für iPhone und Apple Watch sind kostenlos. Nur die Präsentationssteuerung gehört zu Presence Pro.</p>
+    <div class="plans">
+      <div class="plan">
+        <h3>Mac-App</h3>
+        <div class="price">Kostenlos</div>
+        <p>Open Source, von Apple notarisiert, aktualisiert sich selbst.</p>
+        <ul><li>Sperrt, wenn du gehst, und entsperrt, wenn du zurück bist</li><li>Bleibt beim Präsentieren oder zu Hause entsperrt</li><li>Verlauf und Zeit am Platz</li></ul>
+        <a class="btn primary" href="https://github.com/chung223/Presence/releases/latest">Für Mac herunterladen</a>
+      </div>
+      <div class="plan">
+        <h3>Presence Remote</h3>
+        <div class="price">Kostenlos</div>
+        <p>Die Begleit-App für iPhone und Apple Watch.</p>
+        <ul><li>Sperren vom iPhone, von der Apple Watch oder im Kontrollzentrum</li><li>Automatisches Sperren pausieren und fortsetzen</li><li>Mitteilung, wenn dein Mac gesperrt wird oder jemand ihn entsperrt</li><li>Verschlüsselte Bestätigung vor dem Entsperren</li></ul>
+        <a class="btn" href="https://apps.apple.com/de/app/id6822611221">Im App Store laden</a>
+      </div>
+      <div class="plan pro">
+        <h3>Presence Pro</h3>
+        <p>Präsentationssteuerung: Folien, Laser, Spotlight, Marker, Lautstärke und Vortragstimer – auf iPhone und Apple Watch.</p>
+        <div class="prices">
+          <div><span>Monatlich</span><b>0,99&nbsp;€</b></div>
+          <div><span>Jährlich</span><b>5,99&nbsp;€</b></div>
+          <div><span>Einmalkauf</span><b>14,99&nbsp;€</b></div>
+        </div>
+        <p>Beide Abos kannst du zuerst 7 Tage kostenlos testen. Alle drei funktionieren mit der Familienfreigabe.</p>
+        <a class="btn pro" href="https://apps.apple.com/de/app/id6822611221">Upgrade in der App</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block tight" id="privacy">
+  <div class="wrap">
+    <h2>Dein Mac hört nur auf dein iPhone.</h2>
+    <div class="trust">
+      <div><h3>Kein Account, kein Server</h3><p>Mac und iPhone kommunizieren direkt per Bluetooth, nie über das Internet. Der Entwickler erhält nichts von dir.</p></div>
+      <div><h3>Jeder Befehl ist verschlüsselt</h3><p>Beim Koppeln entsteht ein Schlüssel, den nur deine Geräte kennen. Damit wird jeder Befehl und jeder Status verschlüsselt und geprüft – ein fremdes iPhone kann also keine Befehle senden.</p></div>
+      <div><h3>Dein Passwort bleibt im Schlüsselbund</h3><p>Das Anmeldepasswort zum Entsperren wird im Schlüsselbund deines Mac gesichert – und erst, nachdem Presence geprüft hat, dass es stimmt.</p></div>
+      <div><h3>Open Source</h3><p>Die Mac-App ist vollständig Open Source. Du kannst genau nachlesen, wie sie entscheidet und wie sie entsperrt.</p></div>
+    </div>
+    <a class="more" href="../privacy/#de">Vollständige Datenschutzerklärung lesen</a>
+  </div>
+</section>
+
+<section class="block tight" id="faq">
+  <div class="wrap">
+    <h2>Fragen</h2>
+    <div class="faq">
+      <details><summary>Muss ich eine App auf dem iPhone installieren?</summary><p>Nein. Presence achtet auf das Bluetooth-Signal, das iPhone und Apple Watch ohnehin senden – die Mac-App allein sperrt und entsperrt also schon. Mit Presence Remote kannst du außerdem aus der Ferne sperren, Mitteilungen erhalten und vor dem Entsperren eine verschlüsselte Bestätigung verlangen. Presence Pro bringt die Präsentationssteuerung dazu.</p></details>
+      <details><summary>Was brauche ich?</summary><p>Einen Mac mit Bluetooth LE und macOS 26 oder neuer. Presence Remote braucht iOS 26 bzw. watchOS 26 oder neuer. Es geht auch nur mit einer Apple Watch oder mit einem anderen Bluetooth-Gerät, das regelmäßig mit einer festen Adresse sendet.</p></details>
+      <details><summary>Was ist der Unterschied zu „Mit Apple Watch entsperren“?</summary><p>Die integrierte Funktion entsperrt nur; wenn du weggehst, sperrt sie nicht. Presence macht beides. Beim Entsperren wartet es zuerst ein paar Sekunden, damit deine Apple Watch den Mac entsperren kann, und gibt dein Passwort nur ein, wenn das nicht geklappt hat. Beides arbeitet zusammen.</p></details>
+      <details><summary>Wird mein Mac gesperrt, obwohl ich davorsitze?</summary><p>Das Signal muss mehrere Sekunden lang schwach bleiben, und die Sperrschwelle liegt unter der Entsperrschwelle. Tippst du noch oder benutzt du die Maus, wartet das Sperren. Ist es dir trotzdem zu empfindlich, kalibriere neu unter „Geräte“.</p></details>
+      <details><summary>Warum gibt es die Mac-App nicht im Mac App Store?</summary><p>Automatisches Entsperren heißt, dein Anmeldepasswort einzugeben – und das dürfen Apps aus dem Mac App Store nicht. Deshalb ist die Mac-App von Apple notarisiert, wird über GitHub geladen und aktualisiert sich selbst.</p></details>
+      <details><summary>Welche Präsentations-Apps funktionieren?</summary><p>Zum Blättern sendet Presence Pfeiltasten, die Keynote, PowerPoint, Google Präsentationen und PDF-Viewer verstehen. Laser, Spotlight und Marker zeichnet Presence über alles andere – sie funktionieren also mit allem, was gerade auf dem Bildschirm ist. Aktiviere vorher in Presence auf dem Mac „iPhone &amp; Watch › Präsentationssteuerung erlauben“.</p></details>
+      <details><summary>Belastet das den Akku?</summary><p>iPhone und Apple Watch senden diese Signale sowieso. Presence hört nur auf dem Mac mit und braucht dort normalerweise unter 1&nbsp;% CPU.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="finale">
+  <div class="wrap">
+    <h2>Wenn du das nächste Mal aufstehst, denk nicht mehr ans Sperren.</h2>
+    <div class="cta">
+      <a class="btn primary" href="https://github.com/chung223/Presence/releases/latest">Für Mac herunterladen</a>
+      <a class="btn" href="https://apps.apple.com/de/app/id6822611221">App für iPhone und Apple Watch</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Presence</span>
+    <nav aria-label="Fußzeile">
+      <a href="https://github.com/chung223/Presence">Quellcode</a>
+      <a href="../privacy/#de">Datenschutz</a>
+      <a href="https://github.com/chung223/Presence/issues">Problem melden</a>
+      <a href="https://github.com/chung223/Presence/releases">Versionshinweise</a>
+    </nav>
+    <nav class="langs" id="languages" aria-label="Sprachen">
+      <a href="../" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a>
+      <a href="../en/" hreflang="en" lang="en">English</a>
+      <a href="../ja/" hreflang="ja" lang="ja">日本語</a>
+      <a href="../ko/" hreflang="ko" lang="ko">한국어</a>
+      <a href="../zh-Hans/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a>
+      <a href="./" aria-current="page" lang="de">Deutsch</a>
+      <a href="../fr/" hreflang="fr" lang="fr">Français</a>
+      <a href="../es/" hreflang="es" lang="es">Español</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="../assets/site.js" defer></script>
+</body>
+</html>

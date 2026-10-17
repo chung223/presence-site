@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Presence 分享預覽圖</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Noto+Sans+TC:wght@500;900&display=swap">
+<style>
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+  body { background: #eef3f6; color: #13233a; font-family: "Noto Sans TC", sans-serif; position: relative; }
+  .brand { position: absolute; left: 72px; top: 64px; display: flex; align-items: center; gap: 16px; font: 700 34px "Bricolage Grotesque", sans-serif; letter-spacing: -0.01em; }
+  .brand img { width: 64px; height: 64px; border-radius: 15px; }
+  h1 { position: absolute; left: 72px; top: 178px; margin: 0; font-weight: 900; font-size: 92px; line-height: 1.12; letter-spacing: -0.035em; }
+  html[lang="fr"] h1 { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 80px; letter-spacing: -0.045em; }
+  h1 span { display: block; }
+  h1 .b { color: #2563d6; }
+  p { position: absolute; left: 72px; bottom: 64px; margin: 0; font-size: 28px; font-weight: 500; color: #55657a; }
+  /* 右邊：訊號越來越弱 */
+  .rings { position: absolute; right: -150px; top: 70px; width: 560px; height: 560px; }
+  .rings i { position: absolute; inset: 0; border-radius: 50%; border: 3px solid #1fae96; }
+  .rings i:nth-child(2) { inset: 70px; opacity: 0.55; }
+  .rings i:nth-child(3) { inset: 140px; opacity: 0.8; }
+  .rings i:nth-child(1) { opacity: 0.25; }
+  .rings b { position: absolute; inset: 225px; border-radius: 50%; background: #13233a; }
+</style>
+</head>
+<body>
+  <div class="rings"><i></i><i></i><i></i><b></b></div>
+  <div class="brand"><img src="../assets/icon-512.png" alt="">Presence</div>
+  <h1><span>Partez, il se verrouille.</span><span class="b">Revenez, il s’ouvre.</span></h1>
+  <p>Verrouillage automatique du Mac. Télécommande sur iPhone et Apple Watch.</p>
+</body>
+</html>

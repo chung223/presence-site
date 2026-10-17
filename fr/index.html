@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Presence｜Vous partez, votre Mac se verrouille</title>
+<meta name="description" content="Presence capte le signal Bluetooth de l’iPhone ou de l’Apple Watch que vous avez déjà sur vous. Vous partez, votre Mac se verrouille ; vous revenez, il se déverrouille. Votre iPhone et votre Apple Watch servent aussi de télécommande de présentation, avec pointeur laser, projecteur et surligneur.">
+<link rel="canonical" href="https://chung223.github.io/presence-site/fr/">
+<link rel="alternate" hreflang="zh-Hant" href="https://chung223.github.io/presence-site/">
+<link rel="alternate" hreflang="en" href="https://chung223.github.io/presence-site/en/">
+<link rel="alternate" hreflang="ja" href="https://chung223.github.io/presence-site/ja/">
+<link rel="alternate" hreflang="ko" href="https://chung223.github.io/presence-site/ko/">
+<link rel="alternate" hreflang="zh-Hans" href="https://chung223.github.io/presence-site/zh-Hans/">
+<link rel="alternate" hreflang="de" href="https://chung223.github.io/presence-site/de/">
+<link rel="alternate" hreflang="fr" href="https://chung223.github.io/presence-site/fr/">
+<link rel="alternate" hreflang="es" href="https://chung223.github.io/presence-site/es/">
+<link rel="alternate" hreflang="x-default" href="https://chung223.github.io/presence-site/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Presence｜Vous partez, votre Mac se verrouille">
+<meta property="og:description" content="Vous partez, votre Mac se verrouille. Vous revenez, il se déverrouille. Votre iPhone et votre Apple Watch servent aussi de télécommande de présentation.">
+<meta property="og:url" content="https://chung223.github.io/presence-site/fr/">
+<meta property="og:image" content="https://chung223.github.io/presence-site/assets/og-fr.png">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#eef3f6">
+<link rel="icon" href="../assets/favicon-64.png" type="image/png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="../assets/icon-512.png" alt="" width="30" height="30">Presence</a>
+    <nav aria-label="Navigation principale">
+      <a href="#how">Comment il décide</a>
+      <a href="#presenter">Télécommande</a>
+      <a href="#plans">Tarifs</a>
+      <a href="#faq">FAQ</a>
+      <a class="lang" href="#languages">Langue</a>
+      <a class="get" href="#download">Télécharger</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero">
+  <div class="wrap">
+    <h1><span class="line">Partez, il se verrouille.</span><span class="line">Revenez, il s’ouvre.</span></h1>
+    <p class="lede">Presence s’installe dans la barre des menus de votre Mac et capte le signal Bluetooth que votre iPhone ou votre Apple Watch émet déjà. Quand le signal faiblit, l’écran se verrouille. Quand vous revenez à votre bureau, il se déverrouille pour vous. Rien à installer sur votre téléphone ni sur votre montre.</p>
+    <div class="cta" id="download">
+      <a class="btn primary" href="https://github.com/chung223/Presence/releases/latest">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M1 20h22"/></svg>
+        Télécharger pour Mac
+      </a>
+      <a class="btn" href="https://apps.apple.com/fr/app/id6822611221">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>
+        App pour iPhone et Apple Watch
+      </a>
+    </div>
+    <p class="fine">L’app Mac est gratuite et open source. Nécessite macOS 26 ou version ultérieure.</p>
+
+    <figure class="room" id="room" aria-label="Démo : faites glisser « Vous » et observez quand le Mac se verrouille et se déverrouille">
+      <div class="mac">
+        <div class="screen" data-state="near" id="screen">
+          <div class="desktop">
+            <div class="window" aria-hidden="true"><div class="bar"><i></i><i></i><i></i></div><div class="doc"><span></span><span></span><span></span><span></span><span></span></div></div>
+          </div>
+          <div class="lockscreen" aria-hidden="true">
+            <div class="time" data-clock>14:05</div>
+            <div class="who">Vous</div>
+            <div class="pw"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="menubar" aria-hidden="true">
+            <b>Finder</b><span>Fichier</span><span>Édition</span>
+            <span class="status">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><path d="M17 6c1.2 1.4 1.2 3.6 0 5M20 4c2.4 2.7 2.4 6.3 0 9"/></svg>
+              <span data-menubar>Apple Watch à proximité</span>
+            </span>
+            <span data-clock>14:05</span>
+          </div>
+          <div class="countdown" aria-hidden="true" data-countdown>Verrouillage dans 4 s</div>
+        </div>
+        <div class="base"></div>
+      </div>
+
+      <div class="floor">
+        <div class="track" id="track">
+          <span class="zone unlock">Venez jusqu’ici<br>et il se déverrouille</span>
+          <span class="zone lock">Allez jusque-là<br>et il se verrouille</span>
+          <button class="you" id="you" type="button" role="slider" aria-label="Votre distance par rapport au Mac" aria-valuemin="0" aria-valuemax="10" aria-valuenow="1" aria-valuetext="1 m">
+            Vous
+            <svg viewBox="0 0 26 26" aria-hidden="true"><rect x="7" y="3" width="12" height="20" rx="3" fill="#13233a" stroke="#fff" stroke-width="1.5"/><rect x="9" y="7" width="8" height="12" rx="2" fill="#1fae96"/></svg>
+          </button>
+        </div>
+        <div class="ticks" aria-hidden="true"><span>0 m</span><span>2</span><span>4</span><span>6</span><span>8</span><span>10 m</span></div>
+      </div>
+
+      <div class="readout">
+        <p class="state" data-state="near" aria-live="polite"><span class="dot"></span><span data-status>Apple Watch à proximité</span><span class="db" data-db>−52 dBm</span></p>
+        <canvas class="chart" id="chart" aria-hidden="true"></canvas>
+        <ul class="legend" aria-hidden="true">
+          <li class="raw"><i></i>Chaque mesure</li>
+          <li class="filtered"><i></i>Médiane des 4 dernières secondes</li>
+          <li class="unlock"><i></i>Déverrouillage à −62</li>
+          <li class="lock"><i></i>Verrouillage à −76</li>
+        </ul>
+        <p class="hint">Faites glisser <b>Vous</b> vers la droite et observez quand le Mac se verrouille. Puis revenez.</p>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<section class="block" id="how">
+  <div class="wrap rules">
+    <div>
+      <h2>Mieux vaut déverrouiller un peu tard que verrouiller à tort.</h2>
+      <p class="intro">Le signal Bluetooth fluctue : il suffit de vous retourner pour qu’il change beaucoup. Presence suit quelques règles prudentes, pour ne pas verrouiller votre Mac alors que vous êtes devant, et pour que personne d’autre n’y accède.</p>
+    </div>
+    <ul>
+      <li><h3>Une tendance sur quelques secondes, pas une seule mesure</h3><p>Presence prend la médiane des 4 dernières secondes, avec au moins 3 mesures. Un pic ou une chute soudaine ne compte pas.</p></li>
+      <li><h3>Deux seuils : un pour verrouiller, un pour déverrouiller</h3><p>Le seuil de verrouillage est plus bas que celui de déverrouillage : entre les deux, le Mac ne se verrouille et ne se déverrouille pas en boucle. Pour calibrer un appareil, restez 8 secondes là où le Mac doit se déverrouiller, puis 8 secondes là où il doit se verrouiller.</p></li>
+      <li><h3>Vous tapez encore ? Il attend</h3><p>Si le signal faiblit mais que quelqu’un utilise encore le clavier ou la souris, le verrouillage attend.</p></li>
+      <li><h3>Il interroge votre iPhone avant de déverrouiller</h3><p>Avec Presence Remote, avant de saisir votre mot de passe, votre Mac demande à votre iPhone de répondre avec la clé échangée lors du jumelage. Un signal Bluetooth falsifié ne suffit pas à déverrouiller votre Mac.</p></li>
+      <li><h3>L’Apple Watch d’abord</h3><p>Avant de déverrouiller, Presence attend quelques secondes pour laisser macOS déverrouiller le Mac avec votre Apple Watch. Il ne saisit votre mot de passe que si le Mac est encore verrouillé, par petits groupes de caractères, en vérifiant avant chacun que l’écran de connexion est toujours affiché.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="block tight">
+  <div class="wrap">
+    <h2>Il verrouille quand il le faut. Et vous laisse tranquille le reste du temps.</h2>
+    <p class="intro">Tout cela est inclus dans l’app Mac, gratuitement.</p>
+    <div class="grid">
+      <div>
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M10 10V8.5a2 2 0 0 1 4 0V10"/><rect x="9" y="10" width="6" height="4" rx="1"/></svg>
+        <h3>Pas de verrouillage en pleine présentation</h3>
+        <p>Pendant la lecture d’un diaporama dans Keynote ou PowerPoint, le verrouillage automatique est suspendu. Vous pouvez aller à l’avant de la salle sans que le vidéoprojecteur affiche soudain l’écran de connexion.</p>
+      </div>
+      <div>
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7v9H3z"/><path d="M8 15c2.5-2 5.5-2 8 0M10 18c1.2-.9 2.8-.9 4 0"/></svg>
+        <h3>Plus souple à la maison</h3>
+        <p>Pas de verrouillage automatique sur un réseau de confiance, quand le Mac est branché sur secteur ou en dehors des horaires que vous choisissez. Les réseaux sont reconnus grâce au routeur : aucune autorisation de localisation n’est nécessaire.</p>
+      </div>
+      <div>
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 9v6M14 9v6"/></svg>
+        <h3>Suspendre un moment</h3>
+        <p>Vous prêtez votre Mac ou partez en réunion ? Suspendez Presence entre 15 minutes et 4 heures. Si vous n’êtes pas là à la fin, le Mac se verrouille aussitôt.</p>
+      </div>
+      <div>
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 8 3 8H3s3-1 3-8"/><path d="M10 20a2 2 0 0 0 4 0"/></svg>
+        <h3>Sachez si quelqu’un le déverrouille en votre absence</h3>
+        <p>Si quelqu’un déverrouille votre Mac à la main alors que vous n’êtes pas à proximité, c’est noté dans l’historique. Presence peut aussi prendre une photo et prévenir votre iPhone.</p>
+      </div>
+      <div>
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 21V11a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v10"/><path d="M4 21h16M12 3v3"/></svg>
+        <h3>Le temps passé assis aujourd’hui</h3>
+        <p>La fonction « Temps au bureau » suit votre journée et les 7 derniers jours, et vous invite à vous lever après une trop longue période assise.</p>
+      </div>
+      <div>
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h10M4 17h7"/><path d="M17 15l2 2 3-4"/></svg>
+        <h3>Vous venez de BLEUnlock</h3>
+        <p>Presence part de l’idée de BLEUnlock et a été réécrit pour les versions actuelles de macOS. Importez vos appareils et vos seuils en un clic.</p>
+      </div>
+    </div>
+
+    <div class="shots">
+      <figure class="mac-shot"><img src="../assets/shots/mac-overview-en.webp" alt="Presence sur le Mac : qui est à proximité, les 3 dernières minutes de signal et les événements récents" width="1400" height="1022" loading="lazy"><figcaption>Vue d’ensemble : qui est à proximité, les 3 dernières minutes de signal et les événements récents.</figcaption></figure>
+      <figure class="phone-shot"><img src="../assets/shots/iphone-01-near-fr-FR.webp" alt="Presence Remote sur iPhone : Apple Watch à proximité" width="660" height="1434" loading="lazy"><figcaption>Consultez l’état de votre Mac à tout moment et verrouillez-le d’un seul toucher.</figcaption></figure>
+      <figure class="phone-shot"><img src="../assets/shots/iphone-02-presenter-fr-FR.webp" alt="Télécommande de présentation sur iPhone" width="660" height="1434" loading="lazy"><figcaption>Télécommande de présentation : diapos, laser, projecteur, surligneur, volume.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="block stage" id="presenter" data-night>
+  <div class="wrap">
+    <span class="badge">Presence Pro</span>
+    <h2>Sur scène, votre téléphone sert de télécommande.</h2>
+    <p class="intro">Pas de télécommande à acheter, pas de récepteur à brancher. Déplacez le doigt sur votre téléphone : un point rouge, le halo du projecteur ou un trait de surligneur apparaît au même endroit sur le grand écran. Essayez sur le téléphone ci-dessous.</p>
+
+    <div class="theater" id="theater">
+      <div class="projection-wrap">
+        <div class="projection" id="projection" aria-label="Écran de projection">
+          <div class="slide on" data-slide="0">
+            <h3>Résultats du T3</h3>
+            <div class="cols">
+              <ul><li>Nouveaux clients en hausse de 38 %</li><li>Attrition ramenée à 2,1 %</li><li>Réponse du support en 6 minutes</li></ul>
+              <div class="bars"><i data-q="T4"></i><i data-q="T1"></i><i data-q="T2"></i><i data-q="T3"></i></div>
+            </div>
+          </div>
+          <div class="slide" data-slide="1">
+            <h3>Trois priorités au prochain trimestre</h3>
+            <div class="cols">
+              <ul><li>Une prise en main en une seule page</li><li>Un rapport mensuel par e-mail</li><li>Un nouveau design mobile</li></ul>
+              <div><div class="big-number">3×</div><p class="note">Objectif de taux d’ouverture du rapport</p></div>
+            </div>
+          </div>
+          <div class="slide" data-slide="2">
+            <h3>Ce que disent nos clients</h3>
+            <div class="video"><span class="play"></span><span class="vol"><span>Volume</span><span class="meter"><b data-video-vol></b></span></span></div>
+          </div>
+          <canvas class="ink" id="ink"></canvas>
+          <div class="blackout"></div>
+          <span class="slide-no" data-slide-no>1 / 3</span>
+        </div>
+      </div>
+
+      <div class="phone" aria-label="Presence Remote sur iPhone">
+        <div class="ui">
+          <header><div class="clock" data-talk-clock>0:00</div><div class="ctl">Contrôle de « Keynote »</div></header>
+          <div class="tools" role="group" aria-label="Outils">
+            <button type="button" data-tool="slides" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>Diapos</button>
+            <button type="button" data-tool="laser" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5" fill="currentColor"/><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/></svg>Laser</button>
+            <button type="button" data-tool="spotlight" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2h6l-1 6h-4z"/><path d="M10 8h4v13h-4z"/></svg>Projecteur</button>
+            <button type="button" data-tool="highlighter" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4l6 6-9 9H5v-6z"/><path d="M4 22h16"/></svg>Surligneur</button>
+          </div>
+          <div class="pad" id="pad" data-tool="slides" role="application" aria-label="Zone tactile">
+            <div class="next-big" data-pad-next><span><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>Diapositive suivante</div>
+            <div class="hint-text" data-pad-hint hidden></div>
+            <canvas data-pad-ink></canvas>
+            <span class="finger" data-finger></span>
+          </div>
+          <div class="turns"><button type="button" data-turn="-1">Précédente</button><button type="button" data-turn="1">Suivante</button></div>
+          <label class="volume">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg>
+            <input type="range" min="0" max="100" value="50" data-volume aria-label="Volume du Mac">
+            <output data-volume-out>50%</output>
+          </label>
+          <div class="extras"><button type="button" data-blank aria-pressed="false">Écran noir</button><button type="button" data-goto>Aller à la diapo 1</button></div>
+        </div>
+      </div>
+      <p class="theater-hint">Choisissez Laser, Projecteur ou Surligneur, puis touchez la zone tactile du téléphone et faites glisser le doigt. Les traits de surligneur s’estompent après quelques secondes et disparaissent quand vous changez de diapositive.</p>
+    </div>
+
+    <div class="pro-list">
+      <div><h3>Touchez ou balayez pour changer de diapositive</h3><p>Allez directement à une diapositive, affichez un écran noir, lancez et arrêtez le diaporama.</p></div>
+      <div><h3>Depuis l’écran verrouillé</h3><p>Des boutons pour changer de diapositive sur l’écran verrouillé et dans la Dynamic Island, sans déverrouiller l’iPhone.</p></div>
+      <div><h3>L’Apple Watch sert aussi de télécommande</h3><p>Touchez l’écran, tournez la Digital Crown ou utilisez le geste Toucher deux fois. Balayez vers la gauche pour régler le volume du Mac.</p></div>
+      <div><h3>Minuteur de présentation</h3><p>Indiquez la durée de votre intervention. Un tapotement au poignet vous prévient quand il reste 5 minutes, puis quand le temps est écoulé.</p></div>
+      <div><h3>Le volume de votre Mac</h3><p>La vidéo de votre présentation est trop forte ou trop faible ? Réglez le volume sans retourner à votre Mac. Aucun indicateur de volume ne s’affiche sur le grand écran.</p></div>
+      <div><h3>Toutes les apps de présentation</h3><p>Keynote, PowerPoint, Google Slides, PDF. Le point rouge et le projecteur s’affichent par-dessus tout le reste et ne cliquent jamais sur rien.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="plans">
+  <div class="wrap">
+    <h2>Le verrouillage est gratuit. La télécommande fait partie de Pro.</h2>
+    <p class="intro">L’app Mac et Presence Remote pour iPhone et Apple Watch sont gratuites. Seule la télécommande de présentation fait partie de Presence Pro.</p>
+    <div class="plans">
+      <div class="plan">
+        <h3>App Mac</h3>
+        <div class="price">Gratuit</div>
+        <p>Open source, notarisée par Apple, avec mises à jour automatiques.</p>
+        <ul><li>Se verrouille quand vous partez, se déverrouille à votre retour</li><li>Reste déverrouillé pendant vos présentations ou chez vous</li><li>Historique et temps au bureau</li></ul>
+        <a class="btn primary" href="https://github.com/chung223/Presence/releases/latest">Télécharger pour Mac</a>
+      </div>
+      <div class="plan">
+        <h3>Presence Remote</h3>
+        <div class="price">Gratuit</div>
+        <p>L’app compagnon pour iPhone et Apple Watch.</p>
+        <ul><li>Verrouillage depuis votre iPhone, votre montre ou le centre de contrôle</li><li>Suspension et reprise du verrouillage automatique</li><li>Notifications quand votre Mac se verrouille ou que quelqu’un le déverrouille</li><li>Confirmation chiffrée avant le déverrouillage</li></ul>
+        <a class="btn" href="https://apps.apple.com/fr/app/id6822611221">Voir dans l’App Store</a>
+      </div>
+      <div class="plan pro">
+        <h3>Presence Pro</h3>
+        <p>Télécommande de présentation : diapos, laser, projecteur, surligneur, volume et minuteur de présentation, sur iPhone et Apple Watch.</p>
+        <div class="prices">
+          <div><span>Mensuel</span><b>0,99 €</b></div>
+          <div><span>Annuel</span><b>5,99 €</b></div>
+          <div><span>Achat unique</span><b>14,99 €</b></div>
+        </div>
+        <p>Les deux abonnements commencent par un essai gratuit de 7 jours. Les trois formules sont compatibles avec le Partage familial.</p>
+        <a class="btn pro" href="https://apps.apple.com/fr/app/id6822611221">Passer à Pro dans l’app</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block tight" id="privacy">
+  <div class="wrap">
+    <h2>Votre Mac n’écoute que votre téléphone.</h2>
+    <div class="trust">
+      <div><h3>Pas de compte, pas de serveur</h3><p>Votre Mac et votre téléphone communiquent directement en Bluetooth, jamais par Internet. Le développeur ne reçoit rien de vous.</p></div>
+      <div><h3>Chaque commande est chiffrée</h3><p>Le jumelage crée une clé que seuls vos appareils partagent. Chaque commande et chaque état sont chiffrés et vérifiés avec cette clé : le téléphone de quelqu’un d’autre ne peut pas envoyer de commandes.</p></div>
+      <div><h3>Votre mot de passe reste dans votre trousseau</h3><p>Le mot de passe de session utilisé pour déverrouiller est stocké dans le trousseau de votre Mac, et seulement après que Presence a vérifié qu’il est correct.</p></div>
+      <div><h3>Open source</h3><p>L’app Mac est entièrement open source. Vous pouvez voir exactement comment elle décide et comment elle déverrouille.</p></div>
+    </div>
+    <a class="more" href="../privacy/#fr">Lire la politique de confidentialité complète</a>
+  </div>
+</section>
+
+<section class="block tight" id="faq">
+  <div class="wrap">
+    <h2>Questions</h2>
+    <div class="faq">
+      <details><summary>Faut-il installer une app sur mon téléphone ?</summary><p>Non. Presence capte le signal Bluetooth que votre iPhone et votre Apple Watch émettent déjà : l’app Mac suffit pour verrouiller et déverrouiller. Avec Presence Remote, vous pouvez aussi verrouiller à distance, recevoir des notifications et ajouter une confirmation chiffrée avant le déverrouillage ; Presence Pro ajoute la télécommande de présentation.</p></details>
+      <details><summary>De quoi ai-je besoin ?</summary><p>Un Mac avec Bluetooth LE et macOS 26 ou version ultérieure. Presence Remote nécessite iOS 26 ou watchOS 26, ou version ultérieure. Vous pouvez aussi n’utiliser qu’une Apple Watch, ou un autre appareil Bluetooth qui émet régulièrement avec une adresse fixe.</p></details>
+      <details><summary>Quelle différence avec le déverrouillage du Mac par l’Apple Watch ?</summary><p>La fonction intégrée ne fait que déverrouiller : elle ne verrouille pas quand vous partez. Presence fait les deux. Pour déverrouiller, il attend d’abord quelques secondes que votre montre déverrouille le Mac, et ne saisit votre mot de passe que si elle ne l’a pas fait. Les deux fonctionnent ensemble.</p></details>
+      <details><summary>Risque-t-il de se verrouiller alors que je ne bouge pas ?</summary><p>Le signal doit rester faible pendant plusieurs secondes, et le seuil de verrouillage est plus bas que celui de déverrouillage. Si vous tapez encore ou utilisez la souris, le verrouillage attend. Si c’est encore trop sensible, recalibrez depuis la page « Appareils ».</p></details>
+      <details><summary>Pourquoi l’app Mac n’est-elle pas sur le Mac App Store ?</summary><p>Déverrouiller automatiquement implique de saisir votre mot de passe de session, ce que les apps du Mac App Store n’ont pas le droit de faire. L’app Mac est donc notarisée par Apple, téléchargée depuis GitHub, et se met à jour toute seule.</p></details>
+      <details><summary>Quelles apps de présentation sont compatibles ?</summary><p>Pour changer de diapositive, Presence envoie les touches fléchées, que Keynote, PowerPoint, Google Slides et les lecteurs PDF comprennent. Le laser, le projecteur et le surligneur sont dessinés par Presence par-dessus tout le reste : ils fonctionnent quel que soit le contenu de l’écran. Activez d’abord « iPhone et montre › Autoriser la télécommande de présentation » dans Presence sur votre Mac.</p></details>
+      <details><summary>Est-ce que ça consomme beaucoup de batterie ?</summary><p>Votre iPhone et votre Apple Watch émettent ces signaux de toute façon ; Presence se contente de les écouter sur votre Mac, où il utilise normalement moins de 1 % du processeur.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="finale">
+  <div class="wrap">
+    <h2>La prochaine fois que vous quittez votre bureau, ne pensez plus à verrouiller l’écran.</h2>
+    <div class="cta">
+      <a class="btn primary" href="https://github.com/chung223/Presence/releases/latest">Télécharger pour Mac</a>
+      <a class="btn" href="https://apps.apple.com/fr/app/id6822611221">App pour iPhone et Apple Watch</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Presence</span>
+    <nav aria-label="Pied de page">
+      <a href="https://github.com/chung223/Presence">Code source</a>
+      <a href="../privacy/#fr">Politique de confidentialité</a>
+      <a href="https://github.com/chung223/Presence/issues">Signaler un problème</a>
+      <a href="https://github.com/chung223/Presence/releases">Notes de version</a>
+    </nav>
+    <nav class="langs" id="languages" aria-label="Langues">
+      <a href="../" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a>
+      <a href="../en/" hreflang="en" lang="en">English</a>
+      <a href="../ja/" hreflang="ja" lang="ja">日本語</a>
+      <a href="../ko/" hreflang="ko" lang="ko">한국어</a>
+      <a href="../zh-Hans/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a>
+      <a href="../de/" hreflang="de" lang="de">Deutsch</a>
+      <a href="./" aria-current="page" lang="fr">Français</a>
+      <a href="../es/" hreflang="es" lang="es">Español</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="../assets/site.js" defer></script>
+</body>
+</html>

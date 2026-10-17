@@ -3,31 +3,76 @@
 (() => {
   "use strict";
 
-  const en = document.documentElement.lang === "en";
+  const lang = document.documentElement.lang;
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const T = en ? {
-    near: "Apple Watch is nearby",
-    leaving: (s) => `Apple Watch: leaving, locking in ${s}s`,
-    countdown: (s) => `Locking in ${s}s`,
-    locked: "Apple Watch: away",
-    unlocking: "Apple Watch is back, unlocking",
-    meters: (m) => `${m} m`,
-    hintLaser: "Touch and drag. The red dot appears at the same spot on the screen.",
-    hintSpot: "Touch and drag. The spotlight follows your finger.",
-    hintInk: "Draw with your finger. Lines fade after a few seconds.",
-    goto: (n) => `Go to slide ${n}`,
-  } : {
-    near: "Apple Watch 在附近",
-    leaving: (s) => `Apple Watch：離開中，${s} 秒後鎖定`,
-    countdown: (s) => `${s} 秒後鎖定`,
-    locked: "Apple Watch：不在附近",
-    unlocking: "Apple Watch 回來了，正在解鎖",
-    meters: (m) => `${m} 公尺`,
-    hintLaser: "按住並移動手指，紅點會出現在投影幕上的同一個位置",
-    hintSpot: "按住並移動手指，聚光燈會跟著照過去",
-    hintInk: "用手指畫線，幾秒後會自動淡掉",
-    goto: (n) => `跳到第 ${n} 頁`,
+  // 狀態、提示的說法跟 App 一樣（取自 App 的字串表）
+  const STRINGS = {
+    "zh-Hant": {
+      near: "Apple Watch 在附近", leaving: (s) => `Apple Watch：離開中，${s} 秒後鎖定`, countdown: (s) => `${s} 秒後鎖定`,
+      locked: "Apple Watch：不在附近", unlocking: "Apple Watch 回來了，正在解鎖", meters: (m) => `${m} 公尺`,
+      hintLaser: "按住並移動手指，紅點會出現在投影畫面上的同一個位置",
+      hintSpot: "按住並移動手指，聚光燈會照亮投影畫面上的同一個位置",
+      hintInk: "用手指畫線，投影畫面上會出現同樣的螢光筆線，幾秒後自動消失",
+      goto: (n) => `跳到第 ${n} 頁`,
+    },
+    en: {
+      near: "Apple Watch nearby", leaving: (s) => `Apple Watch: Leaving — locking in ${s} s`, countdown: (s) => `Locking in ${s} s`,
+      locked: "Apple Watch: Away", unlocking: "Apple Watch is back, unlocking", meters: (m) => `${m} m`,
+      hintLaser: "Touch and drag. The red dot appears at the same spot on the projected screen.",
+      hintSpot: "Touch and drag. The spotlight lights up the same spot on the projected screen.",
+      hintInk: "Draw with your finger. The same highlighter line appears on the projected screen and fades after a few seconds.",
+      goto: (n) => `Go to slide ${n}`,
+    },
+    ja: {
+      near: "Apple Watchが近くにあります", leaving: (s) => `Apple Watch：離れています。${s}秒後にロック`, countdown: (s) => `${s}秒後にロック`,
+      locked: "Apple Watch：離れています", unlocking: "Apple Watchが戻りました。ロックを解除しています", meters: (m) => `${m} m`,
+      hintLaser: "押したまま指を動かすと、投影画面の同じ位置に赤い点が表示されます",
+      hintSpot: "押したまま指を動かすと、投影画面の同じ位置をスポットライトで照らします",
+      hintInk: "指でなぞると、投影画面にも同じ蛍光ペンの線が表示され、数秒後に自動で消えます",
+      goto: (n) => `スライド${n}へ`,
+    },
+    ko: {
+      near: "Apple Watch 근처에 있음", leaving: (s) => `Apple Watch: 멀어지는 중, ${s}초 후 잠금`, countdown: (s) => `${s}초 후 잠금`,
+      locked: "Apple Watch: 근처에 없음", unlocking: "Apple Watch가 돌아왔습니다. 잠금 해제 중", meters: (m) => `${m}m`,
+      hintLaser: "누른 채로 손가락을 움직이면 프로젝터 화면의 같은 위치에 빨간 점이 나타납니다",
+      hintSpot: "누른 채로 손가락을 움직이면 프로젝터 화면의 같은 위치를 스포트라이트로 비춥니다",
+      hintInk: "손가락으로 그리면 프로젝터 화면에도 같은 형광펜 선이 나타나고 몇 초 후 자동으로 사라집니다",
+      goto: (n) => `${n}번 슬라이드로`,
+    },
+    "zh-Hans": {
+      near: "Apple Watch 在附近", leaving: (s) => `Apple Watch：正在离开，${s} 秒后锁定`, countdown: (s) => `${s} 秒后锁定`,
+      locked: "Apple Watch：不在附近", unlocking: "Apple Watch 回来了，正在解锁", meters: (m) => `${m} 米`,
+      hintLaser: "按住并移动手指，红点会出现在投影画面上的同一位置",
+      hintSpot: "按住并移动手指，聚光灯会照亮投影画面上的同一位置",
+      hintInk: "用手指画线，投影画面上会出现同样的荧光笔线，几秒后自动消失",
+      goto: (n) => `跳到第 ${n} 页`,
+    },
+    de: {
+      near: "Apple Watch in der Nähe", leaving: (s) => `Apple Watch: Abwesend – Sperre in ${s} s`, countdown: (s) => `Sperre in ${s} s`,
+      locked: "Apple Watch: Nicht in der Nähe", unlocking: "Apple Watch ist zurück – wird entsperrt", meters: (m) => `${m} m`,
+      hintLaser: "Halte den Finger gedrückt und bewege ihn – der rote Punkt erscheint an derselben Stelle im Projektionsbild.",
+      hintSpot: "Halte den Finger gedrückt und bewege ihn – das Spotlight beleuchtet dieselbe Stelle im Projektionsbild.",
+      hintInk: "Zeichne mit dem Finger – dieselbe Markierung erscheint im Projektionsbild und verschwindet nach ein paar Sekunden.",
+      goto: (n) => `Gehe zu Folie ${n}`,
+    },
+    fr: {
+      near: "Apple Watch à proximité", leaving: (s) => `Apple Watch : départ détecté — verrouillage dans ${s} s`, countdown: (s) => `Verrouillage dans ${s} s`,
+      locked: "Apple Watch : éloignée", unlocking: "Apple Watch de retour — déverrouillage", meters: (m) => `${m} m`,
+      hintLaser: "Maintenez votre doigt et déplacez-le : le point rouge apparaît au même endroit sur l’écran projeté.",
+      hintSpot: "Maintenez votre doigt et déplacez-le : le projecteur éclaire le même endroit sur l’écran projeté.",
+      hintInk: "Dessinez avec le doigt : le même trait de surligneur apparaît sur l’écran projeté et s’efface après quelques secondes.",
+      goto: (n) => `Aller à la diapo ${n}`,
+    },
+    es: {
+      near: "Apple Watch cerca", leaving: (s) => `Apple Watch: alejándote, bloqueo en ${s} s`, countdown: (s) => `Bloqueo en ${s} s`,
+      locked: "Apple Watch: lejos", unlocking: "El Apple Watch ha vuelto: desbloqueando", meters: (m) => `${m} m`,
+      hintLaser: "Mantén pulsado y mueve el dedo: el punto rojo aparece en el mismo lugar de la pantalla proyectada.",
+      hintSpot: "Mantén pulsado y mueve el dedo: el foco ilumina el mismo lugar de la pantalla proyectada.",
+      hintInk: "Dibuja con el dedo: la misma línea de subrayador aparece en la pantalla proyectada y desaparece a los pocos segundos.",
+      goto: (n) => `Ir a la diapo ${n}`,
+    },
   };
+  const T = STRINGS[lang] || STRINGS.en;
 
   // ── 時鐘 ─────────────────────────────────────────
   const clocks = document.querySelectorAll("[data-clock]");
@@ -324,8 +369,10 @@
       projection.classList.toggle("blank", on);
       blank.setAttribute("aria-pressed", String(on));
     });
+    // 百分比照各語言的寫法：法文、德文是「50 %」
+    const percent = new Intl.NumberFormat(lang, { style: "percent" });
     const setVolume = () => {
-      volumeOut.textContent = `${volume.value}%`;
+      volumeOut.textContent = percent.format(volume.value / 100);
       videoVol.style.width = `${volume.value}%`;
     };
     volume.addEventListener("input", setVolume);

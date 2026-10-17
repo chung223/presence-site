@@ -29,8 +29,11 @@
   color-scheme: light;
 }
 /* 英文頁的內文用英文字型：中文字型會把 ’ 排成全形 */
-html[lang="en"], [lang="en"] { --sans: "Bricolage Grotesque", -apple-system, system-ui, sans-serif; }
-html[lang="en"] body, [lang="en"] { font-family: var(--sans); }
+/* 英文、德文、法文、西文用英文字型（中文字型會把 ’ 排成全形）；日文、韓文、簡體中文各用自己的字型 */
+:is([lang="en"], [lang="de"], [lang="fr"], [lang="es"]) { --sans: "Bricolage Grotesque", -apple-system, system-ui, sans-serif; font-family: var(--sans); }
+[lang="ja"] { --sans: "Noto Sans JP", -apple-system, "Hiragino Sans", system-ui, sans-serif; font-family: var(--sans); word-break: auto-phrase; }
+[lang="ko"] { --sans: "Noto Sans KR", -apple-system, "Apple SD Gothic Neo", system-ui, sans-serif; font-family: var(--sans); word-break: keep-all; }
+[lang="zh-Hans"] { --sans: "Noto Sans SC", -apple-system, "PingFang SC", system-ui, sans-serif; font-family: var(--sans); }
 
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
@@ -46,6 +49,8 @@ body {
   background: var(--paper);
   transition: background-color 0.9s ease, color 0.9s ease;
   -webkit-font-smoothing: antialiased;
+  /* 投影幕後面的光暈會超出畫面寬度：裁掉，不要出現橫向捲動（clip 不會讓頁首的 sticky 失效） */
+  overflow-x: clip;
 }
 
 /* 講台那一段在畫面中央時，整頁像禮堂一樣把燈關暗 */
@@ -92,7 +97,9 @@ body.night .top nav a { color: var(--night-muted); }
   color: #fff; background: var(--ink); padding: 6px 14px; border-radius: 999px; font-weight: 500;
 }
 body.night .top nav .get { background: var(--night-ink); color: var(--night); }
-@media (max-width: 720px) {
+.top nav a { white-space: nowrap; }
+/* 各語言的選單字長短不一：窄一點就只留「語言」和「下載」 */
+@media (max-width: 960px) {
   .top nav a:not(.get):not(.lang) { display: none; }
 }
 
@@ -109,7 +116,7 @@ body.night .top nav .get { background: var(--night-ink); color: var(--night); }
 }
 .hero h1 .line { display: block; }
 .hero h1 .line + .line { color: var(--blue); }
-html[lang="en"] .hero h1 { font-family: var(--display); font-weight: 800; letter-spacing: -0.045em; }
+html:is([lang="en"], [lang="de"], [lang="fr"], [lang="es"]) .hero h1 { font-family: var(--display); font-weight: 800; letter-spacing: -0.045em; }
 
 .lede { max-width: 38em; font-size: clamp(17px, 1.6vw, 19px); color: var(--muted); margin: 28px 0 0; }
 
@@ -252,7 +259,7 @@ body.night .btn { border-color: var(--night-ink); color: var(--night-ink); }
   box-shadow: 0 8px 22px rgba(19, 35, 58, 0.28);
   touch-action: none;
 }
-html[lang="en"] .you { font-family: var(--display); font-size: 15px; }
+html:is([lang="en"], [lang="de"], [lang="fr"], [lang="es"]) .you { font-family: var(--display); font-size: 15px; }
 .you:active { cursor: grabbing; }
 .you svg { position: absolute; right: -6px; bottom: -4px; width: 26px; height: 26px; }
 /* 手錶發出的訊號，越弱越淡 */
@@ -295,7 +302,7 @@ section.block.tight { padding-top: 0; }
   font-weight: 900; font-size: clamp(32px, 4.6vw, 56px); line-height: 1.15; letter-spacing: -0.03em;
   margin: 0 0 20px; max-width: 16em;
 }
-html[lang="en"] .block h2 { font-family: var(--display); font-weight: 800; }
+html:is([lang="en"], [lang="de"], [lang="fr"], [lang="es"]) .block h2 { font-family: var(--display); font-weight: 800; }
 .block .intro { max-width: 36em; color: var(--muted); margin: 0; font-size: 18px; }
 body.night .block .intro { color: var(--night-muted); }
 
@@ -331,7 +338,7 @@ body.night .block .intro { color: var(--night-muted); }
   padding: 3px 12px; border-radius: 999px; margin-bottom: 18px;
 }
 .theater {
-  display: grid; grid-template-columns: 1fr 300px; gap: clamp(24px, 4vw, 56px);
+  display: grid; grid-template-columns: 1fr 330px; gap: clamp(24px, 4vw, 56px);
   align-items: center; margin-top: 52px;
 }
 @media (max-width: 940px) { .theater { grid-template-columns: 1fr; justify-items: center; } }
@@ -357,7 +364,7 @@ body.night .projection-wrap::before { opacity: 1; }
 }
 .slide.on { opacity: 1; }
 .slide h3 { font-size: 2.2em; font-weight: 900; margin: 0 0 0.6em; letter-spacing: -0.02em; line-height: 1.2; }
-html[lang="en"] .slide h3 { font-family: var(--display); font-weight: 800; }
+html:is([lang="en"], [lang="de"], [lang="fr"], [lang="es"]) .slide h3 { font-family: var(--display); font-weight: 800; }
 .slide ul { margin: 0; padding-left: 1.2em; line-height: 1.9; }
 .slide .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 6%; flex: 1; min-height: 0; }
 .bars { display: flex; align-items: flex-end; gap: 9%; height: 100%; padding-bottom: 1.6em; position: relative; }
@@ -386,7 +393,7 @@ html[lang="en"] .slide h3 { font-family: var(--display); font-weight: 800; }
 
 /* 手機 */
 .phone {
-  width: 300px; max-width: 100%; border-radius: 46px; padding: 14px;
+  width: 330px; max-width: 100%; border-radius: 46px; padding: 14px;
   background: #05080d; border: 1.5px solid #2a3344;
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5), inset 0 0 0 6px #0c1119;
   color: #fff; font-size: 13px; line-height: 1.4;
@@ -406,7 +413,10 @@ html[lang="en"] .slide h3 { font-family: var(--display); font-weight: 800; }
 .tools button {
   border: 0; background: transparent; color: rgba(255, 255, 255, 0.75); border-radius: 11px;
   padding: 6px 2px 5px; font: 600 11px/1.2 var(--sans); cursor: pointer; display: grid; justify-items: center; gap: 3px;
+  white-space: nowrap; letter-spacing: -0.01em; min-width: 0;
 }
+/* 日文「スポットライト」、韓文「스포트라이트」比較長 */
+:is([lang="ja"], [lang="ko"]) .tools button { font-size: 10px; letter-spacing: -0.04em; }
 .tools button svg { width: 16px; height: 16px; }
 .tools button[aria-pressed="true"] { color: #1b0d02; background: linear-gradient(180deg, var(--orange-a), var(--orange-b)); }
 .pad {
@@ -481,7 +491,7 @@ html[lang="en"] .slide h3 { font-family: var(--display); font-weight: 800; }
 
 .finale { text-align: center; padding: clamp(80px, 11vw, 150px) 0; }
 .finale h2 { font-weight: 900; font-size: clamp(32px, 4.6vw, 56px); line-height: 1.15; letter-spacing: -0.03em; margin: 0 auto 28px; max-width: 14em; }
-html[lang="en"] .finale h2 { font-family: var(--display); font-weight: 800; }
+html:is([lang="en"], [lang="de"], [lang="fr"], [lang="es"]) .finale h2 { font-family: var(--display); font-weight: 800; }
 .finale .cta { justify-content: center; }
 
 footer { border-top: 1px solid var(--line); padding: 32px 0 48px; font-size: 14px; color: var(--muted); }
@@ -507,3 +517,9 @@ footer .langs [aria-current] { color: var(--ink); font-weight: 700; text-decorat
 }
 
 .intro.center { margin: 0 auto 20px; }
+
+footer .langs { flex-wrap: wrap; }
+.doc-langs { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 0 0 32px; font-size: 15px; }
+
+/* 光暈、訊號波紋超出畫面的部分在段落內裁掉，手機上才不會左右滑動 */
+.hero, .stage { overflow-x: clip; }
