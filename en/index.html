@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Presence｜Walk away, your Mac locks</title>
-<meta name="description" content="Presence listens for the Bluetooth signal of the iPhone or Apple Watch you already carry. Walk away and your Mac locks; come back and it unlocks. Your iPhone and Apple Watch also work as a presentation remote with a laser pointer, spotlight, and highlighter.">
+<meta name="description" content="Presence listens for the Bluetooth signal of the iPhone or Apple Watch you already carry. Walk away and your Mac locks; come back and it unlocks. Your iPhone also works as a presentation remote, and as a trackpad and keyboard for your Mac.">
 <link rel="canonical" href="https://chung223.github.io/presence-site/en/">
 <link rel="alternate" hreflang="zh-Hant" href="https://chung223.github.io/presence-site/">
 <link rel="alternate" hreflang="en" href="https://chung223.github.io/presence-site/en/">
@@ -17,7 +17,7 @@
 <link rel="alternate" hreflang="x-default" href="https://chung223.github.io/presence-site/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Presence｜Walk away, your Mac locks">
-<meta property="og:description" content="Walk away and your Mac locks. Come back and it unlocks. Your iPhone and Apple Watch are your presentation remote, too.">
+<meta property="og:description" content="Walk away and your Mac locks. Come back and it unlocks. Your iPhone is your presentation remote, trackpad, and keyboard, too.">
 <meta property="og:url" content="https://chung223.github.io/presence-site/en/">
 <meta property="og:image" content="https://chung223.github.io/presence-site/assets/og-en.png">
 <meta property="og:locale" content="en_US">
@@ -39,6 +39,7 @@
     <nav aria-label="Main">
       <a href="#how">How it decides</a>
       <a href="#presenter">Presenter Remote</a>
+      <a href="#trackpad">Trackpad</a>
       <a href="#plans">Pricing</a>
       <a href="#faq">FAQ</a>
       <a class="lang" href="#languages">Language</a>
@@ -52,7 +53,7 @@
 <section class="hero">
   <div class="wrap">
     <h1><span class="line">Walk away, it locks.</span><span class="line">Come back, it opens.</span></h1>
-    <p class="lede">Presence lives in your Mac’s menu bar and listens for the Bluetooth signal your iPhone or Apple Watch already sends out. When the signal fades, your screen locks. When you walk back to your desk, it unlocks for you. Nothing to install on your phone or watch.</p>
+    <p class="lede"><span class="c">A Mac menu bar app that listens for the Bluetooth signal from your iPhone or Apple&nbsp;Watch.</span><span class="c">Nothing to install on your phone or watch.</span></p>
     <div class="cta" id="download">
       <a class="btn primary" href="https://github.com/chung223/Presence/releases/latest">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M1 20h22"/></svg>
@@ -110,69 +111,50 @@
           <li class="unlock"><i></i>Unlock at −62</li>
           <li class="lock"><i></i>Lock at −76</li>
         </ul>
-        <p class="hint">Drag <b>You</b> to the right and watch when the Mac locks. Then walk back.</p>
+        <p class="hint">Drag <b>You</b> to the right, then walk back.</p>
       </div>
     </figure>
   </div>
 </section>
 
 <section class="block" id="how">
-  <div class="wrap rules">
-    <div>
-      <h2>Better to unlock a little late than to lock you out.</h2>
-      <p class="intro">Bluetooth signal jumps around; turning around can change it a lot. Presence follows a few cautious rules, so it doesn’t lock you while you’re sitting there, and no one else gets into your Mac.</p>
+  <div class="wrap">
+    <h2>Better to unlock a little late than to lock you out.</h2>
+    <div class="flows">
+      <div class="flow leave">
+        <span class="lane">Walk away</span>
+        <ol>
+          <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#typing"/></svg>Still typing? It waits</li>
+          <li class="end"><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#lock"/></svg>Locked</li>
+        </ol>
+      </div>
+      <div class="flow back">
+        <span class="lane">Come back</span>
+        <ol>
+          <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#watch"/></svg>Apple&nbsp;Watch tries first</li>
+          <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#ask"/></svg>iPhone confirms it’s you</li>
+          <li class="end"><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#password"/></svg>Then the password</li>
+        </ol>
+      </div>
     </div>
-    <ul>
-      <li><h3>A few seconds of trend, not one reading</h3><p>It takes the median of the last 4 seconds, with at least 3 readings. One sudden spike or dip doesn’t count.</p></li>
-      <li><h3>Two lines: one to lock, one to unlock</h3><p>The lock threshold sits below the unlock threshold, so standing in between never flips back and forth. Calibrate each device by standing where you want it to unlock and lock for 8 seconds each.</p></li>
-      <li><h3>Still typing? It waits</h3><p>If the signal fades but someone is still using the keyboard or mouse, locking waits.</p></li>
-      <li><h3>It asks your iPhone before unlocking</h3><p>With Presence Remote, your Mac asks your iPhone to answer with the key you exchanged when pairing before it types your password. A spoofed Bluetooth signal can’t unlock your Mac.</p></li>
-      <li><h3>Apple Watch goes first</h3><p>Before unlocking, it waits a few seconds so macOS can unlock with your Apple Watch. Only if the Mac is still locked does Presence type your password, checking it’s still on the login screen before every few characters.</p></li>
-    </ul>
   </div>
 </section>
 
 <section class="block tight">
   <div class="wrap">
     <h2>Locks when it should. Stays out of the way when it shouldn’t.</h2>
-    <p class="intro">All of this is in the Mac app, free.</p>
-    <div class="grid">
-      <div>
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M10 10V8.5a2 2 0 0 1 4 0V10"/><rect x="9" y="10" width="6" height="4" rx="1"/></svg>
-        <h3>No locking mid-presentation</h3>
-        <p>While Keynote or PowerPoint is playing a slideshow, auto-lock pauses. Walk to the front of the room and the projector won’t suddenly show a login screen.</p>
-      </div>
-      <div>
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7v9H3z"/><path d="M8 15c2.5-2 5.5-2 8 0M10 18c1.2-.9 2.8-.9 4 0"/></svg>
-        <h3>Relaxed at home</h3>
-        <p>Don’t auto-lock on a trusted network, while plugged in, or outside the hours you choose. Networks are recognized by the router, so no location permission is needed.</p>
-      </div>
-      <div>
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 9v6M14 9v6"/></svg>
-        <h3>Pause for a while</h3>
-        <p>Lending your Mac or heading into a meeting? Pause for 15 minutes to 4 hours. If you’re not around when it ends, it locks right away.</p>
-      </div>
-      <div>
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 8 3 8H3s3-1 3-8"/><path d="M10 20a2 2 0 0 0 4 0"/></svg>
-        <h3>Know if someone unlocks it while you’re away</h3>
-        <p>If someone unlocks your Mac by hand while you’re not nearby, it’s recorded in the history. Presence can also take a photo and notify your iPhone.</p>
-      </div>
-      <div>
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 21V11a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v10"/><path d="M4 21h16M12 3v3"/></svg>
-        <h3>How long you sat today</h3>
-        <p>Desk time keeps track of today and the last 7 days, and nudges you to get up when you’ve been sitting too long.</p>
-      </div>
-      <div>
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h10M4 17h7"/><path d="M17 15l2 2 3-4"/></svg>
-        <h3>Coming from BLEUnlock</h3>
-        <p>Presence started from BLEUnlock’s idea and was rewritten for current macOS. Import your devices and thresholds with one click.</p>
-      </div>
-    </div>
+    <ul class="feats grid">
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#present"/></svg><h3>No locking mid-presentation</h3><p>While Keynote or PowerPoint is playing.</p></li>
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#home"/></svg><h3>Relaxed at home</h3><p>Trusted network, plugged in, or set hours.</p></li>
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#pause"/></svg><h3>Pause for a while</h3><p>15 min to 4 hr; locks when time is up.</p></li>
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#bell"/></svg><h3>Know if someone unlocks it</h3><p>Logs it, takes a photo, notifies your iPhone.</p></li>
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#seat"/></svg><h3>How long you sat today</h3><p>Nudges you to get up after sitting too long.</p></li>
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#import"/></svg><h3>Coming from BLEUnlock</h3><p>Import devices and thresholds in one click.</p></li>
+    </ul>
 
     <div class="shots">
-      <figure class="mac-shot"><img src="../assets/shots/mac-overview-en.webp" alt="Presence on the Mac: who’s nearby, the last 3 minutes of signal, and recent events" width="1400" height="1022" loading="lazy"><figcaption>Overview: who’s nearby, the last 3 minutes of signal, and recent events.</figcaption></figure>
-      <figure class="phone-shot"><img src="../assets/shots/iphone-01-near-en-US.webp" alt="Presence Remote on iPhone: Apple Watch nearby" width="660" height="1434" loading="lazy"><figcaption>See your Mac’s status anytime and lock it with one tap.</figcaption></figure>
-      <figure class="phone-shot"><img src="../assets/shots/iphone-02-presenter-en-US.webp" alt="Presenter Remote on iPhone" width="660" height="1434" loading="lazy"><figcaption>Presenter Remote: slides, laser, spotlight, highlighter, volume.</figcaption></figure>
+      <figure class="mac-shot"><img src="../assets/shots/mac-overview-en.webp" alt="Presence on the Mac: who’s nearby, the last 3 minutes of signal, and recent events" width="1400" height="1022" loading="lazy"><figcaption>who’s nearby, signal, events</figcaption></figure>
+      <figure class="phone-shot"><img src="../assets/shots/iphone-01-near-en-US.webp" alt="Presence Remote on iPhone: Apple Watch nearby" width="660" height="1434" loading="lazy"><figcaption>one-tap lock</figcaption></figure>
     </div>
   </div>
 </section>
@@ -181,7 +163,7 @@
   <div class="wrap">
     <span class="badge">Presence Pro</span>
     <h2>On stage, your phone is the clicker.</h2>
-    <p class="intro">No remote to buy, no receiver to plug in. Move your finger on your phone, and a red dot, a spotlight, or a highlighter line appears at the same spot on the big screen. Try it on the phone below.</p>
+    <p class="intro">No remote to buy.</p>
 
     <div class="theater" id="theater">
       <div class="projection-wrap">
@@ -234,49 +216,98 @@
           <div class="extras"><button type="button" data-blank aria-pressed="false">Black screen</button><button type="button" data-goto>Go to slide 1</button></div>
         </div>
       </div>
-      <p class="theater-hint">Pick Laser, Spotlight, or Highlighter, then touch and drag in the phone’s pad. Highlighter lines fade after a few seconds and clear when you change slides.</p>
+      <p class="theater-hint">Pick a pointer, then touch and drag in the pad.</p>
     </div>
 
-    <div class="pro-list">
-      <div><h3>Tap or swipe to change slides</h3><p>Jump to a slide, black out the screen, start and end the show.</p></div>
-      <div><h3>Works from the Lock Screen</h3><p>Slide buttons on the Lock Screen and in the Dynamic Island, no unlocking needed.</p></div>
-      <div><h3>Apple Watch is a clicker too</h3><p>Tap, turn the Digital Crown, or double tap. Swipe left for your Mac’s volume.</p></div>
-      <div><h3>Talk timer</h3><p>Set how long you’ll talk; a tap on your wrist at 5 minutes left and when time is up.</p></div>
-      <div><h3>Your Mac’s volume</h3><p>Video in your slides too loud or too quiet? Adjust it without walking back. No volume indicator pops up on the big screen.</p></div>
-      <div><h3>Any presentation app</h3><p>Keynote, PowerPoint, Google Slides, PDFs. The dot and spotlight are drawn on top and never click anything.</p></div>
+    <ul class="feats pro-list">
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#lockscreen"/></svg><h3>Works while locked</h3><p>Buttons on the Lock Screen and Dynamic Island.</p></li>
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#watch"/></svg><h3>Apple Watch too</h3><p>Tap, turn the Crown, or double tap.</p></li>
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#timer"/></svg><h3>Talk timer</h3><p>Wrist tap at 5 minutes left and when time is up.</p></li>
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#volume"/></svg><h3>Mac volume</h3><p>No volume indicator on the big screen.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="block" id="trackpad">
+  <div class="wrap">
+    <span class="badge">Presence Pro</span>
+    <h2>Your phone is also your Mac’s trackpad and keyboard.</h2>
+    <p class="intro">Type with your phone’s keyboard.</p>
+
+    <div class="theater desk">
+      <div class="laptop">
+        <div class="screen tp-screen" id="tp-screen" aria-label="Mac screen">
+          <div class="desktop"></div>
+          <div class="menubar" aria-hidden="true"><b>TextEdit</b><span>File</span><span>Edit</span><span class="status"><span data-clock>14:05</span></span></div>
+          <div class="editor">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <div class="page" data-tp-page><span class="ln"></span><span class="ln"></span><span class="ln short"></span><p class="typed"><span data-tp-typed></span><i class="caret"></i></p></div>
+          </div>
+          <div class="ctxmenu" data-tp-menu hidden><i></i><i></i><i></i></div>
+          <svg class="arrow" data-tp-arrow viewBox="0 0 16 23" aria-hidden="true"><path d="M1.5 1.5v17.2l4.3-4.1 2.9 6.6 2.7-1.2-2.8-6.4h6z" fill="#000" stroke="#fff" stroke-width="1.3" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="base"></div>
+      </div>
+
+      <div class="phone" aria-label="Presence Remote on iPhone: Trackpad &amp; Keyboard">
+        <div class="ui tp-ui">
+          <header class="tp-head" aria-hidden="true">
+            <span class="round"><svg viewBox="0 0 24 24"><path d="M7 7l10 10M17 7L7 17"/></svg></span>
+            <span class="who"><b>MacBook Pro</b><small>TextEdit</small></span>
+            <span class="round"><svg viewBox="0 0 24 24"><path d="M6 12h.01M12 12h.01M18 12h.01"/></svg></span>
+            <span class="round on"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10h.01M11 10h.01M15 10h.01M8 14h8"/></svg></span>
+          </header>
+          <div class="tp-pad" id="tp-pad" role="application" aria-label="Trackpad">
+          <ul class="guide" data-tp-guide aria-label="Gestures">
+            <li><canvas data-gesture="move"></canvas>Move</li>
+            <li><canvas data-gesture="click"></canvas>Left Click</li>
+            <li><canvas data-gesture="rightClick"></canvas>Right Click</li>
+            <li><canvas data-gesture="scroll"></canvas>Scroll</li>
+            <li><canvas data-gesture="drag"></canvas>Drag</li>
+            <li><canvas data-gesture="swipe"></canvas>Switch</li>
+          </ul>
+          <span class="finger" data-tp-finger></span><span class="finger" data-tp-finger></span>
+          </div>
+          <input class="tp-input" id="tp-input" type="text" placeholder="Type on your Mac" aria-label="Type on your Mac" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="send" data-demo="Meeting at 10 tomorrow">
+          <div class="keyrow" aria-hidden="true"><span>esc</span><span>tab</span><i></i><span>⌃</span><span>⌥</span><span>⇧</span><span>⌘</span><i></i><span>←</span><span>↑</span><span>↓</span><span>→</span></div>
+        </div>
+      </div>
+      <p class="theater-hint">Drag or tap in the pad, or type in the text field.</p>
     </div>
+
   </div>
 </section>
 
 <section class="block" id="plans">
   <div class="wrap">
     <h2>Locking is free. The clicker and trackpad are Pro.</h2>
-    <p class="intro">The Mac app and Presence Remote for iPhone and Apple Watch are free. Only Presenter Remote and Trackpad &amp; Keyboard are part of Presence Pro.</p>
     <div class="plans">
       <div class="plan">
         <h3>Mac app</h3>
         <div class="price">Free</div>
-        <p>Open source, notarized by Apple, and updates itself.</p>
+        <p>Open source · Auto-updates</p>
         <ul><li>Locks when you leave, unlocks when you’re back</li><li>Stays unlocked while presenting or at home</li><li>History and desk time</li></ul>
         <a class="btn primary" href="https://github.com/chung223/Presence/releases/latest">Download for Mac</a>
       </div>
       <div class="plan">
         <h3>Presence Remote</h3>
         <div class="price">Free</div>
-        <p>The companion app for iPhone and Apple Watch.</p>
-        <ul><li>Lock from your iPhone, watch, or Control Center</li><li>Pause and resume auto-lock</li><li>Notifications when your Mac locks or someone unlocks it</li><li>Encrypted check before unlocking</li></ul>
+        <p>iPhone · Apple Watch</p>
+        <ul><li>One-tap lock and pause</li><li>Notifies you when locked or unlocked</li><li>Encrypted check before unlocking</li></ul>
         <a class="btn" href="https://apps.apple.com/app/id6822611221">Get it on the App Store</a>
       </div>
       <div class="plan pro">
         <h3>Presence Pro</h3>
-        <p>Presenter Remote: slides, laser, spotlight, highlighter, volume, and talk timer, on iPhone and Apple Watch.</p>
-        <p>Trackpad &amp; Keyboard: use your iPhone as a trackpad and keyboard for your Mac, with the same gestures as a Mac trackpad.</p>
+        <ul class="perks">
+          <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#laser"/></svg><span><b>Presenter Remote</b>iPhone · Apple Watch</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#trackpad"/></svg><span><b>Trackpad &amp; Keyboard</b>iPhone</span></li>
+        </ul>
         <div class="prices">
           <div><span>Monthly</span><b>US$0.99</b></div>
           <div><span>Yearly</span><b>US$4.99</b></div>
           <div><span>One-time purchase</span><b>US$12.99</b></div>
         </div>
-        <p>Both subscriptions start with a 7-day free trial. All three work with Family Sharing.</p>
+        <p>7-day free trial on subscriptions · Family Sharing</p>
         <a class="btn pro" href="https://apps.apple.com/app/id6822611221">Upgrade in the app</a>
       </div>
     </div>
@@ -286,12 +317,12 @@
 <section class="block tight" id="privacy">
   <div class="wrap">
     <h2>Your Mac only listens to your phone.</h2>
-    <div class="trust">
-      <div><h3>No account, no server</h3><p>Your Mac and phone talk directly over Bluetooth, never over the internet. The developer receives nothing from you.</p></div>
-      <div><h3>Every command is encrypted</h3><p>Pairing creates a key only your devices share. Every command and status is encrypted and verified with it, so someone else’s phone can’t send commands.</p></div>
-      <div><h3>Your password stays in your keychain</h3><p>The login password used for unlocking is stored in your Mac’s keychain, and only after Presence checks that it’s correct.</p></div>
-      <div><h3>Open source</h3><p>The Mac app is fully open source. You can read exactly how it decides and how it unlocks.</p></div>
-    </div>
+    <ul class="trust">
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#nocloud"/></svg>No account, no server</li>
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#key"/></svg>Every command is encrypted</li>
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#lock"/></svg>Password stays in your keychain</li>
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#code"/></svg>Open source</li>
+    </ul>
     <a class="more" href="../privacy/#english">Read the full privacy policy</a>
   </div>
 </section>
@@ -300,13 +331,14 @@
   <div class="wrap">
     <h2>Questions</h2>
     <div class="faq">
-      <details><summary>Do I need to install an app on my phone?</summary><p>No. Presence listens to the Bluetooth signal your iPhone and Apple Watch already send, so the Mac app alone locks and unlocks. With Presence Remote you can also lock remotely, get notifications, and add an encrypted check before unlocking; Presence Pro adds Presenter Remote.</p></details>
-      <details><summary>What do I need?</summary><p>A Mac with Bluetooth LE running macOS 26 or later. Presence Remote needs iOS 26 or watchOS 26 or later. You can also use just an Apple Watch, or another Bluetooth device that advertises regularly with a fixed address.</p></details>
-      <details><summary>How is this different from Unlock with Apple Watch?</summary><p>The built-in feature only unlocks; it doesn’t lock when you walk away. Presence does both, and when unlocking it first waits a few seconds so your watch can unlock the Mac; it only types your password if the watch didn’t. The two work together.</p></details>
-      <details><summary>Will it lock while I’m sitting still?</summary><p>The signal has to stay weak for several seconds, and the lock threshold sits below the unlock threshold. If you’re still typing or using the mouse, locking waits. If it’s still too sensitive, recalibrate on the Devices page.</p></details>
-      <details><summary>Why isn’t the Mac app on the Mac App Store?</summary><p>Unlocking automatically means typing your login password, which Mac App Store apps aren’t allowed to do. So the Mac app is notarized by Apple, downloaded from GitHub, and updates itself.</p></details>
-      <details><summary>Which presentation apps work?</summary><p>Changing slides sends arrow keys, which Keynote, PowerPoint, Google Slides, and PDF viewers understand. The laser, spotlight, and highlighter are drawn by Presence on top of everything, so they work with whatever is on the screen. Turn on Allow Presenter Remote in Presence on your Mac first.</p></details>
-      <details><summary>Does it drain the battery?</summary><p>Your iPhone and Apple Watch send these signals anyway; Presence just listens on your Mac, where it normally uses under 1% CPU.</p></details>
+      <details><summary>Do I need to install an app on my phone?</summary><p>No, the Mac app alone locks and unlocks. Presence Remote adds remote lock, notifications, and a check before unlocking; Presence Pro adds Presenter Remote and Trackpad &amp; Keyboard.</p></details>
+      <details><summary>What do I need?</summary><p>Mac: macOS 26 or later. Presence Remote: iOS 26 or watchOS 26 or later. You can also use just an Apple Watch or another Bluetooth device with a fixed address.</p></details>
+      <details><summary>How is this different from Unlock with Apple Watch?</summary><p>The built-in feature only unlocks, never locks. Presence does both and lets your watch unlock first. The two work together.</p></details>
+      <details><summary>Will it lock while I’m sitting still?</summary><p>The signal has to stay weak for several seconds, and locking waits while you’re typing. If it’s too sensitive, recalibrate on the Devices page.</p></details>
+      <details><summary>Why isn’t the Mac app on the Mac App Store?</summary><p>Unlocking automatically means typing your password, which Mac App Store apps aren’t allowed to do. The Mac app is notarized by Apple and updates itself.</p></details>
+      <details><summary>Which presentation apps work?</summary><p>Changing slides sends arrow keys, which any presentation app understands; the laser and spotlight are drawn on top of everything. Turn on Allow Presenter Remote in Presence on your Mac first.</p></details>
+      <details><summary>How do I turn on Trackpad &amp; Keyboard?</summary><p>In Presence on your Mac, turn on “iPhone &amp; Watch › Allow iPhone Control” (off by default). Your Mac ignores all input while locked, and nothing you type is logged.</p></details>
+      <details><summary>Does it drain the battery?</summary><p>The signals are sent anyway; Presence just listens on your Mac. Mac CPU usage is normally under 1%.</p></details>
     </div>
   </div>
 </section>

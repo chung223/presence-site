@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Presence｜人一走，Mac 就鎖上</title>
-<meta name="description" content="Presence 用你身上的 iPhone 或 Apple Watch 的藍牙訊號判斷你在不在座位上：離開時自動鎖定 Mac，回來時自動解鎖。iPhone 和 Apple Watch 也能當簡報筆，有雷射筆、聚光燈和螢光筆。">
+<meta name="description" content="Presence 用你身上的 iPhone 或 Apple Watch 的藍牙訊號判斷你在不在座位上：離開時自動鎖定 Mac，回來時自動解鎖。iPhone 也能當簡報筆，和 Mac 的觸控板與鍵盤。">
 <link rel="canonical" href="https://chung223.github.io/presence-site/">
 <link rel="alternate" hreflang="zh-Hant" href="https://chung223.github.io/presence-site/">
 <link rel="alternate" hreflang="en" href="https://chung223.github.io/presence-site/en/">
@@ -17,7 +17,7 @@
 <link rel="alternate" hreflang="x-default" href="https://chung223.github.io/presence-site/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Presence｜人一走，Mac 就鎖上">
-<meta property="og:description" content="離開座位，Mac 自動鎖定；走回來，自動解鎖。iPhone 與 Apple Watch 也是你的簡報筆。">
+<meta property="og:description" content="離開座位，Mac 自動鎖定；走回來，自動解鎖。iPhone 也是你的簡報筆、觸控板和鍵盤。">
 <meta property="og:url" content="https://chung223.github.io/presence-site/">
 <meta property="og:image" content="https://chung223.github.io/presence-site/assets/og.png">
 <meta property="og:locale" content="zh_TW">
@@ -39,6 +39,7 @@
     <nav aria-label="主要">
       <a href="#how">怎麼判斷</a>
       <a href="#presenter">簡報遙控</a>
+      <a href="#trackpad">觸控板</a>
       <a href="#plans">方案</a>
       <a href="#faq">常見問題</a>
       <a class="lang" href="#languages">語言</a>
@@ -52,7 +53,7 @@
 <section class="hero">
   <div class="wrap">
     <h1><span class="line">人一走，就鎖上。</span><span class="line">人回來，就打開。</span></h1>
-    <p class="lede">Presence 是 Mac 選單列上的小工具。它聽你身上的 iPhone 或 Apple Watch 本來就會發出的藍牙訊號：訊號變弱，螢幕就鎖上；你走回座位，它幫你解開。手機和手錶不用裝任何 App。</p>
+    <p class="lede"><span class="c">Mac 選單列小工具，聽你身上 iPhone 或 Apple&nbsp;Watch 的藍牙訊號。</span><span class="c">手機和手錶不用裝 App。</span></p>
     <div class="cta" id="download">
       <a class="btn primary" href="https://github.com/chung223/Presence/releases/latest">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M1 20h22"/></svg>
@@ -110,69 +111,50 @@
           <li class="unlock"><i></i>解鎖門檻 −62</li>
           <li class="lock"><i></i>鎖定門檻 −76</li>
         </ul>
-        <p class="hint">拖著<b>你</b>往右走，看 Mac 什麼時候鎖上；再走回來。</p>
+        <p class="hint">拖著<b>你</b>往右走，再走回來。</p>
       </div>
     </figure>
   </div>
 </section>
 
 <section class="block" id="how">
-  <div class="wrap rules">
-    <div>
-      <h2>寧可晚一點解鎖，<br>也不要鎖錯。</h2>
-      <p class="intro">藍牙訊號會跳動，人轉個身就差好幾格。Presence 用幾個保守的規則，讓你坐著不會被鎖，別人拿不到你的 Mac。</p>
+  <div class="wrap">
+    <h2><span class="c">寧可晚一點解鎖，</span><span class="c">也不要鎖錯。</span></h2>
+    <div class="flows">
+      <div class="flow leave">
+        <span class="lane">走開</span>
+        <ol>
+          <li><svg class="ico" aria-hidden="true"><use href="assets/icons.svg#typing"/></svg>還在打字，先等等</li>
+          <li class="end"><svg class="ico" aria-hidden="true"><use href="assets/icons.svg#lock"/></svg>鎖定</li>
+        </ol>
+      </div>
+      <div class="flow back">
+        <span class="lane">回來</span>
+        <ol>
+          <li><svg class="ico" aria-hidden="true"><use href="assets/icons.svg#watch"/></svg>Apple&nbsp;Watch 先解</li>
+          <li><svg class="ico" aria-hidden="true"><use href="assets/icons.svg#ask"/></svg>iPhone 確認是你</li>
+          <li class="end"><svg class="ico" aria-hidden="true"><use href="assets/icons.svg#password"/></svg>才輸入密碼</li>
+        </ol>
+      </div>
     </div>
-    <ul>
-      <li><h3>看幾秒的走勢，不看單一筆</h3><p>取最近 4 秒訊號的中位數，至少要有 3 筆。一筆突然變強或變弱都不算數。</p></li>
-      <li><h3>鎖定和解鎖用兩條線</h3><p>鎖定的門檻比解鎖低一段。站在中間不會一直鎖了又開、開了又鎖。每台裝置可以各自校準：站在想解鎖、想鎖定的位置各量 8 秒就好。</p></li>
-      <li><h3>你還在打字，就先不鎖</h3><p>訊號變弱、但鍵盤滑鼠還有人在用，會先暫緩鎖定。</p></li>
-      <li><h3>解鎖前先問 iPhone</h3><p>裝了 Presence Remote 的話，Mac 要輸入密碼前，會先請 iPhone 用配對時交換的金鑰回答。只偽造藍牙訊號，解不開你的 Mac。</p></li>
-      <li><h3>讓 Apple Watch 先解</h3><p>要解鎖時先等幾秒，讓 macOS 內建的「用 Apple Watch 解鎖」先開；還鎖著才幫你輸入密碼，而且每打一段都先確認畫面還在登入畫面。</p></li>
-    </ul>
   </div>
 </section>
 
 <section class="block tight">
   <div class="wrap">
-    <h2>該鎖的時候鎖，不該鎖的時候別來亂。</h2>
-    <p class="intro">這些都在 Mac 版裡，免費。</p>
-    <div class="grid">
-      <div>
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M10 10V8.5a2 2 0 0 1 4 0V10"/><rect x="9" y="10" width="6" height="4" rx="1"/></svg>
-        <h3>簡報時不會鎖</h3>
-        <p>Keynote、PowerPoint 正在播放時暫停自動鎖定。走上台、離電腦遠了，投影畫面也不會突然變成登入畫面。</p>
-      </div>
-      <div>
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7v9H3z"/><path d="M8 15c2.5-2 5.5-2 8 0M10 18c1.2-.9 2.8-.9 4 0"/></svg>
-        <h3>在家不用鎖</h3>
-        <p>連上信任的網路、接著電源，或不在你設定的時段，就不自動鎖定。網路用路由器辨識，不需要定位權限。</p>
-      </div>
-      <div>
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 9v6M14 9v6"/></svg>
-        <h3>暫停一下</h3>
-        <p>借別人用電腦、開會時，暫停 15 分鐘到 4 小時。時間到了你不在，就馬上補鎖。</p>
-      </div>
-      <div>
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 8 3 8H3s3-1 3-8"/><path d="M10 20a2 2 0 0 0 4 0"/></svg>
-        <h3>有人趁你不在解鎖，你會知道</h3>
-        <p>你不在附近時，有人手動解開你的 Mac，事件紀錄會記下來，也可以拍照存證、通知你的 iPhone。</p>
-      </div>
-      <div>
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 21V11a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v10"/><path d="M4 21h16M12 3v3"/></svg>
-        <h3>今天坐了多久</h3>
-        <p>在座時間自己記：今天、最近 7 天，坐太久會提醒你起來動一動。</p>
-      </div>
-      <div>
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h10M4 17h7"/><path d="M17 15l2 2 3-4"/></svg>
-        <h3>從 BLEUnlock 搬過來</h3>
-        <p>Presence 的想法來自 BLEUnlock，針對新版 macOS 重寫。用過的話，一鍵匯入裝置與門檻。</p>
-      </div>
-    </div>
+    <h2><span class="c">該鎖的時候鎖，</span><span class="c">不該鎖的時候別來亂。</span></h2>
+    <ul class="feats grid">
+      <li><svg class="ico" aria-hidden="true"><use href="assets/icons.svg#present"/></svg><h3>簡報時不鎖</h3><p>Keynote、PowerPoint 播放中。</p></li>
+      <li><svg class="ico" aria-hidden="true"><use href="assets/icons.svg#home"/></svg><h3>在家不鎖</h3><p>信任的網路、接著電源、指定時段。</p></li>
+      <li><svg class="ico" aria-hidden="true"><use href="assets/icons.svg#pause"/></svg><h3>暫停一下</h3><p>15 分鐘到 4 小時，時間到補鎖。</p></li>
+      <li><svg class="ico" aria-hidden="true"><use href="assets/icons.svg#bell"/></svg><h3>有人偷開，你會知道</h3><p>記錄、拍照、通知 iPhone。</p></li>
+      <li><svg class="ico" aria-hidden="true"><use href="assets/icons.svg#seat"/></svg><h3>今天坐了多久</h3><p>坐太久，提醒你起來動一動。</p></li>
+      <li><svg class="ico" aria-hidden="true"><use href="assets/icons.svg#import"/></svg><h3>從 BLEUnlock 搬過來</h3><p>一鍵匯入裝置與門檻。</p></li>
+    </ul>
 
     <div class="shots">
-      <figure class="mac-shot"><img src="assets/shots/mac-overview-zh-Hant.webp" alt="Mac 上的 Presence 總覽：誰在附近、最近 3 分鐘的訊號與事件" width="1400" height="1022" loading="lazy"><figcaption>總覽：誰在附近、最近 3 分鐘的訊號和最近的事件。</figcaption></figure>
-      <figure class="phone-shot"><img src="assets/shots/iphone-01-near-zh-Hant.webp" alt="iPhone 上的 Presence Remote：Apple Watch 在附近" width="660" height="1434" loading="lazy"><figcaption>iPhone 隨時看得到 Mac 的狀態，一鍵鎖定。</figcaption></figure>
-      <figure class="phone-shot"><img src="assets/shots/iphone-02-presenter-zh-Hant.webp" alt="iPhone 上的簡報遙控畫面" width="660" height="1434" loading="lazy"><figcaption>簡報遙控：翻頁、雷射筆、聚光燈、螢光筆、音量。</figcaption></figure>
+      <figure class="mac-shot"><img src="assets/shots/mac-overview-zh-Hant.webp" alt="Mac 上的 Presence 總覽：誰在附近、最近 3 分鐘的訊號與事件" width="1400" height="1022" loading="lazy"><figcaption>誰在附近、訊號、事件</figcaption></figure>
+      <figure class="phone-shot"><img src="assets/shots/iphone-01-near-zh-Hant.webp" alt="iPhone 上的 Presence Remote：Apple Watch 在附近" width="660" height="1434" loading="lazy"><figcaption>一鍵鎖定</figcaption></figure>
     </div>
   </div>
 </section>
@@ -180,8 +162,8 @@
 <section class="block stage" id="presenter" data-night>
   <div class="wrap">
     <span class="badge">Presence Pro</span>
-    <h2>上台以後，手機就是簡報筆。</h2>
-    <p class="intro">不用另外買遙控器，也不用插接收器。在手機上動手指，投影幕上同一個位置就出現紅點、聚光燈或螢光筆的線。直接在下面這支手機上試試看。</p>
+    <h2><span class="c">上台以後，</span><span class="c">手機就是簡報筆。</span></h2>
+    <p class="intro">不用另外買遙控器。</p>
 
     <div class="theater" id="theater">
       <div class="projection-wrap">
@@ -234,49 +216,98 @@
           <div class="extras"><button type="button" data-blank aria-pressed="false">黑畫面</button><button type="button" data-goto>跳到第 1 頁</button></div>
         </div>
       </div>
-      <p class="theater-hint">選雷射筆、聚光燈或螢光筆，在手機的觸控區按住移動。螢光筆的線幾秒後會淡掉，翻頁時馬上清掉。</p>
+      <p class="theater-hint">選一支筆，在觸控區按住移動。</p>
     </div>
 
-    <div class="pro-list">
-      <div><h3>點一下、滑一下就翻頁</h3><p>也能跳到第幾頁、讓投影畫面暫時全黑、開始與結束播放。</p></div>
-      <div><h3>手機鎖著也能翻</h3><p>鎖定畫面和動態島上有翻頁按鈕，手機收進口袋前不必解鎖。</p></div>
-      <div><h3>Apple Watch 也是簡報筆</h3><p>點按、轉錶冠，或兩指互點就翻頁。往左滑一頁調 Mac 的音量。</p></div>
-      <div><h3>演講倒數</h3><p>設好講幾分鐘，剩 5 分鐘、時間到時在手腕上輕敲提醒你。</p></div>
-      <div><h3>調 Mac 的音量</h3><p>簡報裡的影片太大聲或太小聲，不用走回電腦。投影畫面上不會跳出音量圖示。</p></div>
-      <div><h3>哪個簡報軟體都行</h3><p>Keynote、PowerPoint、Google 簡報、PDF 都可以。紅點和聚光燈畫在最上層，不會點到任何東西。</p></div>
+    <ul class="feats pro-list">
+      <li><svg class="ico" aria-hidden="true"><use href="assets/icons.svg#lockscreen"/></svg><h3>鎖著也能翻</h3><p>鎖定畫面、動態島都有按鈕。</p></li>
+      <li><svg class="ico" aria-hidden="true"><use href="assets/icons.svg#watch"/></svg><h3>Apple Watch 也行</h3><p>點按、轉錶冠、兩指互點。</p></li>
+      <li><svg class="ico" aria-hidden="true"><use href="assets/icons.svg#timer"/></svg><h3>演講倒數</h3><p>剩 5 分鐘、時間到，輕敲手腕。</p></li>
+      <li><svg class="ico" aria-hidden="true"><use href="assets/icons.svg#volume"/></svg><h3>調 Mac 的音量</h3><p>投影畫面不跳音量圖示。</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="block" id="trackpad">
+  <div class="wrap">
+    <span class="badge">Presence Pro</span>
+    <h2><span class="c">手機也是 Mac 的</span><span class="c">觸控板與鍵盤。</span></h2>
+    <p class="intro">打字用手機的輸入法。</p>
+
+    <div class="theater desk">
+      <div class="laptop">
+        <div class="screen tp-screen" id="tp-screen" aria-label="Mac 的螢幕">
+          <div class="desktop"></div>
+          <div class="menubar" aria-hidden="true"><b>文字編輯</b><span>檔案</span><span>編輯</span><span class="status"><span data-clock>14:05</span></span></div>
+          <div class="editor">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <div class="page" data-tp-page><span class="ln"></span><span class="ln"></span><span class="ln short"></span><p class="typed"><span data-tp-typed></span><i class="caret"></i></p></div>
+          </div>
+          <div class="ctxmenu" data-tp-menu hidden><i></i><i></i><i></i></div>
+          <svg class="arrow" data-tp-arrow viewBox="0 0 16 23" aria-hidden="true"><path d="M1.5 1.5v17.2l4.3-4.1 2.9 6.6 2.7-1.2-2.8-6.4h6z" fill="#000" stroke="#fff" stroke-width="1.3" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="base"></div>
+      </div>
+
+      <div class="phone" aria-label="iPhone 上的 Presence Remote：觸控板與鍵盤">
+        <div class="ui tp-ui">
+          <header class="tp-head" aria-hidden="true">
+            <span class="round"><svg viewBox="0 0 24 24"><path d="M7 7l10 10M17 7L7 17"/></svg></span>
+            <span class="who"><b>MacBook Pro</b><small>文字編輯</small></span>
+            <span class="round"><svg viewBox="0 0 24 24"><path d="M6 12h.01M12 12h.01M18 12h.01"/></svg></span>
+            <span class="round on"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10h.01M11 10h.01M15 10h.01M8 14h8"/></svg></span>
+          </header>
+          <div class="tp-pad" id="tp-pad" role="application" aria-label="觸控板">
+          <ul class="guide" data-tp-guide aria-label="手勢">
+            <li><canvas data-gesture="move"></canvas>移動</li>
+            <li><canvas data-gesture="click"></canvas>左鍵</li>
+            <li><canvas data-gesture="rightClick"></canvas>右鍵</li>
+            <li><canvas data-gesture="scroll"></canvas>捲動</li>
+            <li><canvas data-gesture="drag"></canvas>拖曳</li>
+            <li><canvas data-gesture="swipe"></canvas>切換</li>
+          </ul>
+          <span class="finger" data-tp-finger></span><span class="finger" data-tp-finger></span>
+          </div>
+          <input class="tp-input" id="tp-input" type="text" placeholder="打字到 Mac" aria-label="打字到 Mac" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="send" data-demo="明天 10 點開會">
+          <div class="keyrow" aria-hidden="true"><span>esc</span><span>tab</span><i></i><span>⌃</span><span>⌥</span><span>⇧</span><span>⌘</span><i></i><span>←</span><span>↑</span><span>↓</span><span>→</span></div>
+        </div>
+      </div>
+      <p class="theater-hint">在觸控區拖曳、點一下，或在文字框打字。</p>
     </div>
+
   </div>
 </section>
 
 <section class="block" id="plans">
   <div class="wrap">
-    <h2>鎖定是免費的。簡報筆和觸控板才要錢。</h2>
-    <p class="intro">Mac 版和 iPhone、Apple Watch 的 Presence Remote 都可以免費使用。只有簡報遙控、觸控板與鍵盤是 Presence Pro。</p>
+    <h2><span class="c">鎖定是免費的。</span><span class="c">簡報筆和觸控板才要錢。</span></h2>
     <div class="plans">
       <div class="plan">
         <h3>Mac 版</h3>
         <div class="price">免費</div>
-        <p>開放原始碼，經過 Apple 公證，之後的新版自動更新。</p>
-        <ul><li>離開自動鎖定、回來自動解鎖</li><li>簡報時、在家時不鎖</li><li>事件紀錄、在座時間</li></ul>
+        <p>開放原始碼・自動更新</p>
+        <ul><li>離開鎖定、回來解鎖</li><li>簡報時、在家不鎖</li><li>事件紀錄、在座時間</li></ul>
         <a class="btn primary" href="https://github.com/chung223/Presence/releases/latest">下載 Mac 版</a>
       </div>
       <div class="plan">
         <h3>Presence Remote</h3>
         <div class="price">免費</div>
-        <p>iPhone 與 Apple Watch 的配套 App。</p>
-        <ul><li>從手機、手錶、控制中心立即鎖定</li><li>暫停與恢復自動鎖定</li><li>離開被鎖、有人解鎖時通知你</li><li>解鎖前的加密確認</li></ul>
+        <p>iPhone・Apple Watch</p>
+        <ul><li>一鍵鎖定、暫停</li><li>被鎖、有人解鎖時通知你</li><li>解鎖前加密確認</li></ul>
         <a class="btn" href="https://apps.apple.com/tw/app/id6822611221">在 App Store 下載</a>
       </div>
       <div class="plan pro">
         <h3>Presence Pro</h3>
-        <p>簡報遙控：翻頁、雷射筆、聚光燈、螢光筆、音量、演講倒數，iPhone 和 Apple Watch 都能用。</p>
-        <p>觸控板與鍵盤：把 iPhone 當 Mac 的觸控板和鍵盤，手勢跟 Mac 一樣，打字用手機的輸入法。</p>
+        <ul class="perks">
+          <li><svg class="ico" aria-hidden="true"><use href="assets/icons.svg#laser"/></svg><span><b>簡報遙控</b>iPhone・Apple Watch</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="assets/icons.svg#trackpad"/></svg><span><b>觸控板與鍵盤</b>iPhone</span></li>
+        </ul>
         <div class="prices">
           <div><span>月訂閱</span><b>NT$30</b></div>
           <div><span>年訂閱</span><b>NT$150</b></div>
           <div><span>一次買斷</span><b>NT$390</b></div>
         </div>
-        <p>兩種訂閱都可以免費試用 7 天。三種都可以和家人共享。</p>
+        <p>訂閱免費試用 7 天・可家人共享</p>
         <a class="btn pro" href="https://apps.apple.com/tw/app/id6822611221">在 App 裡升級</a>
       </div>
     </div>
@@ -285,13 +316,13 @@
 
 <section class="block tight" id="privacy">
   <div class="wrap">
-    <h2>你的 Mac，只聽你的手機。</h2>
-    <div class="trust">
-      <div><h3>沒有帳號，也沒有伺服器</h3><p>Mac 和手機只用藍牙直接溝通，不經過網路。開發者收不到你的任何資料。</p></div>
-      <div><h3>每個指令都加密</h3><p>配對時交換一把只屬於你們的金鑰，指令和狀態都用它加密、驗證。別人的手機下不了指令。</p></div>
-      <div><h3>密碼只在你的鑰匙圈</h3><p>自動解鎖要用的登入密碼，存在你 Mac 的鑰匙圈裡，Presence 先確認密碼正確才存。</p></div>
-      <div><h3>程式碼公開</h3><p>Mac 版完整開放原始碼，怎麼判斷、怎麼解鎖，都可以自己看。</p></div>
-    </div>
+    <h2><span class="c">你的 Mac，</span><span class="c">只聽你的手機。</span></h2>
+    <ul class="trust">
+      <li><svg class="ico" aria-hidden="true"><use href="assets/icons.svg#nocloud"/></svg>沒有帳號，也沒有伺服器</li>
+      <li><svg class="ico" aria-hidden="true"><use href="assets/icons.svg#key"/></svg>每個指令都加密</li>
+      <li><svg class="ico" aria-hidden="true"><use href="assets/icons.svg#lock"/></svg>密碼只在你的鑰匙圈</li>
+      <li><svg class="ico" aria-hidden="true"><use href="assets/icons.svg#code"/></svg>程式碼公開</li>
+    </ul>
     <a class="more" href="privacy/">閱讀完整的隱私權政策</a>
   </div>
 </section>
@@ -300,20 +331,21 @@
   <div class="wrap">
     <h2>常見問題</h2>
     <div class="faq">
-      <details><summary>手機一定要裝 App 嗎？</summary><p>不用。Presence 讀的是 iPhone 和 Apple Watch 本來就會發出的藍牙訊號，只裝 Mac 版就能自動鎖定與解鎖。裝了 Presence Remote 可以從手機遠端鎖定、收通知、解鎖前加密確認；升級 Presence Pro 再加上簡報遙控。</p></details>
-      <details><summary>需要什麼裝置和系統？</summary><p>Mac 要 macOS 26 以上、有藍牙 LE。Presence Remote 要 iOS 26、watchOS 26 以上。也可以只用 Apple Watch，或其他會定期廣播、位址固定的藍牙裝置。</p></details>
-      <details><summary>跟 Mac 內建的「用 Apple Watch 解鎖」有什麼不一樣？</summary><p>內建的只會幫你解鎖，你離開時不會鎖。Presence 兩件事都做；要解鎖時還會先等幾秒，讓內建的手錶解鎖先開，手錶沒開才幫你輸入密碼。兩個可以一起用。</p></details>
-      <details><summary>我坐著不動，會不會突然被鎖？</summary><p>要連續幾秒訊號都太弱才會鎖，而且鎖定門檻比解鎖低一段。偵測到你還在打字或用滑鼠，也會先暫緩。真的太敏感，在「裝置」頁重新校準就好。</p></details>
-      <details><summary>為什麼 Mac 版不在 Mac App Store？</summary><p>自動解鎖要模擬鍵盤輸入登入密碼，Mac App Store 的 App 不能這樣做。所以 Mac 版經過 Apple 公證，從 GitHub 下載，之後的新版會自動更新。</p></details>
-      <details><summary>簡報遙控支援哪些軟體？</summary><p>翻頁送的是方向鍵，Keynote、PowerPoint、Google 簡報、PDF 閱讀器都認得。雷射筆、聚光燈、螢光筆是 Presence 畫在畫面最上層的，不管投影的是什麼 App 都能用。要先在 Mac 的 Presence 打開「允許簡報遙控」。</p></details>
-      <details><summary>會很耗電嗎？</summary><p>iPhone 和 Apple Watch 本來就會發出這些訊號，Presence 只是在 Mac 上聽。Mac 這邊平常的 CPU 使用率不到 1%。</p></details>
+      <details><summary>手機一定要裝 App 嗎？</summary><p>不用，只裝 Mac 版就能自動鎖定與解鎖。Presence Remote 加上遠端鎖定、通知、解鎖前確認；Presence Pro 再加上簡報遙控、觸控板與鍵盤。</p></details>
+      <details><summary>需要什麼裝置和系統？</summary><p>Mac：macOS 26 以上。Presence Remote：iOS 26、watchOS 26 以上。只用 Apple Watch，或其他位址固定的藍牙裝置也可以。</p></details>
+      <details><summary>跟 Mac 內建的「用 Apple Watch 解鎖」有什麼不一樣？</summary><p>內建的只解鎖、不鎖定。Presence 兩件事都做，而且讓內建的手錶解鎖先開。兩個可以一起用。</p></details>
+      <details><summary>我坐著不動，會不會突然被鎖？</summary><p>要連續幾秒訊號都太弱才鎖，你還在打字也會先暫緩。太敏感就在「裝置」頁重新校準。</p></details>
+      <details><summary>為什麼 Mac 版不在 Mac App Store？</summary><p>自動解鎖要模擬鍵盤輸入密碼，Mac App Store 的 App 不能這樣做。Mac 版經過 Apple 公證，會自動更新。</p></details>
+      <details><summary>簡報遙控支援哪些軟體？</summary><p>翻頁送方向鍵，哪個簡報軟體都認得；雷射筆和聚光燈畫在畫面最上層。要先在 Mac 的 Presence 打開「允許簡報遙控」。</p></details>
+      <details><summary>觸控板與鍵盤要怎麼開？</summary><p>在 Mac 的 Presence 打開「手機與手錶 › 允許 iPhone 操作」（預設關閉）。Mac 鎖著時不接受任何操作，打的字也不留紀錄。</p></details>
+      <details><summary>會很耗電嗎？</summary><p>訊號本來就在發，Presence 只是在 Mac 上聽。Mac 的 CPU 使用率平常不到 1%。</p></details>
     </div>
   </div>
 </section>
 
 <section class="finale">
   <div class="wrap">
-    <h2>下次離開座位，不用再記得鎖螢幕。</h2>
+    <h2><span class="c">下次離開座位，</span><span class="c">不用再記得鎖螢幕。</span></h2>
     <div class="cta">
       <a class="btn primary" href="https://github.com/chung223/Presence/releases/latest">下載 Mac 版</a>
       <a class="btn" href="https://apps.apple.com/tw/app/id6822611221">iPhone 與 Apple Watch App</a>

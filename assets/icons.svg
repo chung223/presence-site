@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+<!-- 全站共用的圖示：<svg class="ico"><use href="assets/icons.svg#名稱"/></svg>。線條顏色、粗細由 .ico 決定 -->
+<!-- 判斷方式 -->
+<symbol id="median" viewBox="0 0 24 24"><path d="M3 15l2.5-5 3 8 3-11 3 9 2.5-4 4 3" opacity=".4"/><path d="M3 12h18"/></symbol>
+<symbol id="thresholds" viewBox="0 0 24 24"><path d="M3 7h18M3 17h18" stroke-dasharray="2.5 3"/><path d="M12 10v4M10 12l2-2 2 2"/></symbol>
+<symbol id="typing" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2.5"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7.5 14h9"/></symbol>
+<symbol id="ask" viewBox="0 0 24 24"><rect x="6.5" y="2" width="11" height="20" rx="2.5"/><path d="M9.5 12l1.8 1.8 3.4-3.6"/></symbol>
+<symbol id="watch" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="3.5"/><path d="M9 6l.6-3.5h4.8L15 6M9 18l.6 3.5h4.8L15 18M12 9.5V12l1.6 1"/></symbol>
+<symbol id="password" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="10" rx="5"/><path d="M7 12h.01M10.3 12h.01M13.6 12h.01M16.9 12h.01" stroke-width="2.6"/></symbol>
+<!-- Mac 版的功能 -->
+<symbol id="present" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M10 10V8.5a2 2 0 0 1 4 0V10"/><rect x="9" y="10" width="6" height="4" rx="1"/></symbol>
+<symbol id="home" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9H3z"/><path d="M8 15c2.5-2 5.5-2 8 0M10 18c1.2-.9 2.8-.9 4 0"/></symbol>
+<symbol id="pause" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M10 9v6M14 9v6"/></symbol>
+<symbol id="bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 8 3 8H3s3-1 3-8"/><path d="M10 20a2 2 0 0 0 4 0"/></symbol>
+<symbol id="seat" viewBox="0 0 24 24"><path d="M6 21V11a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v10"/><path d="M4 21h16M12 3v3"/></symbol>
+<symbol id="import" viewBox="0 0 24 24"><path d="M4 7h16M4 12h10M4 17h7"/><path d="M17 15l2 2 3-4"/></symbol>
+<!-- 簡報遙控 -->
+<symbol id="next" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M10.5 8l4 4-4 4"/></symbol>
+<symbol id="lockscreen" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3"/><rect x="9.5" y="11" width="5" height="4" rx="1"/><path d="M10.5 11V9.6a1.5 1.5 0 0 1 3 0V11"/></symbol>
+<symbol id="timer" viewBox="0 0 24 24"><circle cx="12" cy="13.5" r="7.5"/><path d="M12 9.5v4l2.5 2M9.5 2.5h5"/></symbol>
+<symbol id="volume" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></symbol>
+<symbol id="slides" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v4M8 21h8M7 12l3-3 2 2 4-4"/></symbol>
+<symbol id="laser" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2" fill="currentColor"/><circle cx="12" cy="12" r="8"/></symbol>
+<symbol id="trackpad" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="15" rx="2.5"/><path d="M3 14.5h18M12 14.5V19"/><circle cx="10" cy="9" r="1.4" fill="currentColor"/></symbol>
+<!-- 隱私 -->
+<symbol id="nocloud" viewBox="0 0 24 24"><path d="M7 18.5h10a4 4 0 0 0 .7-7.94A6 6 0 0 0 6.3 9.5 4.5 4.5 0 0 0 7 18.5z"/><path d="M3 3l18 18"/></symbol>
+<symbol id="key" viewBox="0 0 24 24"><circle cx="8" cy="15" r="4.5"/><path d="M11.2 11.8L20 3M16.5 6.5l3 3M14 9l2 2"/></symbol>
+<symbol id="lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10.5" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5M12 14.5v2.5"/></symbol>
+<symbol id="code" viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></symbol>
+</svg>

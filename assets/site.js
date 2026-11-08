@@ -534,4 +534,273 @@
       if (keepGoing) requestFrame();
     }
   }
+  // ── 觸控板與鍵盤 ─────────────────────────────────
+  // 在手機的觸控區拖曳，Mac 上的游標跟著動；點一下是左鍵、兩指點（或滑鼠右鍵）是右鍵、兩指滑動捲動。
+  // 文字框跟 App 一樣：組字中（注音、拼音）不送，組好的字才出現在 Mac 上；Return 換行並清空。
+  const tpScreen = document.getElementById("tp-screen");
+  if (tpScreen) setUpTrackpad();
+
+  function setUpTrackpad() {
+    const pad = document.getElementById("tp-pad");
+    const input = document.getElementById("tp-input");
+    const arrow = tpScreen.querySelector("[data-tp-arrow]");
+    const menu = tpScreen.querySelector("[data-tp-menu]");
+    const page = tpScreen.querySelector("[data-tp-page]");
+    const typed = tpScreen.querySelector("[data-tp-typed]");
+    const typedLine = typed.parentElement;
+    const fingers = [...pad.querySelectorAll("[data-tp-finger]")];
+    // 手勢圖跟 App 一樣：碰一下觸控區就收起來，打字時也不顯示
+    const guide = pad.querySelector("[data-tp-guide]");
+    let guideDismissed = false;
+    const showGuide = (on) => guide?.classList.toggle("off", !on || guideDismissed);
+    const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+    const cursor = { x: 0.58, y: 0.46 };
+    let scrolled = 0, menuTimer = 0, composing = false;
+
+    // 跟 macOS 一樣：打字時游標藏起來，一動就出現
+    const place = () => { arrow.style.left = `${cursor.x * 100}%`; arrow.style.top = `${cursor.y * 100}%`; arrow.style.opacity = 1; };
+    const hideArrow = () => { arrow.style.opacity = 0; };
+    place();
+
+    // 手指越快，游標走得越遠
+    function moveBy(dx, dy, dt) {
+      const r = tpScreen.getBoundingClientRect();
+      const gain = 1.1 + Math.min(2.2, (Math.hypot(dx, dy) / Math.max(dt, 8)) * 1.6);
+      cursor.x = clamp(cursor.x + (dx * gain) / r.width, 0.005, 0.975);
+      cursor.y = clamp(cursor.y + (dy * gain) / r.height, 0.01, 0.96);
+      place();
+    }
+    function click() {
+      hideMenu();
+      const dot = document.createElement("span");
+      dot.className = "ripple";
+      dot.style.left = arrow.style.left;
+      dot.style.top = arrow.style.top;
+      tpScreen.append(dot);
+      setTimeout(() => dot.remove(), 600);
+    }
+    function rightClick() {
+      menu.style.left = `${Math.min(cursor.x, 0.77) * 100}%`;
+      menu.style.top = `${Math.min(cursor.y, 0.8) * 100}%`;
+      menu.hidden = false;
+      clearTimeout(menuTimer);
+      menuTimer = setTimeout(hideMenu, 1800);
+    }
+    function hideMenu() { menu.hidden = true; }
+    function scrollBy(dy) {
+      const room = Math.max(0, page.scrollHeight - page.clientHeight) + page.clientHeight * 0.25;
+      scrolled = clamp(scrolled + dy, -room, 0);
+      page.style.transform = `translateY(${scrolled}px)`;
+    }
+
+    // 觸控區：記住每隻手指，放開時沒怎麼動就算點一下
+    const touches = new Map();
+    let gesture = null;
+    function showFingers() {
+      const r = pad.getBoundingClientRect();
+      const points = [...touches.values()];
+      fingers.forEach((f, i) => {
+        const p = points[i];
+        f.classList.toggle("on", Boolean(p));
+        if (p) { f.style.left = `${p.x - r.left}px`; f.style.top = `${p.y - r.top}px`; }
+      });
+    }
+    pad.addEventListener("pointerdown", (e) => {
+      stopDemo();
+      guideDismissed = true;
+      showGuide(false);
+      if (e.button === 2) return;
+      try { pad.setPointerCapture(e.pointerId); } catch { /* 模擬的事件沒有真的指標 */ }
+      touches.set(e.pointerId, { x: e.clientX, y: e.clientY, t: e.timeStamp });
+      if (!gesture) gesture = { count: 0, moved: 0, start: e.timeStamp };
+      gesture.count = Math.max(gesture.count, touches.size);
+      showFingers();
+    });
+    pad.addEventListener("pointermove", (e) => {
+      const p = touches.get(e.pointerId);
+      if (!p) return;
+      const dx = e.clientX - p.x, dy = e.clientY - p.y, dt = e.timeStamp - p.t;
+      Object.assign(p, { x: e.clientX, y: e.clientY, t: e.timeStamp });
+      gesture.moved += Math.hypot(dx, dy);
+      if (touches.size === 1) moveBy(dx, dy, dt);
+      else if (e.pointerId === touches.keys().next().value) scrollBy(dy);
+      showFingers();
+    });
+    const lift = (e) => {
+      if (!touches.delete(e.pointerId)) return;
+      if (!touches.size && gesture) {
+        if (gesture.moved < 10 && e.timeStamp - gesture.start < 400) {
+          if (gesture.count >= 2) rightClick(); else click();
+        }
+        gesture = null;
+      }
+      showFingers();
+    };
+    pad.addEventListener("pointerup", lift);
+    pad.addEventListener("pointercancel", lift);
+    pad.addEventListener("contextmenu", (e) => { e.preventDefault(); stopDemo(); rightClick(); });
+
+    // 文字框
+    const mirror = () => { if (!composing) { typed.textContent = input.value; hideArrow(); } };
+    input.addEventListener("focus", () => { stopDemo(); showGuide(false); });
+    input.addEventListener("blur", () => showGuide(true));
+    input.addEventListener("compositionstart", () => { composing = true; });
+    input.addEventListener("compositionend", () => { composing = false; mirror(); });
+    input.addEventListener("input", mirror);
+    input.addEventListener("keydown", (e) => {
+      if (e.key !== "Enter" || e.isComposing || composing) return;
+      e.preventDefault();
+      newLine();
+    });
+    function newLine() {
+      const line = document.createElement("p");
+      line.textContent = input.value;
+      typedLine.before(line);
+      input.value = "";
+      typed.textContent = "";
+      const lines = page.querySelectorAll("p:not(.typed)");
+      if (lines.length > 3) lines[0].remove();
+    }
+
+    // 沒人碰的時候自己示範一輪：游標移到文字後面、點一下、打一句話、換行
+    let demo = !reduceMotion, visible = false, wake = null, timer = 0, frame = 0;
+    function stopDemo() {
+      if (!demo) return;
+      demo = false;
+      clearTimeout(timer);
+      cancelAnimationFrame(frame);
+      wake?.();
+      fingers.forEach((f) => f.classList.remove("on"));
+      input.value = "";
+      typed.textContent = "";
+    }
+    const sleep = (ms) => new Promise((done) => { timer = setTimeout(done, ms); });
+    const tween = (ms, step) => new Promise((done) => {
+      const start = performance.now();
+      const tick = (now) => {
+        if (!demo) return done();
+        const k = Math.min(1, (now - start) / ms);
+        step(k * k * (3 - 2 * k));
+        if (k < 1) frame = requestAnimationFrame(tick); else done();
+      };
+      frame = requestAnimationFrame(tick);
+    });
+    async function runDemo() {
+      const finger = fingers[0];
+      while (demo) {
+        if (!visible) { await new Promise((done) => { wake = done; }); wake = null; continue; }
+        page.querySelectorAll("p:not(.typed)").forEach((line) => line.remove());
+        const s = tpScreen.getBoundingClientRect(), t = typedLine.getBoundingClientRect();
+        const from = { ...cursor };
+        const to = { x: (t.left - s.left) / s.width + 0.015, y: (t.top + t.height * 0.75 - s.top) / s.height };
+        showGuide(false);
+        finger.classList.add("on");
+        await tween(1300, (k) => {
+          cursor.x = from.x + (to.x - from.x) * k;
+          cursor.y = from.y + (to.y - from.y) * k;
+          place();
+          finger.style.left = `${(0.62 - 0.3 * k) * 100}%`;
+          finger.style.top = `${(0.3 + 0.36 * k) * 100}%`;
+        });
+        if (!demo) break;
+        await sleep(220); if (!demo) break;
+        click();
+        await sleep(380);
+        finger.classList.remove("on");
+        for (const ch of Array.from(input.dataset.demo || "")) {
+          await sleep(150); if (!demo) break;
+          input.value += ch;
+          typed.textContent = input.value;
+          hideArrow();
+        }
+        if (!demo) break;
+        await sleep(900); if (!demo) break;
+        newLine();
+        await sleep(2800);
+        if (!demo) break;
+        showGuide(true);
+        await tween(900, (k) => { cursor.x = to.x + (0.58 - to.x) * k; cursor.y = to.y + (0.46 - to.y) * k; place(); });
+        await sleep(1200);
+      }
+    }
+    new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      if (visible) wake?.();
+    }, { threshold: 0.4 }).observe(tpScreen);
+    if (demo) runDemo();
+  }
+
+  // ── 觸控區裡的手勢圖：照 App 的 GestureGlyph 畫，一次動一格（1.8 秒輪一次）──
+  const glyphs = [...document.querySelectorAll("canvas[data-gesture]")];
+  if (glyphs.length) setUpGestures();
+
+  function setUpGestures() {
+    const SLOT = 1800;
+    const ctxs = glyphs.map((c) => { c.setAttribute("aria-hidden", "true"); return c.getContext("2d"); });
+    let running = false, raf = 0;
+
+    function glyph(ctx, w, kind, progress) {
+      ctx.clearRect(0, 0, w, w);
+      const t = progress ?? 0.68;
+      const color = progress == null ? "rgba(255,255,255,0.55)" : "#ff9a3c";
+      const radius = w * 0.095;
+      const at = (x, y) => [x * w, y * w];
+      const paint = (alpha, fn) => { ctx.save(); ctx.globalAlpha = alpha; ctx.fillStyle = ctx.strokeStyle = color; ctx.beginPath(); fn(); ctx.restore(); };
+      const finger = ([x, y]) => paint(1, () => { ctx.arc(x, y, radius, 0, Math.PI * 2); ctx.fill(); });
+      const trail = ([x1, y1], [x2, y2]) => paint(0.35, () => { ctx.lineWidth = radius * 0.9; ctx.lineCap = "round"; ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); });
+      const ripple = ([x, y], amount) => {
+        if (!(amount > 0 && amount < 1)) return;
+        paint(1 - amount, () => { ctx.lineWidth = 1.5; ctx.arc(x, y, radius * (1.2 + amount * 1.5), 0, Math.PI * 2); ctx.stroke(); });
+      };
+      const eased = (a, b) => { const x = Math.min(Math.max((t - a) / (b - a), 0), 1); return x * x * (3 - 2 * x); };
+      const lerp = (a, b, k) => a + (b - a) * k;
+      const tapAt = progress == null ? 0.35 : (t - 0.2) / 0.55;
+
+      if (kind === "move") {
+        const m = eased(0.12, 0.82), end = at(lerp(0.28, 0.72, m), lerp(0.72, 0.28, m));
+        trail(at(0.28, 0.72), end); finger(end);
+      } else if (kind === "click") {
+        ripple(at(0.5, 0.5), tapAt); finger(at(0.5, 0.5));
+      } else if (kind === "rightClick") {
+        for (const p of [at(0.3, 0.5), at(0.7, 0.5)]) { ripple(p, tapAt); finger(p); }
+      } else if (kind === "scroll") {
+        const m = eased(0.12, 0.82);
+        for (const x of [0.39, 0.61]) { const end = at(x, lerp(0.72, 0.28, m)); trail(at(x, 0.72), end); finger(end); }
+      } else if (kind === "drag") {
+        // 先點一下，再按住滑動：手指帶著一個方塊走
+        const m = eased(0.35, 0.88), x = lerp(0.3, 0.7, m), side = w * 0.3;
+        paint(0.6, () => { ctx.lineWidth = 1.5; ctx.roundRect(x * w - side / 2, w / 2 - side / 2, side, side, side * 0.22); ctx.stroke(); });
+        ripple(at(0.3, 0.5), progress == null ? -1 : t / 0.32);
+        finger(at(x, 0.5));
+      } else if (kind === "swipe") {
+        const m = eased(0.12, 0.82);
+        [[0.3, 0], [0.5, 0.05], [0.7, 0]].forEach(([y, dx]) => { const end = at(lerp(0.26, 0.7, m) + dx, y); trail(at(0.26 + dx, y), end); finger(end); });
+      }
+    }
+
+    function draw(now) {
+      const active = reduceMotion ? -1 : Math.floor(now / SLOT) % glyphs.length;
+      const progress = (now / SLOT) % 1;
+      glyphs.forEach((c, i) => {
+        glyph(ctxs[i], c.clientWidth, c.dataset.gesture, i === active ? progress : null);
+        c.parentElement.classList.toggle("on", i === active);
+      });
+      if (running && !reduceMotion) raf = requestAnimationFrame(draw);
+    }
+    function size() {
+      const dpr = Math.min(2, devicePixelRatio || 1);
+      glyphs.forEach((c, i) => {
+        const w = c.clientWidth;
+        c.width = c.height = Math.max(1, Math.round(w * dpr));
+        ctxs[i].setTransform(dpr, 0, 0, dpr, 0, 0);
+      });
+      draw(performance.now());
+    }
+    new ResizeObserver(size).observe(glyphs[0]);
+    new IntersectionObserver(([entry]) => {
+      running = entry.isIntersecting;
+      cancelAnimationFrame(raf);
+      if (running) raf = requestAnimationFrame(draw);
+    }).observe(glyphs[0].closest("ul"));
+  }
 })();

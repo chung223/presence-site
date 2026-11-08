@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Presence｜席を離れると、Macを自動ロック</title>
-<meta name="description" content="Presenceは、いつも身につけているiPhoneやApple WatchのBluetooth信号を受信して、あなたが席にいるかどうかを判断します。離れるとMacをロックし、戻るとロックを解除します。iPhoneとApple Watchは、レーザーポインタ、スポットライト、蛍光ペンを使えるプレゼンリモコンにもなります。">
+<meta name="description" content="Presenceは、いつも身につけているiPhoneやApple WatchのBluetooth信号を受信して、あなたが席にいるかどうかを判断します。離れるとMacをロックし、戻るとロックを解除します。iPhoneはプレゼンリモコンにも、Macのトラックパッドとキーボードにもなります。">
 <link rel="canonical" href="https://chung223.github.io/presence-site/ja/">
 <link rel="alternate" hreflang="zh-Hant" href="https://chung223.github.io/presence-site/">
 <link rel="alternate" hreflang="en" href="https://chung223.github.io/presence-site/en/">
@@ -17,7 +17,7 @@
 <link rel="alternate" hreflang="x-default" href="https://chung223.github.io/presence-site/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Presence｜席を離れると、Macを自動ロック">
-<meta property="og:description" content="席を離れるとMacがロックされ、戻るとロックが解除されます。iPhoneとApple Watchはプレゼンリモコンにもなります。">
+<meta property="og:description" content="席を離れるとMacがロックされ、戻るとロックが解除されます。iPhoneはプレゼンリモコンやトラックパッド、キーボードにもなります。">
 <meta property="og:url" content="https://chung223.github.io/presence-site/ja/">
 <meta property="og:image" content="https://chung223.github.io/presence-site/assets/og-ja.png">
 <meta property="og:locale" content="ja_JP">
@@ -39,6 +39,7 @@
     <nav aria-label="メイン">
       <a href="#how">判断のしくみ</a>
       <a href="#presenter">プレゼンリモコン</a>
+      <a href="#trackpad">トラックパッド</a>
       <a href="#plans">料金</a>
       <a href="#faq">よくある質問</a>
       <a class="lang" href="#languages">言語</a>
@@ -52,7 +53,7 @@
 <section class="hero">
   <div class="wrap">
     <h1><span class="line">離れるとロック。</span><span class="line">戻ると解除。</span></h1>
-    <p class="lede">PresenceはMacのメニューバーで動くAppです。iPhoneやApple Watchがふだんから発しているBluetooth信号を受信し、信号が弱くなると画面をロック。席に戻ると、ロックを解除します。iPhoneやApple Watchには何もインストールする必要はありません。</p>
+    <p class="lede"><span class="c">Macのメニューバーで動き、iPhoneやApple&nbsp;WatchのBluetooth信号を受信します。</span><span class="c">iPhoneやApple&nbsp;WatchにAppは不要です。</span></p>
     <div class="cta" id="download">
       <a class="btn primary" href="https://github.com/chung223/Presence/releases/latest">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M1 20h22"/></svg>
@@ -110,69 +111,50 @@
           <li class="unlock"><i></i>−62でロック解除</li>
           <li class="lock"><i></i>−76でロック</li>
         </ul>
-        <p class="hint"><b>あなた</b>を右へドラッグして、Macがいつロックされるか見てみてください。そのあと、また戻ってみましょう。</p>
+        <p class="hint"><b>あなた</b>を右へドラッグし、また戻ってみましょう。</p>
       </div>
     </figure>
   </div>
 </section>
 
 <section class="block" id="how">
-  <div class="wrap rules">
-    <div>
-      <h2>誤ってロックするより、少し遅れて解除するほうがいい。</h2>
-      <p class="intro">Bluetoothの信号は揺れ動き、体の向きを変えるだけでも大きく変わります。Presenceはいくつかの慎重なルールで判断するので、座っているのにロックされることはなく、ほかの人があなたのMacを使えるようになることもありません。</p>
+  <div class="wrap">
+    <h2>誤ってロックするより、少し遅れて解除するほうがいい。</h2>
+    <div class="flows">
+      <div class="flow leave">
+        <span class="lane">離れる</span>
+        <ol>
+          <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#typing"/></svg>入力中なら待つ</li>
+          <li class="end"><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#lock"/></svg>ロック</li>
+        </ol>
+      </div>
+      <div class="flow back">
+        <span class="lane">戻る</span>
+        <ol>
+          <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#watch"/></svg>Apple&nbsp;Watchが先に解除</li>
+          <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#ask"/></svg>iPhoneで本人確認</li>
+          <li class="end"><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#password"/></svg>最後にパスワード</li>
+        </ol>
+      </div>
     </div>
-    <ul>
-      <li><h3>1回の値ではなく、数秒間の傾向を見る</h3><p>直近4秒の中央値を使い、少なくとも3回分の測定値が必要です。一瞬だけ強くなったり弱くなったりしても、数に入れません。</p></li>
-      <li><h3>ロック用と解除用、2本のライン</h3><p>ロックのしきい値はロック解除のしきい値より低くしてあるので、その間に立っていてもロックと解除を繰り返すことはありません。キャリブレーションはデバイスごとにでき、ロック解除したい位置とロックしたい位置に8秒ずつ立つだけです。</p></li>
-      <li><h3>まだ操作中なら、待つ</h3><p>信号が弱くなっても、キーボードやマウスがまだ使われていれば、ロックを保留します。</p></li>
-      <li><h3>ロック解除の前にiPhoneに確認</h3><p>Presence Remoteを使っている場合、Macはパスワードを入力する前に、ペアリング時に交換した鍵で応答するようiPhoneに求めます。Bluetooth信号を偽装するだけでは、Macのロックは解除できません。</p></li>
-      <li><h3>まずはApple Watchで</h3><p>ロックを解除する前に数秒待ち、macOSがApple Watchでロックを解除できるようにします。それでもMacがロックされたままのときだけPresenceがパスワードを入力し、数文字ごとにログイン画面のままであることを確認します。</p></li>
-    </ul>
   </div>
 </section>
 
 <section class="block tight">
   <div class="wrap">
     <h2>ロックすべきときはロック。そうでないときは邪魔をしない。</h2>
-    <p class="intro">これらはすべてMac版に入っていて、無料です。</p>
-    <div class="grid">
-      <div>
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M10 10V8.5a2 2 0 0 1 4 0V10"/><rect x="9" y="10" width="6" height="4" rx="1"/></svg>
-        <h3>プレゼン中はロックしない</h3>
-        <p>KeynoteやPowerPointでスライドショーを再生しているあいだは、自動ロックを一時停止します。前に出て話していても、プロジェクタに突然ログイン画面が映ることはありません。</p>
-      </div>
-      <div>
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7v9H3z"/><path d="M8 15c2.5-2 5.5-2 8 0M10 18c1.2-.9 2.8-.9 4 0"/></svg>
-        <h3>自宅ではゆるめに</h3>
-        <p>信頼するネットワークに接続しているとき、電源に接続しているとき、設定した時間帯以外は、自動ロックしないようにできます。ネットワークはルーターで識別するので、位置情報の許可は必要ありません。</p>
-      </div>
-      <div>
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 9v6M14 9v6"/></svg>
-        <h3>しばらく一時停止</h3>
-        <p>Macを人に貸すときや会議に出るときは、15分から4時間まで一時停止できます。終わったときにあなたが近くにいなければ、すぐにロックします。</p>
-      </div>
-      <div>
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 8 3 8H3s3-1 3-8"/><path d="M10 20a2 2 0 0 0 4 0"/></svg>
-        <h3>不在中にロック解除されたら、わかる</h3>
-        <p>あなたが近くにいないときに誰かが手動でMacのロックを解除すると、履歴に記録されます。写真を撮ってiPhoneに通知することもできます。</p>
-      </div>
-      <div>
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 21V11a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v10"/><path d="M4 21h16M12 3v3"/></svg>
-        <h3>今日はどれだけ座っていたか</h3>
-        <p>在席時間で今日と直近7日間を記録し、座りすぎたときは立ち上がるようお知らせします。</p>
-      </div>
-      <div>
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h10M4 17h7"/><path d="M17 15l2 2 3-4"/></svg>
-        <h3>BLEUnlockから乗り換える</h3>
-        <p>PresenceはBLEUnlockのアイデアをもとに、最新のmacOS向けに書き直したAppです。デバイスとしきい値はワンクリックで読み込めます。</p>
-      </div>
-    </div>
+    <ul class="feats grid">
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#present"/></svg><h3>プレゼン中はロックしない</h3><p>KeynoteやPowerPointの再生中。</p></li>
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#home"/></svg><h3>自宅ではロックしない</h3><p>信頼するネットワーク、電源接続中、指定時間。</p></li>
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#pause"/></svg><h3>しばらく一時停止</h3><p>15分〜4時間。終了時に不在ならロック。</p></li>
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#bell"/></svg><h3>不在中のロック解除がわかる</h3><p>履歴に記録、写真撮影、iPhoneに通知。</p></li>
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#seat"/></svg><h3>今日はどれだけ座っていたか</h3><p>座りすぎたときは立ち上がるよう通知。</p></li>
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#import"/></svg><h3>BLEUnlockから乗り換え</h3><p>デバイスとしきい値をワンクリックで移行。</p></li>
+    </ul>
 
     <div class="shots">
-      <figure class="mac-shot"><img src="../assets/shots/mac-overview-en.webp" alt="MacのPresence：近くにいるデバイス、直近3分間の信号、最近のイベント" width="1400" height="1022" loading="lazy"><figcaption>概要：近くにいるデバイス、直近3分間の信号、最近のイベント。</figcaption></figure>
-      <figure class="phone-shot"><img src="../assets/shots/iphone-01-near-ja.webp" alt="iPhoneのPresence Remote：Apple Watchが近くにあります" width="660" height="1434" loading="lazy"><figcaption>Macの状態をいつでも確認でき、ワンタップでロックできます。</figcaption></figure>
-      <figure class="phone-shot"><img src="../assets/shots/iphone-02-presenter-ja.webp" alt="iPhoneのプレゼンリモコン" width="660" height="1434" loading="lazy"><figcaption>プレゼンリモコン：スライド、レーザー、スポットライト、蛍光ペン、音量。</figcaption></figure>
+      <figure class="mac-shot"><img src="../assets/shots/mac-overview-en.webp" alt="MacのPresence：近くにいるデバイス、直近3分間の信号、最近のイベント" width="1400" height="1022" loading="lazy"><figcaption>近くのデバイス、信号、イベント</figcaption></figure>
+      <figure class="phone-shot"><img src="../assets/shots/iphone-01-near-ja.webp" alt="iPhoneのPresence Remote：Apple Watchが近くにあります" width="660" height="1434" loading="lazy"><figcaption>ワンタップでロック</figcaption></figure>
     </div>
   </div>
 </section>
@@ -181,7 +163,7 @@
   <div class="wrap">
     <span class="badge">Presence Pro</span>
     <h2>ステージでは、iPhoneがリモコンに。</h2>
-    <p class="intro">リモコンを買い足す必要も、レシーバーを挿す必要もありません。iPhoneの上で指を動かすと、大きなスクリーンの同じ位置に赤い点やスポットライト、蛍光ペンの線が表示されます。下のiPhoneで試してみてください。</p>
+    <p class="intro">リモコンは買い足し不要。</p>
 
     <div class="theater" id="theater">
       <div class="projection-wrap">
@@ -234,49 +216,98 @@
           <div class="extras"><button type="button" data-blank aria-pressed="false">暗転</button><button type="button" data-goto>スライド1へ</button></div>
         </div>
       </div>
-      <p class="theater-hint">レーザー、スポットライト、蛍光ペンのどれかを選んで、iPhoneの操作エリアを押したまま指を動かしてください。蛍光ペンの線は数秒後に消え、スライドをめくるとすぐに消えます。</p>
+      <p class="theater-hint">ポインタを選んで、操作エリアを押したまま動かしてください。</p>
     </div>
 
-    <div class="pro-list">
-      <div><h3>タップやスワイプでスライドをめくる</h3><p>スライドへの移動や暗転、スライドショーの開始と終了もできます。</p></div>
-      <div><h3>ロック画面からも操作できる</h3><p>ロック画面とDynamic Islandにスライド操作ボタンが表示されるので、ロックを解除する必要はありません。</p></div>
-      <div><h3>Apple Watchもリモコンに</h3><p>タップ、Digital Crownを回す、ダブルタップでスライドをめくれます。左にスワイプすると、Macの音量を調整できます。</p></div>
-      <div><h3>発表タイマー</h3><p>持ち時間を設定しておくと、残り5分のときと終了時に、手首を軽くタップしてお知らせします。</p></div>
-      <div><h3>Macの音量</h3><p>スライド内の動画の音が大きすぎたり小さすぎたりしても、Macまで戻らずに調整できます。大きなスクリーンに音量の表示が出ることもありません。</p></div>
-      <div><h3>どのプレゼンAppでも</h3><p>Keynote、PowerPoint、Google スライド、PDFに対応。赤い点やスポットライトは画面のいちばん上に描かれるだけなので、何かをクリックしてしまうことはありません。</p></div>
+    <ul class="feats pro-list">
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#lockscreen"/></svg><h3>ロックしたまま操作</h3><p>ロック画面とDynamic Islandにボタン。</p></li>
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#watch"/></svg><h3>Apple Watchでも</h3><p>タップ、Crownを回す、ダブルタップ。</p></li>
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#timer"/></svg><h3>発表タイマー</h3><p>残り5分と終了時に手首をタップ。</p></li>
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#volume"/></svg><h3>Macの音量</h3><p>投影画面に音量表示は出ません。</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="block" id="trackpad">
+  <div class="wrap">
+    <span class="badge">Presence Pro</span>
+    <h2>iPhoneがMacのトラックパッドとキーボードにも。</h2>
+    <p class="intro">文字入力はiPhoneのキーボードで。</p>
+
+    <div class="theater desk">
+      <div class="laptop">
+        <div class="screen tp-screen" id="tp-screen" aria-label="Macの画面">
+          <div class="desktop"></div>
+          <div class="menubar" aria-hidden="true"><b>テキストエディット</b><span>ファイル</span><span>編集</span><span class="status"><span data-clock>14:05</span></span></div>
+          <div class="editor">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <div class="page" data-tp-page><span class="ln"></span><span class="ln"></span><span class="ln short"></span><p class="typed"><span data-tp-typed></span><i class="caret"></i></p></div>
+          </div>
+          <div class="ctxmenu" data-tp-menu hidden><i></i><i></i><i></i></div>
+          <svg class="arrow" data-tp-arrow viewBox="0 0 16 23" aria-hidden="true"><path d="M1.5 1.5v17.2l4.3-4.1 2.9 6.6 2.7-1.2-2.8-6.4h6z" fill="#000" stroke="#fff" stroke-width="1.3" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="base"></div>
+      </div>
+
+      <div class="phone" aria-label="iPhoneのPresence Remote：トラックパッドとキーボード">
+        <div class="ui tp-ui">
+          <header class="tp-head" aria-hidden="true">
+            <span class="round"><svg viewBox="0 0 24 24"><path d="M7 7l10 10M17 7L7 17"/></svg></span>
+            <span class="who"><b>MacBook Pro</b><small>テキストエディット</small></span>
+            <span class="round"><svg viewBox="0 0 24 24"><path d="M6 12h.01M12 12h.01M18 12h.01"/></svg></span>
+            <span class="round on"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10h.01M11 10h.01M15 10h.01M8 14h8"/></svg></span>
+          </header>
+          <div class="tp-pad" id="tp-pad" role="application" aria-label="トラックパッド">
+          <ul class="guide" data-tp-guide aria-label="ジェスチャ">
+            <li><canvas data-gesture="move"></canvas>移動</li>
+            <li><canvas data-gesture="click"></canvas>左クリック</li>
+            <li><canvas data-gesture="rightClick"></canvas>右クリック</li>
+            <li><canvas data-gesture="scroll"></canvas>スクロール</li>
+            <li><canvas data-gesture="drag"></canvas>ドラッグ</li>
+            <li><canvas data-gesture="swipe"></canvas>切り替え</li>
+          </ul>
+          <span class="finger" data-tp-finger></span><span class="finger" data-tp-finger></span>
+          </div>
+          <input class="tp-input" id="tp-input" type="text" placeholder="Macに入力" aria-label="Macに入力" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="send" data-demo="明日10時に会議">
+          <div class="keyrow" aria-hidden="true"><span>esc</span><span>tab</span><i></i><span>⌃</span><span>⌥</span><span>⇧</span><span>⌘</span><i></i><span>←</span><span>↑</span><span>↓</span><span>→</span></div>
+        </div>
+      </div>
+      <p class="theater-hint">操作エリアでドラッグやタップ、または入力欄に文字を入力してください。</p>
     </div>
+
   </div>
 </section>
 
 <section class="block" id="plans">
   <div class="wrap">
     <h2>ロックは無料。リモコンとトラックパッドはPro。</h2>
-    <p class="intro">Mac版と、iPhone・Apple Watch用のPresence Remoteは無料です。Presence Proが必要なのは、プレゼンリモコンとトラックパッドとキーボードだけです。</p>
     <div class="plans">
       <div class="plan">
         <h3>Mac版</h3>
         <div class="price">無料</div>
-        <p>オープンソースで、Appleの公証済み。アップデートも自動です。</p>
+        <p>オープンソース・自動アップデート</p>
         <ul><li>離れるとロック、戻るとロック解除</li><li>プレゼン中や自宅ではロックしない</li><li>履歴と在席時間</li></ul>
         <a class="btn primary" href="https://github.com/chung223/Presence/releases/latest">Mac版をダウンロード</a>
       </div>
       <div class="plan">
         <h3>Presence Remote</h3>
         <div class="price">無料</div>
-        <p>MacのPresenceと組み合わせて使う、iPhoneとApple Watch用のAppです。</p>
-        <ul><li>iPhone、Apple Watch、コントロールセンターからロック</li><li>自動ロックの一時停止と再開</li><li>Macがロックされたときや、誰かがロックを解除したときに通知</li><li>ロック解除前の暗号化確認</li></ul>
+        <p>iPhone・Apple Watch</p>
+        <ul><li>ワンタップでロック、一時停止</li><li>ロックや解除のときに通知</li><li>ロック解除前の暗号化確認</li></ul>
         <a class="btn" href="https://apps.apple.com/jp/app/id6822611221">App Storeからダウンロード</a>
       </div>
       <div class="plan pro">
         <h3>Presence Pro</h3>
-        <p>プレゼンリモコン：スライド、レーザー、スポットライト、蛍光ペン、音量、発表タイマー。iPhoneでもApple Watchでも使えます。</p>
-        <p>トラックパッドとキーボード：iPhoneをMacのトラックパッドとキーボードとして使えます。ジェスチャーはMacのトラックパッドと同じです。</p>
+        <ul class="perks">
+          <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#laser"/></svg><span><b>プレゼンリモコン</b>iPhone・Apple Watch</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#trackpad"/></svg><span><b>トラックパッドとキーボード</b>iPhone</span></li>
+        </ul>
         <div class="prices">
           <div><span>月額</span><b>¥150</b></div>
           <div><span>年額</span><b>¥800</b></div>
           <div><span>買い切り</span><b>¥2,000</b></div>
         </div>
-        <p>サブスクリプションはどちらも7日間の無料トライアル付きです。3つともファミリー共有に対応しています。</p>
+        <p>サブスクリプションは7日間無料トライアル・ファミリー共有対応</p>
         <a class="btn pro" href="https://apps.apple.com/jp/app/id6822611221">Appでアップグレード</a>
       </div>
     </div>
@@ -286,12 +317,12 @@
 <section class="block tight" id="privacy">
   <div class="wrap">
     <h2>Macが従うのは、あなたのiPhoneだけ。</h2>
-    <div class="trust">
-      <div><h3>アカウントもサーバーもなし</h3><p>MacとiPhoneはBluetoothで直接通信し、インターネットは経由しません。開発者には何も送られません。</p></div>
-      <div><h3>すべてのコマンドを暗号化</h3><p>ペアリングすると、あなたのデバイスだけが共有する鍵が作られます。コマンドも状態もすべてこの鍵で暗号化・検証されるので、ほかの人のiPhoneからコマンドを送ることはできません。</p></div>
-      <div><h3>パスワードはキーチェーンの中に</h3><p>ロック解除に使うログインパスワードは、Macのキーチェーンに保存されます。保存するのは、Presenceがパスワードが正しいことを確認してからです。</p></div>
-      <div><h3>オープンソース</h3><p>Mac版はすべてオープンソースです。どう判断し、どうロックを解除しているのか、ご自身で確かめられます。</p></div>
-    </div>
+    <ul class="trust">
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#nocloud"/></svg>アカウントもサーバーもなし</li>
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#key"/></svg>すべてのコマンドを暗号化</li>
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#lock"/></svg>パスワードはキーチェーンに</li>
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#code"/></svg>オープンソース</li>
+    </ul>
     <a class="more" href="../privacy/#ja">プライバシーポリシーの全文を読む</a>
   </div>
 </section>
@@ -300,13 +331,14 @@
   <div class="wrap">
     <h2>よくある質問</h2>
     <div class="faq">
-      <details><summary>iPhoneにAppをインストールする必要はありますか？</summary><p>いいえ。PresenceはiPhoneやApple Watchがもともと発しているBluetooth信号を受信するので、Mac版だけでロックとロック解除ができます。Presence Remoteを使うと、離れた場所からのロック、通知、ロック解除前の暗号化確認も使えるようになります。Presence Proでは、さらにプレゼンリモコンが加わります。</p></details>
-      <details><summary>必要なものは何ですか？</summary><p>Bluetooth LEを搭載し、macOS 26以降を実行しているMacが必要です。Presence RemoteにはiOS 26またはwatchOS 26以降が必要です。Apple Watchだけで使うことも、定期的に信号を発信していてアドレスが固定されている、ほかのBluetoothデバイスを使うこともできます。</p></details>
-      <details><summary>「Apple Watchでロック解除」とはどう違いますか？</summary><p>macOS標準の機能はロック解除だけで、離れたときにロックはしません。Presenceは両方を行います。ロック解除のときはまず数秒待って、Apple WatchがMacのロックを解除できるようにし、解除されなかったときだけパスワードを入力します。2つは一緒に使えます。</p></details>
-      <details><summary>じっと座っているのにロックされることはありますか？</summary><p>ロックされるのは、信号が数秒間弱いままだったときだけです。また、ロックのしきい値はロック解除のしきい値より低くしてあります。キーボードやマウスを操作しているあいだは、ロックを保留します。それでも敏感すぎる場合は、「デバイス」ページでキャリブレーションし直してください。</p></details>
-      <details><summary>Mac版がMac App Storeにないのはなぜですか？</summary><p>自動でロックを解除するにはログインパスワードを入力する必要がありますが、Mac App StoreのAppにはそれが許可されていません。そのためMac版は、Appleの公証を受けたうえでGitHubから配布し、アップデートも自動で行います。</p></details>
-      <details><summary>どのプレゼンAppで使えますか？</summary><p>スライドをめくる操作は矢印キーとして送られるので、Keynote、PowerPoint、Google スライド、PDFビューアで使えます。レーザー、スポットライト、蛍光ペンはPresenceが画面のいちばん上に描くので、何が表示されていても使えます。先にMacのPresenceで「iPhoneとWatch › プレゼンリモコンを許可」をオンにしてください。</p></details>
-      <details><summary>バッテリーを消耗しますか？</summary><p>iPhoneとApple Watchは、もともとこの信号を発信しています。PresenceはMacでそれを受信しているだけで、CPU使用率はふだん1%未満です。</p></details>
+      <details><summary>iPhoneにAppをインストールする必要はありますか？</summary><p>いいえ、Mac版だけで自動でロックと解除ができます。Presence Remoteで遠隔ロック、通知、解除前の確認が加わり、Presence Proでプレゼンリモコンとトラックパッドとキーボードが使えます。</p></details>
+      <details><summary>必要なものは何ですか？</summary><p>Mac：macOS 26以降。Presence Remote：iOS 26、watchOS 26以降。Apple Watchだけや、アドレスが固定されたほかのBluetoothデバイスでも使えます。</p></details>
+      <details><summary>「Apple Watchでロック解除」とはどう違いますか？</summary><p>macOS標準の機能はロック解除だけで、ロックはしません。Presenceは両方を行い、解除時は標準のWatch解除を優先します。2つは併用できます。</p></details>
+      <details><summary>じっと座っているのにロックされることはありますか？</summary><p>信号が数秒間弱いままのときだけロックされ、操作中は保留されます。敏感すぎる場合は「デバイス」ページで再キャリブレーションしてください。</p></details>
+      <details><summary>Mac版がMac App Storeにないのはなぜですか？</summary><p>自動ロック解除にはパスワード入力の再現が必要ですが、Mac App StoreのAppには許可されていません。Mac版はAppleの公証済みで、自動アップデートされます。</p></details>
+      <details><summary>どのプレゼンAppで使えますか？</summary><p>ページ送りは矢印キーを送るのでどのプレゼンAppでも使え、レーザーとスポットライトは画面の最前面に描かれます。先にMacのPresenceで「プレゼンリモコンを許可」をオンにしてください。</p></details>
+      <details><summary>トラックパッドとキーボードはどうやって有効にしますか？</summary><p>MacのPresenceで「iPhoneとWatch › iPhoneからの操作を許可」をオンにします（初期設定はオフ）。Macのロック中は操作を受け付けず、入力した文字も記録されません。</p></details>
+      <details><summary>バッテリーを消耗しますか？</summary><p>信号はもともと発信されており、PresenceはMacで受信するだけです。MacのCPU使用率はふだん1%未満です。</p></details>
     </div>
   </div>
 </section>

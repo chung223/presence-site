@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Presence｜Aléjate y el Mac se bloquea</title>
-<meta name="description" content="Presence escucha la señal Bluetooth del iPhone o el Apple Watch que ya llevas encima. Te alejas y el Mac se bloquea; vuelves y se desbloquea. El iPhone y el Apple Watch también sirven de mando de presentaciones, con puntero láser, foco y subrayador.">
+<meta name="description" content="Presence escucha la señal Bluetooth del iPhone o el Apple Watch que ya llevas encima. Te alejas y el Mac se bloquea; vuelves y se desbloquea. El iPhone también sirve de mando de presentaciones y de trackpad y teclado para el Mac.">
 <link rel="canonical" href="https://chung223.github.io/presence-site/es/">
 <link rel="alternate" hreflang="zh-Hant" href="https://chung223.github.io/presence-site/">
 <link rel="alternate" hreflang="en" href="https://chung223.github.io/presence-site/en/">
@@ -17,7 +17,7 @@
 <link rel="alternate" hreflang="x-default" href="https://chung223.github.io/presence-site/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Presence｜Aléjate y el Mac se bloquea">
-<meta property="og:description" content="Aléjate y el Mac se bloquea. Vuelve y se desbloquea. El iPhone y el Apple Watch también son tu mando de presentaciones.">
+<meta property="og:description" content="Aléjate y el Mac se bloquea. Vuelve y se desbloquea. El iPhone también es tu mando de presentaciones, trackpad y teclado.">
 <meta property="og:url" content="https://chung223.github.io/presence-site/es/">
 <meta property="og:image" content="https://chung223.github.io/presence-site/assets/og-es.png">
 <meta property="og:locale" content="es_ES">
@@ -39,6 +39,7 @@
     <nav aria-label="Principal">
       <a href="#how">Cómo decide</a>
       <a href="#presenter">Mando de presentaciones</a>
+      <a href="#trackpad">Trackpad</a>
       <a href="#plans">Precios</a>
       <a href="#faq">Preguntas</a>
       <a class="lang" href="#languages">Idioma</a>
@@ -52,7 +53,7 @@
 <section class="hero">
   <div class="wrap">
     <h1><span class="line">Aléjate y se bloquea.</span><span class="line">Vuelve y se desbloquea.</span></h1>
-    <p class="lede">Presence vive en la barra de menús del Mac y escucha la señal Bluetooth que tu iPhone o tu Apple Watch ya emiten. Cuando la señal se debilita, la pantalla se bloquea. Cuando vuelves a tu mesa, se desbloquea sola. No hace falta instalar nada en el iPhone ni en el reloj.</p>
+    <p class="lede"><span class="c">Una app en la barra de menús del Mac que escucha la señal Bluetooth de tu iPhone o tu Apple&nbsp;Watch.</span><span class="c">No hace falta instalar nada en el iPhone ni en el reloj.</span></p>
     <div class="cta" id="download">
       <a class="btn primary" href="https://github.com/chung223/Presence/releases/latest">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M1 20h22"/></svg>
@@ -110,69 +111,50 @@
           <li class="unlock"><i></i>Desbloqueo a −62</li>
           <li class="lock"><i></i>Bloqueo a −76</li>
         </ul>
-        <p class="hint">Arrastra <b>Tú</b> hacia la derecha y fíjate en cuándo se bloquea el Mac. Después, vuelve.</p>
+        <p class="hint">Arrastra <b>Tú</b> hacia la derecha y luego vuelve.</p>
       </div>
     </figure>
   </div>
 </section>
 
 <section class="block" id="how">
-  <div class="wrap rules">
-    <div>
-      <h2>Mejor desbloquear un poco tarde que dejarte fuera.</h2>
-      <p class="intro">La señal Bluetooth da muchos saltos: basta con darte la vuelta para que cambie bastante. Presence sigue unas cuantas reglas prudentes para no bloquear el Mac mientras sigues delante y para que nadie más pueda entrar en él.</p>
+  <div class="wrap">
+    <h2>Mejor desbloquear un poco tarde que dejarte fuera.</h2>
+    <div class="flows">
+      <div class="flow leave">
+        <span class="lane">Te vas</span>
+        <ol>
+          <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#typing"/></svg>¿Sigues escribiendo? Espera</li>
+          <li class="end"><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#lock"/></svg>Bloqueado</li>
+        </ol>
+      </div>
+      <div class="flow back">
+        <span class="lane">Vuelves</span>
+        <ol>
+          <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#watch"/></svg>Primero, el Apple&nbsp;Watch</li>
+          <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#ask"/></svg>Tu iPhone lo confirma</li>
+          <li class="end"><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#password"/></svg>Luego, la contraseña</li>
+        </ol>
+      </div>
     </div>
-    <ul>
-      <li><h3>La tendencia de unos segundos, no una sola lectura</h3><p>Toma la mediana de los últimos 4 segundos, con al menos 3 lecturas. Un pico o una caída repentina no cuentan.</p></li>
-      <li><h3>Dos líneas: una para bloquear y otra para desbloquear</h3><p>El umbral de bloqueo está por debajo del de desbloqueo, así que, si te quedas entre los dos, no va cambiando de un estado a otro. Para calibrar cada dispositivo, quédate 8 segundos donde quieres que se desbloquee y otros 8 donde quieres que se bloquee.</p></li>
-      <li><h3>¿Sigues escribiendo? Espera</h3><p>Si la señal se debilita pero alguien sigue usando el teclado o el ratón, el bloqueo espera.</p></li>
-      <li><h3>Pregunta a tu iPhone antes de desbloquear</h3><p>Con Presence Remote, antes de escribir tu contraseña, el Mac pide al iPhone que responda con la clave que se intercambiaron al enlazarlos. Una señal Bluetooth falsificada no puede desbloquear el Mac.</p></li>
-      <li><h3>Primero, el Apple Watch</h3><p>Antes de desbloquear, espera unos segundos para que macOS pueda desbloquear el Mac con tu Apple Watch. Solo si el Mac sigue bloqueado, Presence escribe tu contraseña, y cada pocos caracteres comprueba que siga en la pantalla de inicio de sesión.</p></li>
-    </ul>
   </div>
 </section>
 
 <section class="block tight">
   <div class="wrap">
     <h2>Se bloquea cuando debe. Cuando no, no estorba.</h2>
-    <p class="intro">Todo esto viene en la app para Mac, gratis.</p>
-    <div class="grid">
-      <div>
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M10 10V8.5a2 2 0 0 1 4 0V10"/><rect x="9" y="10" width="6" height="4" rx="1"/></svg>
-        <h3>Sin bloqueos en plena presentación</h3>
-        <p>Mientras Keynote o PowerPoint reproducen una presentación, el bloqueo automático se pausa. Sal al frente de la sala y el proyector no mostrará de golpe una pantalla de inicio de sesión.</p>
-      </div>
-      <div>
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7v9H3z"/><path d="M8 15c2.5-2 5.5-2 8 0M10 18c1.2-.9 2.8-.9 4 0"/></svg>
-        <h3>Más relajado en casa</h3>
-        <p>Puedes desactivar el bloqueo automático en una red de confianza, con el cargador conectado o fuera del horario que elijas. Las redes se reconocen por el router, así que no hace falta dar permiso de ubicación.</p>
-      </div>
-      <div>
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 9v6M14 9v6"/></svg>
-        <h3>Pausa durante un rato</h3>
-        <p>¿Vas a prestar el Mac o entras en una reunión? Pausa Presence entre 15 minutos y 4 horas. Si no estás cerca cuando termina la pausa, se bloquea al instante.</p>
-      </div>
-      <div>
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 8 3 8H3s3-1 3-8"/><path d="M10 20a2 2 0 0 0 4 0"/></svg>
-        <h3>Entérate si alguien lo desbloquea mientras no estás</h3>
-        <p>Si alguien desbloquea el Mac a mano mientras no estás cerca, queda registrado en el historial. Presence también puede tomar una foto y avisar a tu iPhone.</p>
-      </div>
-      <div>
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 21V11a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v10"/><path d="M4 21h16M12 3v3"/></svg>
-        <h3>Cuánto tiempo llevas hoy en tu puesto</h3>
-        <p>“Tiempo en tu puesto” lleva la cuenta de hoy y de los últimos 7 días, y te avisa para que te levantes cuando llevas demasiado rato sin moverte.</p>
-      </div>
-      <div>
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h10M4 17h7"/><path d="M17 15l2 2 3-4"/></svg>
-        <h3>Si vienes de BLEUnlock</h3>
-        <p>Presence parte de la idea de BLEUnlock y se ha reescrito para el macOS actual. Importa tus dispositivos y umbrales con un clic.</p>
-      </div>
-    </div>
+    <ul class="feats grid">
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#present"/></svg><h3>No bloquea al presentar</h3><p>Con Keynote o PowerPoint en reproducción.</p></li>
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#home"/></svg><h3>Más relajado en casa</h3><p>Red de confianza, conectado o en tu horario.</p></li>
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#pause"/></svg><h3>Pausa durante un rato</h3><p>De 15 min a 4 h; bloquea al terminar.</p></li>
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#bell"/></svg><h3>Avisa si alguien lo abre</h3><p>Lo registra, hace una foto y avisa al iPhone.</p></li>
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#seat"/></svg><h3>Cuánto llevas hoy sentado</h3><p>Te avisa para que te levantes si llevas mucho.</p></li>
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#import"/></svg><h3>Si vienes de BLEUnlock</h3><p>Importa dispositivos y umbrales con un clic.</p></li>
+    </ul>
 
     <div class="shots">
-      <figure class="mac-shot"><img src="../assets/shots/mac-overview-en.webp" alt="Presence en el Mac: quién está cerca, la señal de los últimos 3 minutos y los eventos recientes" width="1400" height="1022" loading="lazy"><figcaption>Resumen: quién está cerca, la señal de los últimos 3 minutos y los eventos recientes.</figcaption></figure>
-      <figure class="phone-shot"><img src="../assets/shots/iphone-01-near-es-ES.webp" alt="Presence Remote en el iPhone: Apple Watch cerca" width="660" height="1434" loading="lazy"><figcaption>Consulta el estado del Mac cuando quieras y bloquéalo con un toque.</figcaption></figure>
-      <figure class="phone-shot"><img src="../assets/shots/iphone-02-presenter-es-ES.webp" alt="Mando de presentaciones en el iPhone" width="660" height="1434" loading="lazy"><figcaption>Mando de presentaciones: diapositivas, láser, foco, subrayador y volumen.</figcaption></figure>
+      <figure class="mac-shot"><img src="../assets/shots/mac-overview-en.webp" alt="Presence en el Mac: quién está cerca, la señal de los últimos 3 minutos y los eventos recientes" width="1400" height="1022" loading="lazy"><figcaption>quién está cerca, señal, eventos</figcaption></figure>
+      <figure class="phone-shot"><img src="../assets/shots/iphone-01-near-es-ES.webp" alt="Presence Remote en el iPhone: Apple Watch cerca" width="660" height="1434" loading="lazy"><figcaption>bloqueo con un toque</figcaption></figure>
     </div>
   </div>
 </section>
@@ -181,7 +163,7 @@
   <div class="wrap">
     <span class="badge">Presence Pro</span>
     <h2>En el escenario, el iPhone es tu pasador.</h2>
-    <p class="intro">Sin mandos que comprar ni receptores que conectar. Mueve el dedo por el iPhone y aparece un punto rojo, un foco o una línea de subrayador en el mismo sitio de la pantalla grande. Pruébalo en el iPhone de abajo.</p>
+    <p class="intro">Sin comprar mandos.</p>
 
     <div class="theater" id="theater">
       <div class="projection-wrap">
@@ -234,49 +216,98 @@
           <div class="extras"><button type="button" data-blank aria-pressed="false">Pantalla en negro</button><button type="button" data-goto>Ir a la diapo 1</button></div>
         </div>
       </div>
-      <p class="theater-hint">Elige Láser, Foco o Subrayador y arrastra el dedo por el panel del iPhone. Las líneas del subrayador desaparecen a los pocos segundos y se borran al cambiar de diapositiva.</p>
+      <p class="theater-hint">Elige un puntero y mantén pulsado para moverlo por el panel.</p>
     </div>
 
-    <div class="pro-list">
-      <div><h3>Toca o desliza para pasar diapositivas</h3><p>Ve a una diapositiva concreta, pon la pantalla en negro, inicia y termina la presentación.</p></div>
-      <div><h3>Funciona en la pantalla bloqueada</h3><p>Botones para pasar diapositivas en la pantalla bloqueada y en la Dynamic Island, sin desbloquear el iPhone.</p></div>
-      <div><h3>El Apple Watch también es un pasador</h3><p>Toca, gira la Digital Crown o usa el doble toque. Desliza a la izquierda para el volumen del Mac.</p></div>
-      <div><h3>Temporizador de charla</h3><p>Indica cuánto va a durar tu charla y notarás un toque en la muñeca cuando queden 5 minutos y al acabar el tiempo.</p></div>
-      <div><h3>El volumen del Mac</h3><p>¿El vídeo de la presentación suena demasiado alto o bajo? Ajústalo sin tener que volver al Mac. En la pantalla grande no aparece ningún indicador de volumen.</p></div>
-      <div><h3>Cualquier app de presentaciones</h3><p>Keynote, PowerPoint, Presentaciones de Google, PDF. El punto y el foco se dibujan por encima y nunca hacen clic en nada.</p></div>
+    <ul class="feats pro-list">
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#lockscreen"/></svg><h3>Con el iPhone bloqueado</h3><p>Botones en pantalla bloqueada y Dynamic Island.</p></li>
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#watch"/></svg><h3>En el Apple Watch también</h3><p>Toca, gira la corona o usa el doble toque.</p></li>
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#timer"/></svg><h3>Temporizador de charla</h3><p>Toque en la muñeca a 5 min y al terminar.</p></li>
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#volume"/></svg><h3>El volumen del Mac</h3><p>Sin icono de volumen en el proyector.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="block" id="trackpad">
+  <div class="wrap">
+    <span class="badge">Presence Pro</span>
+    <h2>El iPhone también es el trackpad y el teclado del Mac.</h2>
+    <p class="intro">Escribe con el teclado del iPhone.</p>
+
+    <div class="theater desk">
+      <div class="laptop">
+        <div class="screen tp-screen" id="tp-screen" aria-label="Pantalla del Mac">
+          <div class="desktop"></div>
+          <div class="menubar" aria-hidden="true"><b>TextEdit</b><span>Archivo</span><span>Edición</span><span class="status"><span data-clock>14:05</span></span></div>
+          <div class="editor">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <div class="page" data-tp-page><span class="ln"></span><span class="ln"></span><span class="ln short"></span><p class="typed"><span data-tp-typed></span><i class="caret"></i></p></div>
+          </div>
+          <div class="ctxmenu" data-tp-menu hidden><i></i><i></i><i></i></div>
+          <svg class="arrow" data-tp-arrow viewBox="0 0 16 23" aria-hidden="true"><path d="M1.5 1.5v17.2l4.3-4.1 2.9 6.6 2.7-1.2-2.8-6.4h6z" fill="#000" stroke="#fff" stroke-width="1.3" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="base"></div>
+      </div>
+
+      <div class="phone" aria-label="Presence Remote en el iPhone: Trackpad y teclado">
+        <div class="ui tp-ui">
+          <header class="tp-head" aria-hidden="true">
+            <span class="round"><svg viewBox="0 0 24 24"><path d="M7 7l10 10M17 7L7 17"/></svg></span>
+            <span class="who"><b>MacBook Pro</b><small>TextEdit</small></span>
+            <span class="round"><svg viewBox="0 0 24 24"><path d="M6 12h.01M12 12h.01M18 12h.01"/></svg></span>
+            <span class="round on"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10h.01M11 10h.01M15 10h.01M8 14h8"/></svg></span>
+          </header>
+          <div class="tp-pad" id="tp-pad" role="application" aria-label="Trackpad">
+          <ul class="guide" data-tp-guide aria-label="Gestos">
+            <li><canvas data-gesture="move"></canvas>Mover</li>
+            <li><canvas data-gesture="click"></canvas>Clic izquierdo</li>
+            <li><canvas data-gesture="rightClick"></canvas>Clic derecho</li>
+            <li><canvas data-gesture="scroll"></canvas>Desplazar</li>
+            <li><canvas data-gesture="drag"></canvas>Arrastrar</li>
+            <li><canvas data-gesture="swipe"></canvas>Cambiar</li>
+          </ul>
+          <span class="finger" data-tp-finger></span><span class="finger" data-tp-finger></span>
+          </div>
+          <input class="tp-input" id="tp-input" type="text" placeholder="Escribir en el Mac" aria-label="Escribir en el Mac" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="send" data-demo="Reunión mañana a las 10">
+          <div class="keyrow" aria-hidden="true"><span>esc</span><span>tab</span><i></i><span>⌃</span><span>⌥</span><span>⇧</span><span>⌘</span><i></i><span>←</span><span>↑</span><span>↓</span><span>→</span></div>
+        </div>
+      </div>
+      <p class="theater-hint">Arrastra o toca en el panel, o escribe en el cuadro de texto.</p>
     </div>
+
   </div>
 </section>
 
 <section class="block" id="plans">
   <div class="wrap">
     <h2>Bloquear es gratis. El pasador y el trackpad son Pro.</h2>
-    <p class="intro">La app para Mac y Presence Remote para iPhone y Apple Watch son gratuitas. Solo el mando de presentaciones y Trackpad y teclado forman parte de Presence Pro.</p>
     <div class="plans">
       <div class="plan">
         <h3>App para Mac</h3>
         <div class="price">Gratis</div>
-        <p>De código abierto, notarizada por Apple y se actualiza sola.</p>
-        <ul><li>Se bloquea cuando te vas y se desbloquea cuando vuelves</li><li>Sigue desbloqueado mientras presentas o estás en casa</li><li>Historial y tiempo en tu puesto</li></ul>
+        <p>Código abierto · Actualización automática</p>
+        <ul><li>Bloquea cuando te vas, desbloquea cuando vuelves</li><li>Sin bloqueo al presentar o en casa</li><li>Historial y tiempo en tu puesto</li></ul>
         <a class="btn primary" href="https://github.com/chung223/Presence/releases/latest">Descargar para Mac</a>
       </div>
       <div class="plan">
         <h3>Presence Remote</h3>
         <div class="price">Gratis</div>
-        <p>La app complementaria para iPhone y Apple Watch.</p>
-        <ul><li>Bloquea el Mac desde el iPhone, el reloj o el centro de control</li><li>Pausa y reanuda el bloqueo automático</li><li>Avisos cuando el Mac se bloquea o alguien lo desbloquea</li><li>Confirmación cifrada antes de desbloquear</li></ul>
+        <p>iPhone · Apple Watch</p>
+        <ul><li>Bloqueo y pausa con un toque</li><li>Avisos al bloquearse o desbloquearse</li><li>Confirmación cifrada antes de desbloquear</li></ul>
         <a class="btn" href="https://apps.apple.com/es/app/id6822611221">Ver en el App Store</a>
       </div>
       <div class="plan pro">
         <h3>Presence Pro</h3>
-        <p>Mando de presentaciones: diapositivas, láser, foco, subrayador, volumen y temporizador de charla, en el iPhone y el Apple Watch.</p>
-        <p>Trackpad y teclado: usa tu iPhone como trackpad y teclado para tu Mac, con los mismos gestos que el trackpad de un Mac.</p>
+        <ul class="perks">
+          <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#laser"/></svg><span><b>Mando de presentaciones</b>iPhone · Apple Watch</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#trackpad"/></svg><span><b>Trackpad y teclado</b>iPhone</span></li>
+        </ul>
         <div class="prices">
           <div><span>Mensual</span><b>0,99&nbsp;€</b></div>
           <div><span>Anual</span><b>5,99&nbsp;€</b></div>
           <div><span>Compra única</span><b>14,99&nbsp;€</b></div>
         </div>
-        <p>Las dos suscripciones empiezan con 7 días de prueba gratis. Las tres opciones se pueden compartir con En familia.</p>
+        <p>7 días de prueba gratis en suscripciones · En familia</p>
         <a class="btn pro" href="https://apps.apple.com/es/app/id6822611221">Pásate a Pro en la app</a>
       </div>
     </div>
@@ -286,12 +317,12 @@
 <section class="block tight" id="privacy">
   <div class="wrap">
     <h2>Tu Mac solo escucha a tu iPhone.</h2>
-    <div class="trust">
-      <div><h3>Sin cuenta ni servidor</h3><p>El Mac y el iPhone se comunican directamente por Bluetooth, nunca por internet. El desarrollador no recibe nada tuyo.</p></div>
-      <div><h3>Todos los comandos van cifrados</h3><p>Al enlazarlos se crea una clave que solo comparten tus dispositivos. Todos los comandos y estados se cifran y se verifican con ella, así que el móvil de otra persona no puede enviar comandos.</p></div>
-      <div><h3>Tu contraseña se queda en el llavero</h3><p>La contraseña de inicio de sesión que se usa para desbloquear se guarda en el llavero del Mac, y solo después de que Presence compruebe que es correcta.</p></div>
-      <div><h3>Código abierto</h3><p>La app para Mac es totalmente de código abierto. Puedes leer exactamente cómo decide y cómo desbloquea.</p></div>
-    </div>
+    <ul class="trust">
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#nocloud"/></svg>Sin cuenta ni servidor</li>
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#key"/></svg>Todos los comandos cifrados</li>
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#lock"/></svg>Contraseña en tu llavero</li>
+      <li><svg class="ico" aria-hidden="true"><use href="../assets/icons.svg#code"/></svg>Código abierto</li>
+    </ul>
     <a class="more" href="../privacy/#es">Lee la política de privacidad completa</a>
   </div>
 </section>
@@ -300,13 +331,14 @@
   <div class="wrap">
     <h2>Preguntas frecuentes</h2>
     <div class="faq">
-      <details><summary>¿Tengo que instalar una app en el iPhone?</summary><p>No. Presence escucha la señal Bluetooth que el iPhone y el Apple Watch ya emiten, así que la app para Mac basta para bloquear y desbloquear. Con Presence Remote también puedes bloquear a distancia, recibir avisos y añadir una confirmación cifrada antes de desbloquear; Presence Pro añade el mando de presentaciones.</p></details>
-      <details><summary>¿Qué necesito?</summary><p>Un Mac con Bluetooth LE y macOS 26 o posterior. Presence Remote necesita iOS 26 o watchOS 26 o posterior. También puedes usar solo un Apple Watch, u otro dispositivo Bluetooth que emita con regularidad con una dirección fija.</p></details>
-      <details><summary>¿En qué se diferencia de desbloquear el Mac con el Apple Watch?</summary><p>La función integrada solo desbloquea; no bloquea cuando te alejas. Presence hace las dos cosas, y al desbloquear espera primero unos segundos para que el reloj desbloquee el Mac; solo escribe tu contraseña si el reloj no lo ha hecho. Las dos funcionan juntas.</p></details>
-      <details><summary>¿Se bloqueará aunque no me mueva de la silla?</summary><p>La señal tiene que mantenerse débil durante varios segundos, y el umbral de bloqueo está por debajo del de desbloqueo. Si sigues escribiendo o usando el ratón, el bloqueo espera. Si aun así es demasiado sensible, vuelve a calibrar en Dispositivos.</p></details>
-      <details><summary>¿Por qué la app para Mac no está en el Mac App Store?</summary><p>Desbloquear automáticamente implica escribir tu contraseña de inicio de sesión, y las apps del Mac App Store no pueden hacerlo. Por eso la app para Mac está notarizada por Apple, se descarga desde GitHub y se actualiza sola.</p></details>
-      <details><summary>¿Con qué apps de presentaciones funciona?</summary><p>Para pasar diapositivas se envían las teclas de flecha, que entienden Keynote, PowerPoint, Presentaciones de Google y los visores de PDF. El láser, el foco y el subrayador los dibuja Presence por encima de todo, así que funcionan con cualquier cosa que haya en pantalla. Antes, activa “iPhone y Watch › Permitir mando de presentaciones” en Presence en el Mac.</p></details>
-      <details><summary>¿Gasta mucha batería?</summary><p>El iPhone y el Apple Watch emiten estas señales de todos modos; Presence solo escucha desde el Mac, donde normalmente usa menos del 1&nbsp;% de la CPU.</p></details>
+      <details><summary>¿Tengo que instalar una app en el iPhone?</summary><p>No, la app para Mac basta para bloquear y desbloquear. Presence Remote añade bloqueo a distancia, avisos y confirmación antes de desbloquear; Presence Pro añade el mando de presentaciones y Trackpad y teclado.</p></details>
+      <details><summary>¿Qué necesito?</summary><p>Mac: macOS 26 o posterior. Presence Remote: iOS 26 o watchOS 26 o posterior. También vale solo un Apple Watch u otro dispositivo Bluetooth con dirección fija.</p></details>
+      <details><summary>¿En qué se diferencia de desbloquear el Mac con el Apple Watch?</summary><p>La función integrada solo desbloquea, no bloquea. Presence hace las dos cosas y deja que el reloj desbloquee primero. Funcionan juntas.</p></details>
+      <details><summary>¿Se bloqueará aunque no me mueva de la silla?</summary><p>La señal debe seguir débil varios segundos, y si estás escribiendo, espera. Si es muy sensible, recalibra en Dispositivos.</p></details>
+      <details><summary>¿Por qué la app para Mac no está en el Mac App Store?</summary><p>El desbloqueo automático escribe tu contraseña, algo que el Mac App Store no permite. La app está notarizada por Apple y se actualiza sola.</p></details>
+      <details><summary>¿Con qué apps de presentaciones funciona?</summary><p>Pasar diapositivas envía teclas de flecha, que entiende cualquier app de presentaciones; el láser y el foco se dibujan por encima. Activa antes “Permitir mando de presentaciones” en Presence en el Mac.</p></details>
+      <details><summary>¿Cómo activo Trackpad y teclado?</summary><p>En Presence en el Mac, activa “iPhone y Watch › Permitir control desde iPhone” (desactivado por omisión). Con el Mac bloqueado no se acepta ninguna acción y no se guarda nada de lo que escribas.</p></details>
+      <details><summary>¿Gasta mucha batería?</summary><p>Las señales se emiten de todos modos; Presence solo escucha en el Mac. El uso de CPU en el Mac suele ser menor del 1&nbsp;%.</p></details>
     </div>
   </div>
 </section>
