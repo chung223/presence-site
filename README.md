@@ -14,6 +14,8 @@
 | `assets/shots/` | 實際畫面（從 App repo 的 `docs/images/mac/`、`metadata/screenshots/` 轉成 WebP） |
 | `assets/og.png`、`og-<語言>.png` | 分享預覽圖，原稿在 `tools/og.html`、`tools/og-<語言>.html` |
 
+**改了 `site.css`、`site.js` 或 `icons.svg`，要把每一頁連結後面的 `?v=日期` 一起換新**（八個首頁、`privacy/`、`404.html`；`grep -rn '?v=' --include='*.html' .`）。GitHub Pages 會讓瀏覽器快取 10 分鐘，Safari 會拿新的 HTML 配舊的 CSS，整頁跑版（2026-11-08 發生過）。
+
 ## 設計
 
 白天的座位 → 關燈的講台 → 燈再亮起。主色取自 App 圖示的青綠到藍；橘色只給 Presence Pro 與簡報遙控，跟 App 一樣。
